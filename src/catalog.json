@@ -1,0 +1,9 @@
+[
+  {
+    "productName": "Konsola Xbox Series X",
+    "productPrice": "2249"
+  },
+  { "productName": "Konsola PlayStation 5", "productPrice": "2299" },
+  { "productName": "Konsola Nintendo Switch", "productPrice": "1099" },
+  { "productName": "Konsola PS Vita", "productPrice": "669" }
+]
