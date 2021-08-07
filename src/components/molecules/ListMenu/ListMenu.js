@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  background-color: black;
 
   height: 100%;
   width: 250px;
@@ -16,7 +17,7 @@ const StyledWrapper = styled.div`
   top: 0;
 
   transform: ${(props) =>
-    props.isVisible ? 'translateX(-50px)' : 'translateX(250px)'};
+    props.isVisible ? 'translateX(-30%)' : 'translateX(100%)'};
   transition: transform 0.3s 0.1s ease-in-out;
 `;
 
@@ -30,7 +31,7 @@ const StyledElement = styled.li`
   padding: 10px 0;
   font-weight: 600;
   text-decoration: none;
-  color: black;
+  color: white;
 `;
 
 const ListMenu = ({ isVisible, state }) => (

@@ -41,12 +41,6 @@ const Navigation = () => (
       <StyledHeader as={Link} to="/games">
         Games
       </StyledHeader>
-      <StyledHeader as={Link} to="/alcohol">
-        Cigarettes
-      </StyledHeader>
-      <StyledHeader as={Link} to="/alcohol">
-        Drugs
-      </StyledHeader>
     </InnerWrapper>
     <Hamburger />
   </StyledWrapper>

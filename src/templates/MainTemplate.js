@@ -9,7 +9,6 @@ const StyledWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 `;
 
 const MainTemplate = ({ children }) => (

@@ -25,7 +25,16 @@ const HomePage = ({ state }) => {
 
   return (
     <MainTemplate>
-      <StyledWrapper>{mostPopularItems}</StyledWrapper>
+      <StyledWrapper>
+        {mostPopularItems.lenght === 0 ? (
+          mostPopularItems
+        ) : (
+          <h1>
+            Witamy w naszym sklepie! Przejdź do zakładek, by wybrać interesujący
+            Cię przedmiot!
+          </h1>
+        )}
+      </StyledWrapper>
     </MainTemplate>
   );
 };

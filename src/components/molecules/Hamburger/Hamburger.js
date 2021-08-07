@@ -43,8 +43,6 @@ const FlexWrapper = styled.div`
   display: flex;
   align-items: center;
 
-  transform: ${(props) =>
-    props.isVisible ? 'translateX(0px)' : 'translateX(0px)'};
   transition: transform 0.3s 0.1s ease-in-out;
 `;
 
