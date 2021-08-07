@@ -1,5 +1,6 @@
 {
   "name": "shop",
+  "homepage": "https://trochonovitz.github.io/react-shop-test/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
