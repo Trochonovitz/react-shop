@@ -1,43 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
+import { InfoBox, Main, Wrapper } from './HomePage.styles';
 import MainTemplate from '../../templates/MainTemplate';
-import ProductCard from '../../components/molecules/ProductCard/ProductCard';
 
-const StyledWrapper = styled.div`
-  display: flex;
-  width: 75%;
-  justify-content: center;
-`;
-
-const HomePage = ({ state }) => {
-  const mostPopularItems = state
-    .slice(2)
-    .map(({ productName, productPrice }) => (
-      <ProductCard
-        key={productName}
-        productName={productName}
-        productPrice={productPrice}
-      />
-    ));
-
-  return (
-    <MainTemplate>
-      <StyledWrapper>
-        {mostPopularItems.lenght === 0 ? (
-          mostPopularItems
-        ) : (
-          <h1>
-            Witamy w naszym sklepie! Przejdź do zakładek, by wybrać interesujący
-            Cię przedmiot!
-          </h1>
-        )}
-      </StyledWrapper>
-    </MainTemplate>
-  );
-};
+const HomePage = ({ state }) => (
+  <Wrapper>
+    <InfoBox>Darmowa wysyłka przy zakupach od 200 zł</InfoBox>
+    <MainTemplate />
+    <Main>
+      <h1>Kalendarze 2022</h1>
+      <button type="button">Zobacz</button>
+    </Main>
+    <p>1</p>
+    <p>1</p>
+  </Wrapper>
+);
 
 HomePage.propTypes = {
   state: PropTypes.objectOf().isRequired,
