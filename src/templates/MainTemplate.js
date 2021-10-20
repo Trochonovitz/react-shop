@@ -3,16 +3,19 @@ import PropTypes from 'prop-types';
 import { Global } from '../theme/Global';
 import Navigation from '../components/organisms/Navigation/Navigation';
 
-const MainTemplate = ({ children }) => (
+const MainTemplate = ({ scrollPosition }) => (
   <>
     <Global />
-    <Navigation />
-    {children}
+    <Navigation scrollPosition={scrollPosition} />
   </>
 );
 
 MainTemplate.propTypes = {
-  children: PropTypes.objectOf().isRequired,
+  scrollPosition: PropTypes.objectOf(),
+};
+
+MainTemplate.defaultProps = {
+  scrollPosition: {},
 };
 
 export default MainTemplate;

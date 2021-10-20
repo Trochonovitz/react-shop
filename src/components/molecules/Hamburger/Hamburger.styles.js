@@ -18,7 +18,8 @@ export const StyledHamburgerInner = styled.span`
 
   width: 100%;
   height: 2px;
-  background-color: black;
+  background-color: ${({ scrollPosition }) =>
+    scrollPosition < 15 ? 'black' : '#fff'};
   position: relative;
 
   &::after,
@@ -28,7 +29,8 @@ export const StyledHamburgerInner = styled.span`
     content: '';
     width: 100%;
     height: 2px;
-    background-color: black;
+    background-color: ${({ scrollPosition }) =>
+      scrollPosition < 15 ? 'black' : '#fff'};
   }
 
   &::after {

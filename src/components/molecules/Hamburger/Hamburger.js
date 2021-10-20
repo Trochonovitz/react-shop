@@ -1,10 +1,19 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { StyledHamburger, StyledHamburgerInner } from './Hamburger.styles';
 
-const Hamburger = ({ ...props }) => (
+const Hamburger = ({ scrollPosition, ...props }) => (
   <StyledHamburger {...props}>
-    <StyledHamburgerInner />
+    <StyledHamburgerInner scrollPosition={scrollPosition} />
   </StyledHamburger>
 );
+
+Hamburger.propTypes = {
+  scrollPosition: PropTypes.objectOf(),
+};
+
+Hamburger.defaultProps = {
+  scrollPosition: {},
+};
 
 export default Hamburger;

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import {
   Wrapper,
@@ -11,12 +12,16 @@ import {
 } from './Navigation.styles';
 import Hamburger from '../../molecules/Hamburger/Hamburger';
 
-const Navigation = () => {
+const Navigation = ({ scrollPosition }) => {
   const [isVisible, setVisibility] = useState(false);
 
   return (
-    <Wrapper>
-      <Hamburger isVisible={isVisible} onClick={() => setVisibility(true)} />
+    <Wrapper scrollPosition={scrollPosition}>
+      <Hamburger
+        isVisible={isVisible}
+        onClick={() => setVisibility(true)}
+        scrollPosition={scrollPosition}
+      />
       <StyledUl isVisible={isVisible}>
         <CloseButton onClick={() => setVisibility(false)}>X</CloseButton>
         <StyledHeader as={NavLink} to="/">
@@ -45,10 +50,10 @@ const Navigation = () => {
         </StyledHeader>
       </StyledUl>
 
-      <Logo>Papierniczeni</Logo>
+      <Logo scrollPosition={scrollPosition}>Papierniczeni</Logo>
 
       <NavigationWrapper>
-        <Icon>
+        <Icon scrollPosition={scrollPosition}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -60,7 +65,7 @@ const Navigation = () => {
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
           </svg>
         </Icon>
-        <Icon>
+        <Icon scrollPosition={scrollPosition}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -75,6 +80,14 @@ const Navigation = () => {
       </NavigationWrapper>
     </Wrapper>
   );
+};
+
+Navigation.propTypes = {
+  scrollPosition: PropTypes.objectOf(),
+};
+
+Navigation.defaultProps = {
+  scrollPosition: {},
 };
 
 export default Navigation;

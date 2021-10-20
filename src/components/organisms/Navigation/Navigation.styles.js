@@ -6,10 +6,12 @@ export const Wrapper = styled.nav`
   width: 100%;
   position: relative;
   padding: 10px 0;
-  border-bottom: 1px solid #fff;
-  background: transparent;
   position: sticky;
   top: 0;
+  border-bottom: 1px solid #fff;
+  background-color: ${({ scrollPosition }) =>
+    scrollPosition < 15 ? '#fff' : 'transparent'};
+  transition: background-color 250ms linear;
 `;
 
 export const StyledUl = styled.ul`
@@ -60,7 +62,7 @@ export const CloseButton = styled.button`
 export const Logo = styled.h1`
   justify-self: center;
   align-self: center;
-  color: black;
+  color: ${({ scrollPosition }) => (scrollPosition < 15 ? 'black' : '#fff')};
   font-size: 0.9rem;
   font-weight: bold;
   letter-spacing: 0.2em;
@@ -76,7 +78,7 @@ export const NavigationWrapper = styled.div`
 export const Icon = styled.button`
   border: none;
   background: transparent;
-  color: black;
+  color: ${({ scrollPosition }) => (scrollPosition < 15 ? 'black' : '#fff')};
   cursor: pointer;
   margin: 0 0 0 10px;
 
