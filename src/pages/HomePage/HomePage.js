@@ -27,15 +27,6 @@ const HomePage = ({ state }) => {
   return (
     <Wrapper>
       <InfoBox>Darmowa wysyłka przy zakupach od 200 zł</InfoBox>
-
-      {/* <Main ref={ref} cover={img}>
-        <MainTemplate scrollPosition={elementPosition} />
-        <MainInfo>
-          <StyledTitle>Kalendarze 2022</StyledTitle>
-          <StyledButton>Zobacz</StyledButton>
-        </MainInfo>
-      </Main> */}
-
       <Slide
         height={'100vh'}
         ref={ref}
@@ -45,24 +36,18 @@ const HomePage = ({ state }) => {
       >
         <MainTemplate scrollPosition={elementPosition} />
       </Slide>
-
       <Header>Polecamy</Header>
       <ProductsCategory />
-
       <p style={{ textDecoration: 'underline' }}>karauzela z itemami</p>
-
       <Info>
         Zobacz ostatnio dodane produkty i odkryj świeże papiernicze inspiracje.
         <br />
         <br />
         <InfoLink to="#">więcej</InfoLink>
       </Info>
-
       <ItemsCarousel />
-
       <p style={{ textDecoration: 'underline' }}>komponent z inspiracjami</p>
       <p>kreska, która będzie border bottom komponentu z inspiracjami</p>
-
       <BlogSection />
     </Wrapper>
   );

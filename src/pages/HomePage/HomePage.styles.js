@@ -1,6 +1,5 @@
-import Slide from 'components/molecules/Slide/Slide';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -21,21 +20,6 @@ export const InfoBox = styled.div`
   text-align: center;
   line-height: 1.2rem;
 `;
-
-// export const Main = styled.main`
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: space-between;
-//   height: 100vh;
-//   background-image: url(${({ cover }) => cover});
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-// `;
-
-// export const MainInfo = styled.div`
-//   margin: 0 0 50px 20px;
-// `;
 
 export const Header = styled.h1`
   color: #595959;
