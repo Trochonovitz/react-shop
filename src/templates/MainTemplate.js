@@ -11,11 +11,7 @@ const MainTemplate = ({ scrollPosition }) => (
 );
 
 MainTemplate.propTypes = {
-  scrollPosition: PropTypes.objectOf(),
-};
-
-MainTemplate.defaultProps = {
-  scrollPosition: {},
+  scrollPosition: PropTypes.number.isRequired,
 };
 
 export default MainTemplate;

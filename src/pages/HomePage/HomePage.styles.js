@@ -1,5 +1,6 @@
-import styled, { css } from 'styled-components';
-import { Button } from '../../components/atoms/Buttton/Button';
+import Slide from 'components/molecules/Slide/Slide';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -21,41 +22,20 @@ export const InfoBox = styled.div`
   line-height: 1.2rem;
 `;
 
-export const Main = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100vh;
-  background-image: url('https://cdn.shopify.com/s/files/1/0594/6743/2116/files/przedsprzedaz_kalendarzy2022_04_x800.jpg?v=1632593532');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-`;
+// export const Main = styled.main`
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: space-between;
+//   height: 100vh;
+//   background-image: url(${({ cover }) => cover});
+//   background-position: center;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+// `;
 
-export const MainInfo = styled.div`
-  margin: 0 0 50px 20px;
-`;
-
-export const StyledTitle = styled.h1`
-  color: #fff;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  font-size: 1.3rem;
-
-  @keyframes slidein {
-    from {
-      transform: translateY(100%);
-      opacity: 0;
-    }
-
-    to {
-      transform: translateY(0%);
-      opacity: 1;
-    }
-  }
-
-  animation: 1s ease-in-out slidein;
-`;
+// export const MainInfo = styled.div`
+//   margin: 0 0 50px 20px;
+// `;
 
 export const Header = styled.h1`
   color: #595959;
@@ -67,22 +47,14 @@ export const Header = styled.h1`
   margin: 10px 0 0 0;
 `;
 
-export const StyledButton = styled(Button)`
-  ${({ animated }) =>
-    animated &&
-    css`
-      @keyframes slidein {
-        from {
-          transform: translateY(100%);
-          opacity: 0;
-        }
+export const Info = styled.div`
+  background-color: #d4e4d4;
+  color: #303030;
+  padding: 120px 60px;
+  line-height: 1.7rem;
+`;
 
-        to {
-          transform: translateY(0%);
-          opacity: 1;
-        }
-      }
-
-      animation: 1s ease-in-out slidein;
-    `}
+export const InfoLink = styled(Link)`
+  color: #303030;
+  text-decoration: underline;
 `;

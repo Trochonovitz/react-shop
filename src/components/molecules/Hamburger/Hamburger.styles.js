@@ -18,9 +18,9 @@ export const StyledHamburgerInner = styled.span`
 
   width: 100%;
   height: 2px;
+  position: relative;
   background-color: ${({ scrollPosition }) =>
     scrollPosition < 15 ? 'black' : '#fff'};
-  position: relative;
 
   &::after,
   &::before {

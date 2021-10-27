@@ -10,7 +10,7 @@ const ProductsCategory = () => (
       <ProductCard />
       <ProductCard />
     </Wrapper>
-    <StyledButton secondary>Przejdź do sklepu</StyledButton>
+    <StyledButton>Przejdź do sklepu</StyledButton>
   </>
 );
 

@@ -12,6 +12,7 @@ export const Image = styled.img`
   width: 100%;
   height: 173px;
   object-fit: cover;
+  cursor: pointer;
 `;
 
 export const Header2 = styled.h4`
@@ -22,6 +23,7 @@ export const Header2 = styled.h4`
   color: #595959;
   margin: 10px 0 0 0;
   font-weight: normal;
+  cursor: pointer;
 `;
 
 export const StyledButton = styled.button`

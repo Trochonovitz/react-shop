@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
 import MainTemplate from '../../templates/MainTemplate';
-import Paragraph from '../../components/atoms/Paragraph/Paragraph';
-
+import { Description } from 'components/atoms/Description/Description';
 import ProductInBasket from '../../components/molecules/ProductInBasket/ProductInBasket';
 
 const BasketPage = ({ state }) => (
   <MainTemplate>
-    <Paragraph>
+    <Description>
       {state.length === 0 ? 'Twoj koszyk jest pusty!' : 'Twoje przedmioty:'}
 
       {state.map(({ productName, productPrice }) => (
@@ -18,7 +16,7 @@ const BasketPage = ({ state }) => (
           productPrice={productPrice}
         />
       ))}
-    </Paragraph>
+    </Description>
   </MainTemplate>
 );
 

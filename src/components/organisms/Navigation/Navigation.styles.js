@@ -9,6 +9,7 @@ export const Wrapper = styled.nav`
   position: sticky;
   top: 0;
   border-bottom: 1px solid #fff;
+
   background-color: ${({ scrollPosition }) =>
     scrollPosition < 15 ? '#fff' : 'transparent'};
   transition: background-color 250ms linear;
@@ -62,12 +63,12 @@ export const CloseButton = styled.button`
 export const Logo = styled.h1`
   justify-self: center;
   align-self: center;
-  color: ${({ scrollPosition }) => (scrollPosition < 15 ? 'black' : '#fff')};
   font-size: 0.9rem;
   font-weight: bold;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin: 0;
+  color: ${({ scrollPosition }) => (scrollPosition < 15 ? 'black' : '#fff')};
 `;
 
 export const NavigationWrapper = styled.div`
@@ -78,9 +79,9 @@ export const NavigationWrapper = styled.div`
 export const Icon = styled.button`
   border: none;
   background: transparent;
-  color: ${({ scrollPosition }) => (scrollPosition < 15 ? 'black' : '#fff')};
   cursor: pointer;
   margin: 0 0 0 10px;
+  color: ${({ scrollPosition }) => (scrollPosition < 15 ? 'black' : '#fff')};
 
   &:last-child {
     margin: 0 10px 0 10px;

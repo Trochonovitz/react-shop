@@ -9,11 +9,11 @@ const Hamburger = ({ scrollPosition, ...props }) => (
 );
 
 Hamburger.propTypes = {
-  scrollPosition: PropTypes.objectOf(),
+  scrollPosition: PropTypes.number.isRequired,
 };
 
-Hamburger.defaultProps = {
-  scrollPosition: {},
-};
+// Hamburger.defaultProps = {
+//   scrollPosition: {},
+// };
 
 export default Hamburger;
