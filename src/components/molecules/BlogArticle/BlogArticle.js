@@ -3,15 +3,15 @@ import {
   BlogsArticle,
   Image,
   StyledParagraph,
-  BlogTitle,
   BlogButton,
+  StyledTitle,
 } from './BlogArticle.styles';
 
 const BlogArticle = ({ category, title, img, content }) => (
   <BlogsArticle>
     <Image src={img} alt="article's visualisation" />
     <StyledParagraph>{category}</StyledParagraph>
-    <BlogTitle>{title}</BlogTitle>
+    <StyledTitle color={'#595959'}>{title}</StyledTitle>
     <p>{content}</p>
     <BlogButton>Czytaj dalej</BlogButton>
   </BlogsArticle>

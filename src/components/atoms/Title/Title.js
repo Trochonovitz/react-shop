@@ -12,11 +12,10 @@ const slidein = keyframes`
 }
 `;
 
-export const Title = styled.h1`
-  color: #fff;
-  letter-spacing: 0.1em;
+export const Title = styled.h2`
+  color: ${({ color }) => color};
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  font-size: 1.3rem;
 
   ${({ animated }) =>
     animated &&

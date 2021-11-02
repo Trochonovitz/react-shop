@@ -1,16 +1,16 @@
-import React, { useState, useRef, createContext } from 'react';
+import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
-import { InfoBox, Wrapper, Header, Info, InfoLink } from './HomePage.styles';
 import MainTemplate from '../../templates/MainTemplate';
 import ProductsCategory from '../../components/organisms/ProductsCategory/ProductsCategory';
 import ItemsCarousel from '../../components/organisms/Carousel/Carousel';
 import Slide from 'components/molecules/Slide/Slide';
 import { slides } from 'fixtures';
 import BlogSection from 'components/organisms/BlogSection/BlogSection';
-
-export const ScrollInfoContext = createContext({ y: {} });
+import AboutUs from 'components/organisms/AboutUs/AboutUs';
+import { InfoBox, Wrapper, Header, Info, InfoLink } from './HomePage.styles';
+import Footer from 'components/organisms/Footer/Footer';
 
 const HomePage = ({ state }) => {
   const [elementPosition, setElementPosition] = useState({});
@@ -49,12 +49,14 @@ const HomePage = ({ state }) => {
       <p style={{ textDecoration: 'underline' }}>komponent z inspiracjami</p>
       <p>kreska, która będzie border bottom komponentu z inspiracjami</p>
       <BlogSection />
+      <AboutUs />
+      <Footer />
     </Wrapper>
   );
 };
 
 HomePage.propTypes = {
-  state: PropTypes.objectOf().isRequired,
+  state: PropTypes.array,
 };
 
 const mapStateToProps = (state) => ({ state });

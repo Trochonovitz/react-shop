@@ -4,7 +4,7 @@ import {
   BlogWrapper,
   BlogHeader,
   StyledParagraph,
-  BlogTitle,
+  StyledTitle,
 } from './BlogSection.styles';
 import BlogArticle from 'components/molecules/BlogArticle/BlogArticle';
 import { Button } from 'components/atoms/Buttton/Button';
@@ -33,7 +33,7 @@ const BlogSection = () => {
     <BlogWrapper>
       <BlogHeader>
         <StyledParagraph>czytaj</StyledParagraph>
-        <BlogTitle>Artykuły na blogu</BlogTitle>
+        <StyledTitle color={'#595959'}>Artykuły na blogu</StyledTitle>
       </BlogHeader>
 
       {data.allArticles.map(

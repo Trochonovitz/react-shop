@@ -1,3 +1,4 @@
+import { Title } from 'components/atoms/Title/Title';
 import styled from 'styled-components';
 
 export const BlogsArticle = styled.article`
@@ -7,6 +8,7 @@ export const BlogsArticle = styled.article`
   align-items: flex-start;
   padding: 20px 25px;
   line-height: 1.65rem;
+  margin: 0 0 40px 0;
 `;
 
 export const Image = styled.img`
@@ -21,12 +23,9 @@ export const StyledParagraph = styled.p`
   font-size: 0.8rem;
 `;
 
-export const BlogTitle = styled.h1`
-  color: #595959;
-  text-transform: uppercase;
-  margin: 0;
-  letter-spacing: 0.2em;
+export const StyledTitle = styled(Title)`
   font-size: 1.3rem;
+  margin: 0;
 `;
 
 export const BlogButton = styled.button`

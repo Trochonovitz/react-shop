@@ -11,7 +11,9 @@ const Slide = forwardRef(
       {children}
       <InfoBox>
         {description && <Description description>{description}</Description>}
-        <Title animated={animated}>{title}</Title>
+        <Title color={'#fff'} animated={animated}>
+          {title}
+        </Title>
         <Button
           width={'100px'}
           backgroundColor={'#fff'}
