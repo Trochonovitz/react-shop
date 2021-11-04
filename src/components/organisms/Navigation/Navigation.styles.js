@@ -13,6 +13,8 @@ export const Wrapper = styled.nav`
   background-color: ${({ scrollPosition }) =>
     scrollPosition < 15 ? '#fff' : 'transparent'};
   transition: background-color 250ms linear;
+
+  z-index: 3;
 `;
 
 export const StyledUl = styled.ul`

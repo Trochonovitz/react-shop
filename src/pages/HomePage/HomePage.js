@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, createContext } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
@@ -9,8 +9,18 @@ import Slide from 'components/molecules/Slide/Slide';
 import { slides } from 'fixtures';
 import BlogSection from 'components/organisms/BlogSection/BlogSection';
 import AboutUs from 'components/organisms/AboutUs/AboutUs';
-import { InfoBox, Wrapper, Header, Info, InfoLink } from './HomePage.styles';
+import {
+  InfoBox,
+  Header,
+  Info,
+  InfoLink,
+  StyledImage,
+  StyledSlide,
+  Wrapi,
+} from './HomePage.styles';
 import Footer from 'components/organisms/Footer/Footer';
+
+export const ScrollPositionContext = createContext(0);
 
 const HomePage = ({ state }) => {
   const [elementPosition, setElementPosition] = useState({});
@@ -25,33 +35,35 @@ const HomePage = ({ state }) => {
   );
 
   return (
-    <Wrapper>
+    <ScrollPositionContext.Provider value={elementPosition}>
       <InfoBox>Darmowa wysyłka przy zakupach od 200 zł</InfoBox>
-      <Slide
-        height={'100vh'}
-        ref={ref}
-        cover={slides[0].link}
-        title={slides[0].title}
-        animated
-      >
-        <MainTemplate scrollPosition={elementPosition} />
-      </Slide>
-      <Header>Polecamy</Header>
-      <ProductsCategory />
-      <p style={{ textDecoration: 'underline' }}>karauzela z itemami</p>
-      <Info>
-        Zobacz ostatnio dodane produkty i odkryj świeże papiernicze inspiracje.
-        <br />
-        <br />
-        <InfoLink to="#">więcej</InfoLink>
-      </Info>
-      <ItemsCarousel />
-      <p style={{ textDecoration: 'underline' }}>komponent z inspiracjami</p>
-      <p>kreska, która będzie border bottom komponentu z inspiracjami</p>
-      <BlogSection />
-      <AboutUs />
-      <Footer />
-    </Wrapper>
+      <MainTemplate>
+        <Slide
+          cover={slides[0].link}
+          height={'100vh'}
+          ref={ref}
+          title={slides[0].title}
+          animated
+          main
+        />
+        <Header>Polecamy</Header>
+        <ProductsCategory />
+        <p style={{ textDecoration: 'underline' }}>karauzela z itemami</p>
+        <Info>
+          Zobacz ostatnio dodane produkty i odkryj świeże papiernicze
+          inspiracje.
+          <br />
+          <br />
+          <InfoLink to="#">więcej</InfoLink>
+        </Info>
+        <ItemsCarousel />
+        <p style={{ textDecoration: 'underline' }}>komponent z inspiracjami</p>
+        <p>kreska, która będzie border bottom komponentu z inspiracjami</p>
+        <BlogSection />
+        <AboutUs />
+        <Footer />
+      </MainTemplate>
+    </ScrollPositionContext.Provider>
   );
 };
 

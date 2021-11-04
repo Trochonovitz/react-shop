@@ -6,9 +6,8 @@ import { Button } from 'components/atoms/Buttton/Button';
 import { Title } from 'components/atoms/Title/Title';
 
 const Slide = forwardRef(
-  ({ cover, title, children, height, animated, description }, ref) => (
-    <Wrapper ref={ref} cover={cover} height={height}>
-      {children}
+  ({ cover, title, height, animated, description, main }, ref) => (
+    <Wrapper ref={ref} cover={cover} height={height} main={main}>
       <InfoBox>
         {description && <Description description>{description}</Description>}
         <Title color={'#fff'} animated={animated}>
@@ -31,8 +30,8 @@ const Slide = forwardRef(
 );
 
 Slide.propTypes = {
-  cover: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  cover: PropTypes.string,
   animated: PropTypes.bool,
 };
 

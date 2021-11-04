@@ -1,6 +1,7 @@
-import React, { useState, useContext, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useState, useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import Hamburger from '../../molecules/Hamburger/Hamburger';
+import { ScrollPositionContext } from 'pages/HomePage/HomePage';
 import {
   Wrapper,
   StyledHeader,
@@ -10,18 +11,14 @@ import {
   NavigationWrapper,
   Icon,
 } from './Navigation.styles';
-import Hamburger from '../../molecules/Hamburger/Hamburger';
 
-const Navigation = ({ scrollPosition }) => {
+const Navigation = () => {
   const [isVisible, setVisibility] = useState(false);
+  const scrollPosition = useContext(ScrollPositionContext);
 
   return (
     <Wrapper scrollPosition={scrollPosition}>
-      <Hamburger
-        isVisible={isVisible}
-        onClick={() => setVisibility(true)}
-        scrollPosition={scrollPosition}
-      />
+      <Hamburger isVisible={isVisible} onClick={() => setVisibility(true)} />
       <StyledUl isVisible={isVisible}>
         <CloseButton onClick={() => setVisibility(false)}>X</CloseButton>
         <StyledHeader as={NavLink} to="/">
@@ -80,14 +77,6 @@ const Navigation = ({ scrollPosition }) => {
       </NavigationWrapper>
     </Wrapper>
   );
-};
-
-Navigation.propTypes = {
-  scrollPosition: PropTypes.objectOf(),
-};
-
-Navigation.defaultProps = {
-  scrollPosition: {},
 };
 
 export default Navigation;

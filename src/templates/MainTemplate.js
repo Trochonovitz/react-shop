@@ -1,17 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Global } from '../theme/Global';
 import Navigation from '../components/organisms/Navigation/Navigation';
+import { Wrapper } from './MainTemplate.styles';
 
-const MainTemplate = ({ scrollPosition }) => (
-  <>
+const MainTemplate = ({ children }) => (
+  <Wrapper>
     <Global />
-    <Navigation scrollPosition={scrollPosition} />
-  </>
+    <Navigation />
+    {children}
+  </Wrapper>
 );
-
-MainTemplate.propTypes = {
-  scrollPosition: PropTypes.number.isRequired,
-};
 
 export default MainTemplate;

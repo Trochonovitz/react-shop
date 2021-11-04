@@ -1,19 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, { useContext } from 'react';
+import { ScrollPositionContext } from 'pages/HomePage/HomePage';
 import { StyledHamburger, StyledHamburgerInner } from './Hamburger.styles';
 
-const Hamburger = ({ scrollPosition, ...props }) => (
-  <StyledHamburger {...props}>
-    <StyledHamburgerInner scrollPosition={scrollPosition} />
-  </StyledHamburger>
-);
+const Hamburger = ({ ...props }) => {
+  const scrollPosition = useContext(ScrollPositionContext);
 
-Hamburger.propTypes = {
-  scrollPosition: PropTypes.number.isRequired,
+  return (
+    <StyledHamburger {...props}>
+      <StyledHamburgerInner scrollPosition={scrollPosition} />
+    </StyledHamburger>
+  );
 };
-
-// Hamburger.defaultProps = {
-//   scrollPosition: {},
-// };
 
 export default Hamburger;
