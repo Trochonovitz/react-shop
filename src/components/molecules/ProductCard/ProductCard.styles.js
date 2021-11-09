@@ -1,22 +1,36 @@
 import styled from 'styled-components';
+import { breakpoints } from 'theme/theme';
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  margin: 10px;
+  align-items: center;
+  margin: 30px 10px;
 `;
 
 export const Image = styled.img`
-  width: 100%;
-  height: 173px;
+  justify-self: center;
+  align-self: center;
   object-fit: cover;
   cursor: pointer;
+  width: 350px;
+  height: 350px;
+
+  @media ${breakpoints.phone} {
+    width: 544px;
+    height: 544px;
+  }
+
+  @media ${breakpoints.bigPhone} {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export const Header2 = styled.h4`
-  text-align: center;
+  justify-self: center;
+  align-self: center;
   text-transform: uppercase;
   font-size: 0.7rem;
   letter-spacing: 0.2em;

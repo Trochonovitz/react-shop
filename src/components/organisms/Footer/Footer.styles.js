@@ -6,6 +6,7 @@ export const Wrapper = styled.footer`
   flex-direction: column;
   background-color: #f3f3f3;
   padding: 24px;
+  width: 100%;
 `;
 
 export const StyledUl = styled.ul`

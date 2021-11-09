@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakpoints } from 'theme/theme';
 
 export const StyledHamburger = styled.button`
   width: 30px;
@@ -8,7 +9,7 @@ export const StyledHamburger = styled.button`
   cursor: pointer;
   margin: 0 0 0 10px;
 
-  @media (min-width: 768px) {
+  @media ${breakpoints.desktop} {
     display: none;
   }
 `;

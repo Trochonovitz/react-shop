@@ -1,11 +1,11 @@
 import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import Slide from 'components/molecules/Slide/Slide';
 import { slides } from 'fixtures';
+import { StyledCarousel } from 'components/organisms/Carousel/Carousel.styles';
 
 const ItemsCarousel = () => (
-  <Carousel
+  <StyledCarousel
     showArrows={false}
     showStatus={false}
     showThumbs={false}
@@ -21,7 +21,7 @@ const ItemsCarousel = () => (
         key={`${item.title}${index}`}
       />
     ))}
-  </Carousel>
+  </StyledCarousel>
 );
 
 export default ItemsCarousel;

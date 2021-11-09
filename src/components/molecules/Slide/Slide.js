@@ -14,7 +14,7 @@ const Slide = forwardRef(
           {title}
         </Title>
         <Button
-          width={'100px'}
+          width={'130px'}
           backgroundColor={'#fff'}
           backgroundColorHover={'transparent'}
           fontColorMain={'#363636'}

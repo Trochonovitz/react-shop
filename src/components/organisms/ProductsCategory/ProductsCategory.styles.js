@@ -1,6 +1,11 @@
 import styled from 'styled-components';
+import { breakpoints } from 'theme/theme';
 
 export const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+
+  @media ${breakpoints.bigPhone} {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;

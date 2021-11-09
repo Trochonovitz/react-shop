@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
+import { breakpoints } from 'theme/theme';
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
   width: 100%;
   height: ${({ height }) => `${height}`};
   background-image: url(${({ cover }) => cover});
@@ -13,8 +13,9 @@ export const Wrapper = styled.div`
   ${({ main }) =>
     main &&
     css`
-      position: absolute;
-      top: 0;
+      @media ${breakpoints.phone} {
+        height: 95vh;
+      }
     `}
 `;
 
@@ -22,5 +23,6 @@ export const InfoBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  /* margin: 0 0 50px 20px; */
+  align-self: end;
+  padding: 0 0 50px 20px;
 `;

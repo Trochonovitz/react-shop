@@ -24,6 +24,11 @@ export const AboutUsInfo = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 40px;
+
+  @media (min-width: 567px) {
+    width: 50%;
+    height: 60%;
+  }
 `;
 
 export const StyledTitle = styled.h3`

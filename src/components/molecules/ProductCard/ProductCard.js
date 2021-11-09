@@ -9,6 +9,7 @@ const ProductCard = () => (
       alt="product 1"
       src="https://cdn.shopify.com/s/files/1/0594/6743/2116/products/17110-uma-notes-niebieski-01_1200x.jpg?v=1632316508"
     />
+
     <Header2>Notatnik Uma - granatowy</Header2>
     <Header2>90 zł</Header2>
     {/* <StyledButton onClick={() => addItemToBasket(productName, productPrice)}>

@@ -9,21 +9,13 @@ import Slide from 'components/molecules/Slide/Slide';
 import { slides } from 'fixtures';
 import BlogSection from 'components/organisms/BlogSection/BlogSection';
 import AboutUs from 'components/organisms/AboutUs/AboutUs';
-import {
-  InfoBox,
-  Header,
-  Info,
-  InfoLink,
-  StyledImage,
-  StyledSlide,
-  Wrapi,
-} from './HomePage.styles';
+import { InfoBox, Header, Info, InfoLink } from './HomePage.styles';
 import Footer from 'components/organisms/Footer/Footer';
 
 export const ScrollPositionContext = createContext(0);
 
 const HomePage = ({ state }) => {
-  const [elementPosition, setElementPosition] = useState({});
+  const [elementPosition, setElementPosition] = useState();
   const ref = useRef();
 
   useScrollPosition(
@@ -40,7 +32,7 @@ const HomePage = ({ state }) => {
       <MainTemplate>
         <Slide
           cover={slides[0].link}
-          height={'100vh'}
+          height={'752px'}
           ref={ref}
           title={slides[0].title}
           animated

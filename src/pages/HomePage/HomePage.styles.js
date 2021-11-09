@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import Slide from 'components/molecules/Slide/Slide';
 
 export const InfoBox = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   background-color: #f1e4d8;
   color: #343434;
@@ -26,6 +27,7 @@ export const Header = styled.h1`
 `;
 
 export const Info = styled.div`
+  width: 100%;
   background-color: #d4e4d4;
   color: #303030;
   padding: 120px 60px;
