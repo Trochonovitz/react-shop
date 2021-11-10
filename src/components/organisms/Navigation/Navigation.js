@@ -4,13 +4,18 @@ import Hamburger from '../../molecules/Hamburger/Hamburger';
 import { ScrollPositionContext } from 'pages/HomePage/HomePage';
 import {
   Wrapper,
-  StyledHeader,
-  StyledNavAccountSlideOut,
-  CloseButton,
+  NavigationElement,
+  StyledSlideOutLeft,
+  StyledSlideOutRight,
   Logo,
   NavigationWrapper,
   Icon,
   WrapperAbsolute,
+  NavbarCloseButton,
+  BasketCloseButton,
+  StyledTitle,
+  Wrapper1,
+  StyledParagraph,
 } from './Navigation.styles';
 
 const options = [
@@ -25,29 +30,51 @@ const options = [
 ];
 
 const Navigation = () => {
-  const [isVisible, setVisibility] = useState(false);
+  const [isVisible, setVisibility] = useState({
+    mobileNavbar: false,
+    basketView: false,
+  });
   const scrollPosition = useContext(ScrollPositionContext);
 
   return (
     <Wrapper>
       <WrapperAbsolute scrollPosition={scrollPosition}>
-        <Hamburger isVisible={isVisible} onClick={() => setVisibility(true)} />
-        <StyledNavAccountSlideOut isVisible={isVisible}>
-          <CloseButton onClick={() => setVisibility(false)}>X</CloseButton>
+        <Hamburger
+          isVisible={isVisible.mobileNavbar}
+          onClick={() => setVisibility({ mobileNavbar: true })}
+        />
+        <StyledSlideOutLeft isVisible={isVisible.mobileNavbar} from={'left'}>
+          <NavbarCloseButton
+            onClick={() => setVisibility({ mobileNavbar: false })}
+          >
+            X
+          </NavbarCloseButton>
           {options.map((option, index) => (
-            <StyledHeader
+            <NavigationElement
               as={NavLink}
               scrollPosition={scrollPosition}
               to="#"
               key={`${option}${index}`}
             >
               {option}
-            </StyledHeader>
+            </NavigationElement>
           ))}
-        </StyledNavAccountSlideOut>
-
+        </StyledSlideOutLeft>
+        <StyledSlideOutRight isVisible={isVisible.basketView} from={'right'}>
+          <Wrapper1>
+            <BasketCloseButton
+              onClick={() => setVisibility({ basketView: false })}
+            >
+              X
+            </BasketCloseButton>
+            <StyledTitle color={'#595959'}>Koszyk</StyledTitle>
+          </Wrapper1>
+          <StyledParagraph>
+            Dodaj do koszyka produkty za 200 zł i uzyskaj darmową przesyłkę
+          </StyledParagraph>
+          <StyledTitle>Twój koszyk jest pusty</StyledTitle>
+        </StyledSlideOutRight>
         <Logo scrollPosition={scrollPosition}>Papierniczeni</Logo>
-
         <NavigationWrapper>
           <Icon scrollPosition={scrollPosition}>
             <svg
@@ -73,7 +100,10 @@ const Navigation = () => {
               <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
             </svg>
           </Icon>
-          <Icon scrollPosition={scrollPosition}>
+          <Icon
+            onClick={() => setVisibility({ basketView: true })}
+            scrollPosition={scrollPosition}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"

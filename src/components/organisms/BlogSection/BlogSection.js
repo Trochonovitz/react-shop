@@ -5,9 +5,10 @@ import {
   BlogHeader,
   StyledParagraph,
   StyledTitle,
+  StyledButton,
+  BlogContent,
 } from './BlogSection.styles';
 import BlogArticle from 'components/molecules/BlogArticle/BlogArticle';
-import { Button } from 'components/atoms/Buttton/Button';
 
 const query = `query
 {
@@ -35,21 +36,20 @@ const BlogSection = () => {
         <StyledParagraph>czytaj</StyledParagraph>
         <StyledTitle color={'#595959'}>Artykuły na blogu</StyledTitle>
       </BlogHeader>
-
-      {data.allArticles.map(
-        ({ id, category, title, mainPhoto: { url }, content }) => (
-          <BlogArticle
-            key={id}
-            category={category}
-            title={title}
-            img={url}
-            content={content}
-          />
-        )
-      )}
-
-      <Button
-        width={'70%'}
+      <BlogContent>
+        {data.allArticles.map(
+          ({ id, category, title, mainPhoto: { url }, content }) => (
+            <BlogArticle
+              key={id}
+              category={category}
+              title={title}
+              img={url}
+              content={content}
+            />
+          )
+        )}
+      </BlogContent>
+      <StyledButton
         backgroundColor={'#d4e4d4'}
         backgroundColorHover={'#fff'}
         fontColorMain={'#303030'}
@@ -57,7 +57,7 @@ const BlogSection = () => {
         borderColor={'#bbccbb'}
       >
         Przejdź do bloga
-      </Button>
+      </StyledButton>
     </BlogWrapper>
   );
 };

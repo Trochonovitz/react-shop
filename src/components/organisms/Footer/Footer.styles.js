@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Title } from 'components/atoms/Title/Title';
+import { breakpoints } from 'theme/theme';
 
 export const Wrapper = styled.footer`
   display: flex;
@@ -7,6 +8,20 @@ export const Wrapper = styled.footer`
   background-color: #f3f3f3;
   padding: 24px;
   width: 100%;
+
+  @media ${breakpoints.desktop} {
+    padding: 50px;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`;
+
+export const TextBox = styled.div`
+  @media ${breakpoints.desktop} {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+  }
 `;
 
 export const StyledUl = styled.ul`

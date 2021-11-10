@@ -1,8 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { Wrapper, InfoBox } from './Slide.styles';
+import { Wrapper, InfoBox, StyledButton } from './Slide.styles';
 import { Description } from 'components/atoms/Description/Description';
-import { Button } from 'components/atoms/Buttton/Button';
 import { Title } from 'components/atoms/Title/Title';
 
 const Slide = forwardRef(
@@ -13,8 +12,7 @@ const Slide = forwardRef(
         <Title color={'#fff'} animated={animated}>
           {title}
         </Title>
-        <Button
-          width={'130px'}
+        <StyledButton
           backgroundColor={'#fff'}
           backgroundColorHover={'transparent'}
           fontColorMain={'#363636'}
@@ -23,7 +21,7 @@ const Slide = forwardRef(
           animated={animated}
         >
           Zobacz
-        </Button>
+        </StyledButton>
       </InfoBox>
     </Wrapper>
   )

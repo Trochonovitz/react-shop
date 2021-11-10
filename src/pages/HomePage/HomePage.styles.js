@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { breakpoints } from 'theme/theme';
 
 export const InfoBox = styled.div`
   display: flex;
@@ -32,9 +33,36 @@ export const Info = styled.div`
   color: #303030;
   padding: 120px 60px;
   line-height: 1.7rem;
+
+  @media ${breakpoints.desktop} {
+    width: 30%;
+  }
+`;
+
+export const StyledP = styled.p`
+  @media ${breakpoints.desktop} {
+    width: 70%;
+    height: 100%;
+    border: 1px solid black;
+    text-align: center;
+  }
 `;
 
 export const InfoLink = styled(Link)`
   color: #303030;
   text-decoration: underline;
+`;
+
+export const NewItemsBox = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  @media ${breakpoints.desktop} {
+    margin: 50px 0 0 0;
+    padding: 50px 100px;
+    flex-direction: row;
+    height: 400px;
+  }
 `;

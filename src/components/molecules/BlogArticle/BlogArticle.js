@@ -5,14 +5,17 @@ import {
   StyledParagraph,
   BlogButton,
   StyledTitle,
+  TextBox,
 } from './BlogArticle.styles';
 
 const BlogArticle = ({ category, title, img, content }) => (
   <BlogsArticle>
     <Image src={img} alt="article's visualisation" />
-    <StyledParagraph>{category}</StyledParagraph>
-    <StyledTitle color={'#595959'}>{title}</StyledTitle>
-    <p>{content}</p>
+    <TextBox>
+      <StyledParagraph>{category}</StyledParagraph>
+      <StyledTitle color={'#595959'}>{title}</StyledTitle>
+      <p>{content}</p>
+    </TextBox>
     <BlogButton>Czytaj dalej</BlogButton>
   </BlogsArticle>
 );

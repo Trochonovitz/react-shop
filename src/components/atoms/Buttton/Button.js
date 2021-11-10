@@ -21,7 +21,6 @@ export const Button = styled.button`
   font-size: 0.8rem;
   color: ${({ fontColorMain }) => fontColorMain};
   height: 45px;
-  width: ${({ width }) => width};
   position: relative;
   transition: color 300ms ease-in-out;
   z-index: 1;

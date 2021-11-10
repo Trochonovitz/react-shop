@@ -1,6 +1,14 @@
-import { NavAccountSlideOut } from 'components/molecules/NavAccountSlideOut/NavAccountSlideOut';
 import styled, { css } from 'styled-components';
 import { breakpoints } from 'theme/theme';
+import { NavAccountSlideOut } from 'components/molecules/NavAccountSlideOut/NavAccountSlideOut';
+import { Title } from 'components/atoms/Title/Title';
+
+const closeButton = css`
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #303030;
+`;
 
 export const WrapperAbsolute = styled.div`
   display: grid;
@@ -27,7 +35,11 @@ export const Wrapper = styled.nav`
   z-index: 3;
 `;
 
-export const StyledNavAccountSlideOut = styled(NavAccountSlideOut)`
+export const StyledSlideOutLeft = styled(NavAccountSlideOut)`
+  left: 0;
+  align-items: flex-start;
+  justify-content: flex-start;
+
   @media ${breakpoints.desktop} {
     position: static;
     transform: translateX(0);
@@ -41,7 +53,16 @@ export const StyledNavAccountSlideOut = styled(NavAccountSlideOut)`
   }
 `;
 
-export const StyledHeader = styled.li`
+export const StyledSlideOutRight = styled(NavAccountSlideOut)`
+  right: 0;
+  align-items: center;
+
+  @media ${breakpoints.desktop} {
+    width: 25%;
+  }
+`;
+
+export const NavigationElement = styled.li`
   text-decoration: none;
   text-transform: uppercase;
   color: #303030;
@@ -66,16 +87,42 @@ export const StyledHeader = styled.li`
   }
 `;
 
-export const CloseButton = styled.button`
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  color: #303030;
+export const NavbarCloseButton = styled.button`
+  ${closeButton}
   padding: 20px;
 
   @media ${breakpoints.desktop} {
     display: none;
   }
+`;
+
+export const BasketCloseButton = styled.button`
+  ${closeButton}
+  font-size: 1.15rem;
+  margin: 0 20px 0 0;
+`;
+
+export const StyledTitle = styled(Title)`
+  font-size: 1rem;
+  font-weight: normal;
+  height: fit-content;
+  margin: 20px;
+`;
+
+export const Wrapper1 = styled.div`
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+export const StyledParagraph = styled.p`
+  font-size: 0.8rem;
+  border: 1px solid #e6e6e6;
+  border-left: none;
+  border-right: none;
+  padding: 10px 20px;
 `;
 
 export const Logo = styled.h1`

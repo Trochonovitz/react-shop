@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { breakpoints } from 'theme/theme';
+import { Button } from 'components/atoms/Buttton/Button';
 
 export const Wrapper = styled.div`
   display: grid;
@@ -25,4 +26,8 @@ export const InfoBox = styled.div`
   align-items: flex-start;
   align-self: end;
   padding: 0 0 50px 20px;
+`;
+
+export const StyledButton = styled(Button)`
+  width: 130px;
 `;

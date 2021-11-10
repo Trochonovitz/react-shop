@@ -1,10 +1,11 @@
 import { Title } from 'components/atoms/Title/Title';
 import styled from 'styled-components';
+import { breakpoints } from 'theme/theme';
 
 export const BlogsArticle = styled.article`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   padding: 20px 25px;
   line-height: 1.65rem;
@@ -13,7 +14,16 @@ export const BlogsArticle = styled.article`
 
 export const Image = styled.img`
   width: 100%;
+  height: 40%;
   object-fit: cover;
+`;
+
+export const TextBox = styled.div`
+  @media ${breakpoints.desktop} {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+  }
 `;
 
 export const StyledParagraph = styled.p`
@@ -37,6 +47,10 @@ export const BlogButton = styled.button`
   font-family: 'Montserrat', sans-serif;
   cursor: pointer;
   position: relative;
+
+  @media ${breakpoints.desktop} {
+    margin: 0 20px;
+  }
 
   &::before {
     content: '';

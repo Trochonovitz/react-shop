@@ -9,7 +9,14 @@ import Slide from 'components/molecules/Slide/Slide';
 import { slides } from 'fixtures';
 import BlogSection from 'components/organisms/BlogSection/BlogSection';
 import AboutUs from 'components/organisms/AboutUs/AboutUs';
-import { InfoBox, Header, Info, InfoLink } from './HomePage.styles';
+import {
+  InfoBox,
+  Header,
+  Info,
+  InfoLink,
+  NewItemsBox,
+  StyledP,
+} from './HomePage.styles';
 import Footer from 'components/organisms/Footer/Footer';
 
 export const ScrollPositionContext = createContext(0);
@@ -40,14 +47,18 @@ const HomePage = ({ state }) => {
         />
         <Header>Polecamy</Header>
         <ProductsCategory />
-        <p style={{ textDecoration: 'underline' }}>karauzela z itemami</p>
-        <Info>
-          Zobacz ostatnio dodane produkty i odkryj świeże papiernicze
-          inspiracje.
-          <br />
-          <br />
-          <InfoLink to="#">więcej</InfoLink>
-        </Info>
+        <NewItemsBox>
+          <StyledP style={{ textDecoration: 'underline' }}>
+            karauzela z itemami
+          </StyledP>
+          <Info>
+            Zobacz ostatnio dodane produkty i odkryj świeże papiernicze
+            inspiracje.
+            <br />
+            <br />
+            <InfoLink to="#">więcej</InfoLink>
+          </Info>
+        </NewItemsBox>
         <ItemsCarousel />
         <p style={{ textDecoration: 'underline' }}>komponent z inspiracjami</p>
         <p>kreska, która będzie border bottom komponentu z inspiracjami</p>
