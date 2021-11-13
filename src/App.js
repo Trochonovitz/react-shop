@@ -2,7 +2,7 @@ import React from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { GraphQLClient, ClientContext } from 'graphql-hooks';
-import store from './store/store';
+import { store } from 'store/store';
 import HomePage from './pages/HomePage/HomePage';
 
 const BASIC_URL = 'https://graphql.datocms.com/';

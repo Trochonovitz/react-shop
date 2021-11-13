@@ -1,13 +1,12 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { breakpoints } from 'theme/theme';
 import { NavAccountSlideOut } from 'components/molecules/NavAccountSlideOut/NavAccountSlideOut';
-import { Title } from 'components/atoms/Title/Title';
 
-const closeButton = css`
-  cursor: pointer;
-  border: none;
-  background: transparent;
-  color: #303030;
+export const Wrapper = styled.nav`
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 3;
 `;
 
 export const WrapperAbsolute = styled.div`
@@ -28,13 +27,6 @@ export const WrapperAbsolute = styled.div`
   }
 `;
 
-export const Wrapper = styled.nav`
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 3;
-`;
-
 export const StyledSlideOutLeft = styled(NavAccountSlideOut)`
   left: 0;
   align-items: flex-start;
@@ -50,15 +42,6 @@ export const StyledSlideOutLeft = styled(NavAccountSlideOut)`
     flex-direction: row;
     justify-content: center;
     background-color: transparent;
-  }
-`;
-
-export const StyledSlideOutRight = styled(NavAccountSlideOut)`
-  right: 0;
-  align-items: center;
-
-  @media ${breakpoints.desktop} {
-    width: 25%;
   }
 `;
 
@@ -88,41 +71,15 @@ export const NavigationElement = styled.li`
 `;
 
 export const NavbarCloseButton = styled.button`
-  ${closeButton}
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: #303030;
   padding: 20px;
 
   @media ${breakpoints.desktop} {
     display: none;
   }
-`;
-
-export const BasketCloseButton = styled.button`
-  ${closeButton}
-  font-size: 1.15rem;
-  margin: 0 20px 0 0;
-`;
-
-export const StyledTitle = styled(Title)`
-  font-size: 1rem;
-  font-weight: normal;
-  height: fit-content;
-  margin: 20px;
-`;
-
-export const Wrapper1 = styled.div`
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-`;
-
-export const StyledParagraph = styled.p`
-  font-size: 0.8rem;
-  border: 1px solid #e6e6e6;
-  border-left: none;
-  border-right: none;
-  padding: 10px 20px;
 `;
 
 export const Logo = styled.h1`

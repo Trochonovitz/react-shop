@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import Hamburger from '../../molecules/Hamburger/Hamburger';
 import { ScrollPositionContext } from 'pages/HomePage/HomePage';
@@ -6,16 +6,11 @@ import {
   Wrapper,
   NavigationElement,
   StyledSlideOutLeft,
-  StyledSlideOutRight,
   Logo,
   NavigationWrapper,
   Icon,
   WrapperAbsolute,
   NavbarCloseButton,
-  BasketCloseButton,
-  StyledTitle,
-  Wrapper1,
-  StyledParagraph,
 } from './Navigation.styles';
 
 const options = [
@@ -29,23 +24,16 @@ const options = [
   'moje konto',
 ];
 
-const Navigation = () => {
-  const [isVisible, setVisibility] = useState({
-    mobileNavbar: false,
-    basketView: false,
-  });
+const Navigation = ({ isVisible, setVisibility }) => {
   const scrollPosition = useContext(ScrollPositionContext);
 
   return (
     <Wrapper>
       <WrapperAbsolute scrollPosition={scrollPosition}>
-        <Hamburger
-          isVisible={isVisible.mobileNavbar}
-          onClick={() => setVisibility({ mobileNavbar: true })}
-        />
-        <StyledSlideOutLeft isVisible={isVisible.mobileNavbar} from={'left'}>
+        <Hamburger onClick={() => setVisibility({ mobileNav: true })} />
+        <StyledSlideOutLeft isVisible={isVisible} from={'left'}>
           <NavbarCloseButton
-            onClick={() => setVisibility({ mobileNavbar: false })}
+            onClick={() => setVisibility({ mobileNav: false })}
           >
             X
           </NavbarCloseButton>
@@ -60,20 +48,7 @@ const Navigation = () => {
             </NavigationElement>
           ))}
         </StyledSlideOutLeft>
-        <StyledSlideOutRight isVisible={isVisible.basketView} from={'right'}>
-          <Wrapper1>
-            <BasketCloseButton
-              onClick={() => setVisibility({ basketView: false })}
-            >
-              X
-            </BasketCloseButton>
-            <StyledTitle color={'#595959'}>Koszyk</StyledTitle>
-          </Wrapper1>
-          <StyledParagraph>
-            Dodaj do koszyka produkty za 200 zł i uzyskaj darmową przesyłkę
-          </StyledParagraph>
-          <StyledTitle>Twój koszyk jest pusty</StyledTitle>
-        </StyledSlideOutRight>
+
         <Logo scrollPosition={scrollPosition}>Papierniczeni</Logo>
         <NavigationWrapper>
           <Icon scrollPosition={scrollPosition}>
@@ -101,7 +76,7 @@ const Navigation = () => {
             </svg>
           </Icon>
           <Icon
-            onClick={() => setVisibility({ basketView: true })}
+            onClick={() => setVisibility({ basket: true })}
             scrollPosition={scrollPosition}
           >
             <svg

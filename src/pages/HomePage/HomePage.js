@@ -1,6 +1,4 @@
 import React, { useState, useRef, createContext } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import MainTemplate from '../../templates/MainTemplate';
 import ProductsCategory from '../../components/organisms/ProductsCategory/ProductsCategory';
@@ -21,7 +19,7 @@ import Footer from 'components/organisms/Footer/Footer';
 
 export const ScrollPositionContext = createContext(0);
 
-const HomePage = ({ state }) => {
+const HomePage = () => {
   const [elementPosition, setElementPosition] = useState();
   const ref = useRef();
 
@@ -70,10 +68,4 @@ const HomePage = ({ state }) => {
   );
 };
 
-HomePage.propTypes = {
-  state: PropTypes.array,
-};
-
-const mapStateToProps = (state) => ({ state });
-
-export default connect(mapStateToProps)(HomePage);
+export default HomePage;
