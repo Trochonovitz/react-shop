@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { NavAccountSlideOut } from 'components/molecules/NavAccountSlideOut/NavAccountSlideOut';
 import { breakpoints } from 'theme/theme';
+import { SlideOut } from 'components/molecules/SlideOut/SlideOut';
 import { Title } from 'components/atoms/Title/Title';
 
 export const StickyWrapper = styled.div`
@@ -10,7 +10,7 @@ export const StickyWrapper = styled.div`
   z-index: 3;
 `;
 
-export const StyledSlideOutRight = styled(NavAccountSlideOut)`
+export const StyledSlideOut = styled(SlideOut)`
   right: 0;
   align-items: center;
 
@@ -49,4 +49,10 @@ export const StyledParagraph = styled.p`
   border-left: none;
   border-right: none;
   padding: 10px 20px;
+`;
+
+export const ItemsList = styled.ul`
+  width: 100%;
+  margin: 0;
+  padding: 0;
 `;

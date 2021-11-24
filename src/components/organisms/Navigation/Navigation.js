@@ -5,12 +5,13 @@ import { ScrollPositionContext } from 'pages/HomePage/HomePage';
 import {
   Wrapper,
   NavigationElement,
-  StyledSlideOutLeft,
+  StyledSlideOut,
   Logo,
   NavigationWrapper,
   Icon,
   WrapperAbsolute,
   NavbarCloseButton,
+  ListElements,
 } from './Navigation.styles';
 
 const options = [
@@ -31,24 +32,25 @@ const Navigation = ({ isVisible, setVisibility }) => {
     <Wrapper>
       <WrapperAbsolute scrollPosition={scrollPosition}>
         <Hamburger onClick={() => setVisibility({ mobileNav: true })} />
-        <StyledSlideOutLeft isVisible={isVisible} from={'left'}>
-          <NavbarCloseButton
-            onClick={() => setVisibility({ mobileNav: false })}
-          >
-            X
-          </NavbarCloseButton>
-          {options.map((option, index) => (
-            <NavigationElement
-              as={NavLink}
-              scrollPosition={scrollPosition}
-              to="#"
-              key={`${option}${index}`}
+        <StyledSlideOut isVisible={isVisible} from={'left'}>
+          <ListElements isVisible={isVisible}>
+            <NavbarCloseButton
+              onClick={() => setVisibility({ mobileNav: false })}
             >
-              {option}
-            </NavigationElement>
-          ))}
-        </StyledSlideOutLeft>
-
+              X
+            </NavbarCloseButton>
+            {options.map((option, index) => (
+              <NavigationElement
+                as={NavLink}
+                scrollPosition={scrollPosition}
+                to={option.replace(/ /g, '-')}
+                key={`${option}${index}`}
+              >
+                {option}
+              </NavigationElement>
+            ))}
+          </ListElements>
+        </StyledSlideOut>
         <Logo scrollPosition={scrollPosition}>Papierniczeni</Logo>
         <NavigationWrapper>
           <Icon scrollPosition={scrollPosition}>

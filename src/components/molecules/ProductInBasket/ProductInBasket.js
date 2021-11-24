@@ -1,27 +1,47 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeItem } from 'store/store';
 
-const StyledWrapper = styled.div`
-  width: 200px;
-  border: 1px solid black;
-  margin-top: 20px;
+import {
+  Wrapper,
+  Image,
+  InsideWrapper,
+  Paragraph,
+  Input,
+  Control,
+  ProductInfo,
+  StyledButtonWithUnderline,
+} from './ProductInBasket.styles';
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+const ProductInBasket = ({ name, price, img }) => {
+  const dispatch = useDispatch();
 
-const ProductInBasket = ({ productName, productPrice }) => (
-  <StyledWrapper>
-    <p>{productName}</p>
-    <p>{productPrice} PLN</p>
-  </StyledWrapper>
-);
+  return (
+    <Wrapper>
+      <Image src={img} alt={`${name} visualistation`} />
+      <InsideWrapper>
+        <ProductInfo>
+          <Paragraph>{name}</Paragraph>
+          <Paragraph>{price} zł</Paragraph>
+        </ProductInfo>
+        <Control>
+          <Input />
+          <StyledButtonWithUnderline
+            onClick={() => dispatch(removeItem({ name }))}
+          >
+            USUŃ
+          </StyledButtonWithUnderline>
+        </Control>
+      </InsideWrapper>
+    </Wrapper>
+  );
+};
 
 ProductInBasket.propTypes = {
-  productName: PropTypes.string.isRequired,
-  productPrice: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  img: PropTypes.string.isRequired,
 };
 
 export default ProductInBasket;

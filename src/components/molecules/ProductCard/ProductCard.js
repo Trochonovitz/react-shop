@@ -1,23 +1,20 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Wrapper, Header2, Image } from './ProductCard.styles';
 import { addItem } from 'store/store';
+import { Wrapper, Paragraph, Image, BuyButton } from './ProductCard.styles';
 
-const ProductCard = ({ name, price }) => {
+const ProductCard = ({ name, price, img }) => {
   const dispatch = useDispatch();
 
   return (
-    <Wrapper onClick={() => dispatch(addItem({ name, price }))}>
-      <Image
-        alt={`${name}`}
-        src="https://cdn.shopify.com/s/files/1/0594/6743/2116/products/17110-uma-notes-niebieski-01_1200x.jpg?v=1632316508"
-      />
+    <Wrapper onClick={() => dispatch(addItem({ name, price, img }))}>
+      <Image alt={`${name}`} src={img} />
 
-      <Header2>{name}</Header2>
-      <Header2>{price} zł</Header2>
-      {/* <StyledButton onClick={() => addItemToBasket(productName, productPrice)}>
-      Add to basket
-    </StyledButton> */}
+      <Paragraph>{name}</Paragraph>
+      <Paragraph>{price} zł</Paragraph>
+      {/* <BuyButton onClick={() => dispatch(addItem({name, price})}>
+      ikona
+    </BuyButton> */}
     </Wrapper>
   );
 };

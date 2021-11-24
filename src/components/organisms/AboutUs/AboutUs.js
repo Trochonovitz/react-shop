@@ -1,10 +1,10 @@
 import React from 'react';
+import { ButtonWithUnderline } from 'components/atoms/ButtonWithUnderline/ButtonWithUnderline';
 import {
   AboutUsSection,
   AboutUsInfo,
   StyledTitle,
   StyledParagraph,
-  ButtonWithUnderline,
 } from './AboutUs.styles';
 
 const AboutUs = () => (

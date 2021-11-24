@@ -1,6 +1,16 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { breakpoints } from 'theme/theme';
-import { NavAccountSlideOut } from 'components/molecules/NavAccountSlideOut/NavAccountSlideOut';
+import { SlideOut } from 'components/molecules/SlideOut/SlideOut';
+
+const slidein = keyframes`
+0% {
+  transform: translateX(-50%);
+}
+
+100% {
+  transform: translateX(0%);
+}
+`;
 
 export const Wrapper = styled.nav`
   width: 100%;
@@ -27,21 +37,39 @@ export const WrapperAbsolute = styled.div`
   }
 `;
 
-export const StyledSlideOutLeft = styled(NavAccountSlideOut)`
+export const StyledSlideOut = styled(SlideOut)`
   left: 0;
-  align-items: flex-start;
-  justify-content: flex-start;
 
   @media ${breakpoints.desktop} {
     position: static;
     transform: translateX(0);
     grid-row: 2;
     grid-column: 2;
-    width: 100%;
     height: 100%;
-    flex-direction: row;
-    justify-content: center;
     background-color: transparent;
+  }
+`;
+
+export const ListElements = styled.ul`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
+  list-style: none;
+  margin: 0 10px 0 20px;
+  padding: 0;
+
+  ${({ isVisible }) =>
+    isVisible &&
+    css`
+      animation: 1.1s ease-in-out ${slidein};
+    `}
+
+  @media ${breakpoints.desktop} {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -50,11 +78,15 @@ export const NavigationElement = styled.li`
   text-transform: uppercase;
   color: #303030;
   padding: 20px 0;
-  margin: 0 10px 0 20px;
   font-size: 0.8rem;
   letter-spacing: 0.8px;
   border-bottom: 1px solid #e0e0e0;
   width: 80%;
+
+  &:last-child {
+    text-transform: none;
+    color: #595959;
+  }
 
   @media ${breakpoints.desktop} {
     border: none;
@@ -75,7 +107,7 @@ export const NavbarCloseButton = styled.button`
   border: none;
   background: transparent;
   color: #303030;
-  padding: 20px;
+  padding: 20px 20px 20px 0;
 
   @media ${breakpoints.desktop} {
     display: none;

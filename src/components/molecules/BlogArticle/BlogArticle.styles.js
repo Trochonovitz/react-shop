@@ -1,6 +1,7 @@
-import { Title } from 'components/atoms/Title/Title';
 import styled from 'styled-components';
 import { breakpoints } from 'theme/theme';
+import { Title } from 'components/atoms/Title/Title';
+import { ButtonWithUnderline } from 'components/atoms/ButtonWithUnderline/ButtonWithUnderline';
 
 export const BlogsArticle = styled.article`
   display: flex;
@@ -38,36 +39,8 @@ export const StyledTitle = styled(Title)`
   margin: 0;
 `;
 
-export const BlogButton = styled.button`
-  background-color: transparent;
-  color: #595959;
-  border: none;
-  padding: 0 0 5px 0;
-  font-size: 0.9rem;
-  font-family: 'Montserrat', sans-serif;
-  cursor: pointer;
-  position: relative;
-
+export const StyledButtonWithUnderline = styled(ButtonWithUnderline)`
   @media ${breakpoints.desktop} {
     margin: 0 20px;
-  }
-
-  &::before {
-    content: '';
-    width: 100%;
-    height: 1px;
-    background-color: #595959;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    transform: scaleX(1);
-    transform-origin: left;
-    transition: transform 0.3s ease-in-out;
-  }
-
-  &:hover {
-    &::before {
-      transform: scaleX(0);
-    }
   }
 `;

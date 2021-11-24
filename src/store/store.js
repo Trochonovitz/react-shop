@@ -1,5 +1,4 @@
 import { createStore } from 'redux';
-import { v4 as uuid } from 'uuid';
 
 const actionsTypes = {
   ADD_ITEM: 'ADD_ITEM',
@@ -29,7 +28,14 @@ const shopReducer = (state = initialState, action) => {
     case actionsTypes.ADD_ITEM:
       return { ...state, basket: [...state.basket, action.payload] };
     case actionsTypes.REMOVE_ITEM:
-      return {};
+      return {
+        ...state,
+        basket: [
+          ...state.basket.filter(
+            (element) => element.name !== action.payload.name
+          ),
+        ],
+      };
     default:
       return state;
   }

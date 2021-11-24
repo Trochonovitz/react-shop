@@ -2,8 +2,8 @@ import React from 'react';
 import {
   BlogsArticle,
   Image,
+  StyledButtonWithUnderline,
   StyledParagraph,
-  BlogButton,
   StyledTitle,
   TextBox,
 } from './BlogArticle.styles';
@@ -16,7 +16,7 @@ const BlogArticle = ({ category, title, img, content }) => (
       <StyledTitle color={'#595959'}>{title}</StyledTitle>
       <p>{content}</p>
     </TextBox>
-    <BlogButton>Czytaj dalej</BlogButton>
+    <StyledButtonWithUnderline>Czytaj dalej</StyledButtonWithUnderline>
   </BlogsArticle>
 );
 

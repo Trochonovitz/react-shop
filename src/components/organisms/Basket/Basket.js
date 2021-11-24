@@ -1,12 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import ProductInBasket from 'components/molecules/ProductInBasket/ProductInBasket';
 import {
-  StyledSlideOutRight,
+  StyledSlideOut,
   Wrapper,
   StyledTitle,
   BasketCloseButton,
   StyledParagraph,
   StickyWrapper,
+  ItemsList,
 } from './Basket.styles';
 
 const Basket = ({ isVisible, setVisibility }) => {
@@ -18,7 +20,7 @@ const Basket = ({ isVisible, setVisibility }) => {
 
   return (
     <StickyWrapper>
-      <StyledSlideOutRight isVisible={isVisible} from={'right'}>
+      <StyledSlideOut isVisible={isVisible} from={'right'}>
         <Wrapper>
           <BasketCloseButton onClick={() => setVisibility({ basket: false })}>
             X
@@ -34,14 +36,18 @@ const Basket = ({ isVisible, setVisibility }) => {
         </StyledParagraph>
         {products.length > 0 ? (
           products.map((product, index) => (
-            <div key={`${product}${index}`}>
-              <li>{product.name}</li> <li>{product.price}</li>
-            </div>
+            <ItemsList key={`${product}${index}`}>
+              <ProductInBasket
+                name={product.name}
+                price={product.price}
+                img={product.img}
+              />
+            </ItemsList>
           ))
         ) : (
           <StyledTitle>Twój koszyk jest pusty</StyledTitle>
         )}
-      </StyledSlideOutRight>
+      </StyledSlideOut>
     </StickyWrapper>
   );
 };

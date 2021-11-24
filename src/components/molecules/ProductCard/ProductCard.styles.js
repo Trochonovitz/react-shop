@@ -28,7 +28,7 @@ export const Image = styled.img`
   }
 `;
 
-export const Header2 = styled.h4`
+export const Paragraph = styled.p`
   justify-self: center;
   align-self: center;
   text-transform: uppercase;
@@ -40,10 +40,10 @@ export const Header2 = styled.h4`
   cursor: pointer;
 `;
 
-export const StyledButton = styled.button`
-  background-color: transparent;
-  border: 3px solid black;
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  padding: 10px;
+export const BuyButton = styled.button`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: transparent;
 `;
