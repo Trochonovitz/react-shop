@@ -123,6 +123,8 @@ export const Logo = styled.h1`
   text-transform: uppercase;
   margin: 0;
   color: ${({ scrollPosition }) => (scrollPosition < 15 ? 'black' : '#fff')};
+  cursor: pointer;
+  text-decoration: none;
 
   @media ${breakpoints.desktop} {
     grid-column: 2;

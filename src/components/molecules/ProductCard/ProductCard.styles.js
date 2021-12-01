@@ -1,12 +1,39 @@
 import styled from 'styled-components';
 import { breakpoints } from 'theme/theme';
 
+export const BuyButton = styled.button`
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: none;
+  background: #fff;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.7s ease-in-out;
+  cursor: pointer;
+  right: 7px;
+  bottom: 7px;
+`;
+
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 30px 10px;
+  text-decoration: none;
+`;
+
+export const ImageWrapper = styled.div`
+  position: relative;
+
+  &:hover {
+    ${BuyButton} {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
 `;
 
 export const Image = styled.img`
@@ -38,12 +65,4 @@ export const Paragraph = styled.p`
   margin: 10px 0 0 0;
   font-weight: normal;
   cursor: pointer;
-`;
-
-export const BuyButton = styled.button`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: none;
-  background: transparent;
 `;

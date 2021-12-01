@@ -53,6 +53,7 @@ export const Paragraph = styled.p`
 
 export const Input = styled.input.attrs({
   type: 'number',
+  defaultValue: 1,
   min: 1,
   max: 15,
 })`

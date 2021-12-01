@@ -16,7 +16,11 @@ export const Wrapper = styled.div`
 `;
 
 export const StyledButton = styled(Button)`
+  display: grid;
   width: 70%;
+  text-decoration: none;
+  align-items: center;
+  justify-items: center;
 
   @media ${breakpoints.desktop} {
     width: 25%;

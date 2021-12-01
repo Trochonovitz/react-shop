@@ -13,10 +13,7 @@ import {
 
 const Basket = ({ isVisible, setVisibility }) => {
   const products = useSelector((store) => store?.basket);
-  const basketValue = products.reduce(
-    (previous, current) => previous + +current.price,
-    0
-  );
+  const basketValue = useSelector((store) => store?.basketValue);
 
   return (
     <StickyWrapper>
@@ -30,23 +27,25 @@ const Basket = ({ isVisible, setVisibility }) => {
         <StyledParagraph>
           {basketValue <= 200
             ? `Dodaj do koszyka produkty za ${
-                products.length > 0 ? 200 - basketValue : 200
+                200 - basketValue
               } zł i uzyskaj darmową przesyłkę`
             : `Zamówienie kwalifikuje się do darmowej przesyłki`}
         </StyledParagraph>
-        {products.length > 0 ? (
-          products.map((product, index) => (
-            <ItemsList key={`${product}${index}`}>
+        <ItemsList>
+          {products.length > 0 ? (
+            products.map((product, index) => (
               <ProductInBasket
                 name={product.name}
                 price={product.price}
                 img={product.img}
+                id={product.id}
+                key={`${product}${index}`}
               />
-            </ItemsList>
-          ))
-        ) : (
-          <StyledTitle>Twój koszyk jest pusty</StyledTitle>
-        )}
+            ))
+          ) : (
+            <StyledTitle>Twój koszyk jest pusty</StyledTitle>
+          )}
+        </ItemsList>
       </StyledSlideOut>
     </StickyWrapper>
   );

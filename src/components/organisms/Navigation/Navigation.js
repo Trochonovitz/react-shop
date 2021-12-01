@@ -43,7 +43,8 @@ const Navigation = ({ isVisible, setVisibility }) => {
               <NavigationElement
                 as={NavLink}
                 scrollPosition={scrollPosition}
-                to={option.replace(/ /g, '-')}
+                // to={option.replace(/ /g, '-')}
+                to={'products'}
                 key={`${option}${index}`}
               >
                 {option}
@@ -51,7 +52,9 @@ const Navigation = ({ isVisible, setVisibility }) => {
             ))}
           </ListElements>
         </StyledSlideOut>
-        <Logo scrollPosition={scrollPosition}>Papierniczeni</Logo>
+        <Logo as={NavLink} to="/" scrollPosition={scrollPosition}>
+          Papierniczeni
+        </Logo>
         <NavigationWrapper>
           <Icon scrollPosition={scrollPosition}>
             <svg

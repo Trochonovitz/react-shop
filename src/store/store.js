@@ -3,6 +3,7 @@ import { createStore } from 'redux';
 const actionsTypes = {
   ADD_ITEM: 'ADD_ITEM',
   REMOVE_ITEM: 'REMOVE_ITEM',
+  INCREMENT_VALUE: 'INCREMENT_VALUE',
 };
 
 export const addItem = (payload) => {
@@ -19,22 +20,49 @@ export const removeItem = (payload) => {
   };
 };
 
-const initialState = {
-  basket: [],
+export const incrementBasketValue = (payload) => {
+  return {
+    type: actionsTypes.INCREMENT_VALUE,
+    payload,
+  };
 };
 
-const shopReducer = (state = initialState, action) => {
-  switch (action.type) {
+const initialState = {
+  basket: [],
+  basketValue: 0,
+};
+
+const shopReducer = (state = initialState, { type, payload }) => {
+  switch (type) {
     case actionsTypes.ADD_ITEM:
-      return { ...state, basket: [...state.basket, action.payload] };
+      if (state.basket.find(({ id }) => id === payload.id)) return { ...state };
+      else
+        return {
+          ...state,
+          basket: [...state.basket, payload],
+          basketValue: payload.price + state.basketValue,
+        };
+
     case actionsTypes.REMOVE_ITEM:
       return {
         ...state,
         basket: [
-          ...state.basket.filter(
-            (element) => element.name !== action.payload.name
-          ),
+          ...state.basket.filter((element) => element.id !== payload.id),
         ],
+        // basketValue: state.basketValue - payload.price
+      };
+
+    case actionsTypes.INCREMENT_VALUE:
+      state.basket[
+        state.basket.findIndex((item) => item.id === payload.id)
+      ].quantity = payload.incrementValue;
+
+      return {
+        ...state,
+        basketValue: state.basket.reduce(
+          (acc, current) => acc + current.price * current.quantity,
+          0
+        ),
       };
     default:
       return state;
