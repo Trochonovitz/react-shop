@@ -6,8 +6,8 @@ import { Title } from 'components/atoms/Title/Title';
 export const StickyWrapper = styled.div`
   width: 100%;
   position: sticky;
+  z-index: 4;
   top: 0;
-  z-index: 3;
 `;
 
 export const StyledSlideOut = styled(SlideOut)`

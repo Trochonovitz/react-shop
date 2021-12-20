@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'components/atoms/Buttton/Button';
 import {
   Wrapper,
   StyledTitle,
@@ -9,6 +8,7 @@ import {
   StyledElement,
   StyledInput,
   TextBox,
+  StyledButton,
 } from './Footer.styles';
 
 const options = [
@@ -51,8 +51,7 @@ const Footer = () => (
         Zapisz się do naszego newslettera i bądź na bieżąco z nowościami.
       </StyledParagraph>
       <StyledInput type="email" placeholder="Podaj adres e-mail" />
-      <Button
-        width={'150px'}
+      <StyledButton
         backgroundColor={'#d4e4d4'}
         backgroundColorHover={'#f3f3f3'}
         fontColorMain={'#303030'}
@@ -60,7 +59,7 @@ const Footer = () => (
         borderColor={'#bbccbb'}
       >
         Zapisz się
-      </Button>
+      </StyledButton>
     </TextBox>
   </Wrapper>
 );

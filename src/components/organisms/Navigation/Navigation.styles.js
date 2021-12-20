@@ -23,7 +23,11 @@ export const WrapperAbsolute = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 10px 0;
-  position: absolute;
+  ${({ isAbsolute }) =>
+    isAbsolute &&
+    css`
+      position: absolute;
+    `};
   top: 0;
   border-bottom: 1px solid #e0e0e0;
   width: 100%;

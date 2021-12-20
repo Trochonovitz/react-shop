@@ -23,6 +23,16 @@ export const Wrapper = styled.div`
   align-items: center;
   margin: 30px 10px;
   text-decoration: none;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  @media ${breakpoints.desktop} {
+    &:first-child {
+      margin-top: 30px;
+    }
+  }
 `;
 
 export const ImageWrapper = styled.div`

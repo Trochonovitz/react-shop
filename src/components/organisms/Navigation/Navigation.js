@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import Hamburger from '../../molecules/Hamburger/Hamburger';
 import { ScrollPositionContext } from 'pages/HomePage/HomePage';
 import {
@@ -27,10 +28,14 @@ const options = [
 
 const Navigation = ({ isVisible, setVisibility }) => {
   const scrollPosition = useContext(ScrollPositionContext);
+  const location = useLocation().pathname;
 
   return (
     <Wrapper>
-      <WrapperAbsolute scrollPosition={scrollPosition}>
+      <WrapperAbsolute
+        scrollPosition={scrollPosition}
+        isAbsolute={location.length === 1}
+      >
         <Hamburger onClick={() => setVisibility({ mobileNav: true })} />
         <StyledSlideOut isVisible={isVisible} from={'left'}>
           <ListElements isVisible={isVisible}>

@@ -1,5 +1,7 @@
 import React from 'react';
 import { useQuery } from 'graphql-hooks';
+import { useContent } from 'hooks/useContent';
+import BlogArticle from 'components/molecules/BlogArticle/BlogArticle';
 import {
   BlogWrapper,
   BlogHeader,
@@ -8,24 +10,10 @@ import {
   StyledButton,
   BlogContent,
 } from './BlogSection.styles';
-import BlogArticle from 'components/molecules/BlogArticle/BlogArticle';
-
-const query = `query
-{
-  allArticles {
-    id
-    category
-		title
-    mainPhoto {
-      url(imgixParams: {})
-    }
-    content
-  }
-}
-`;
 
 const BlogSection = () => {
-  const { loading, error, data } = useQuery(query);
+  const { blogsArticlesQuery } = useContent();
+  const { loading, error, data } = useQuery(blogsArticlesQuery);
 
   if (loading) return 'Loading...';
   if (error) return 'Something Bad Happened';

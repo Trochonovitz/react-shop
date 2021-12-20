@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Title } from 'components/atoms/Title/Title';
 import { breakpoints } from 'theme/theme';
+import { Button } from 'components/atoms/Buttton/Button';
 
 export const Wrapper = styled.footer`
   display: flex;
@@ -17,9 +18,10 @@ export const Wrapper = styled.footer`
 `;
 
 export const TextBox = styled.div`
+  display: flex;
+  flex-direction: column;
+
   @media ${breakpoints.desktop} {
-    display: flex;
-    flex-direction: column;
     width: 20%;
   }
 `;
@@ -69,4 +71,8 @@ export const StyledInput = styled.input`
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
   }
+`;
+
+export const StyledButton = styled(Button)`
+  width: 50%;
 `;

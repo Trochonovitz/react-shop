@@ -17,15 +17,15 @@ const client = new GraphQLClient({
 
 const App = () => (
   <Provider store={store}>
-    <Router>
-      <Switch>
-        <ClientContext.Provider value={client}>
+    <ClientContext.Provider value={client}>
+      <Router>
+        <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route path="/products" component={ProductsPage} />
+          <Route exact path="/products" component={ProductsPage} />
           <Route path="/products/:id" component={ProductDetailPage} />
-        </ClientContext.Provider>
-      </Switch>
-    </Router>
+        </Switch>
+      </Router>
+    </ClientContext.Provider>
   </Provider>
 );
 

@@ -9,13 +9,12 @@ import BlogSection from 'components/organisms/BlogSection/BlogSection';
 import AboutUs from 'components/organisms/AboutUs/AboutUs';
 import {
   InfoBox,
-  Header,
+  StyledTitle,
   Info,
   InfoLink,
   NewItemsBox,
   StyledP,
 } from './HomePage.styles';
-import Footer from 'components/organisms/Footer/Footer';
 
 export const ScrollPositionContext = createContext(0);
 
@@ -43,7 +42,7 @@ const HomePage = () => {
           animated
           main
         />
-        <Header>Polecamy</Header>
+        <StyledTitle color="#595959">Polecamy</StyledTitle>
         <ProductsCategory />
         <NewItemsBox>
           <StyledP style={{ textDecoration: 'underline' }}>
@@ -58,11 +57,8 @@ const HomePage = () => {
           </Info>
         </NewItemsBox>
         <ItemsCarousel />
-        <p style={{ textDecoration: 'underline' }}>komponent z inspiracjami</p>
-        <p>kreska, która będzie border bottom komponentu z inspiracjami</p>
         <BlogSection />
         <AboutUs />
-        <Footer />
       </MainTemplate>
     </ScrollPositionContext.Provider>
   );

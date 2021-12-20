@@ -1,6 +1,7 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { breakpoints } from 'theme/theme';
+import { Link } from 'react-router-dom';
+import { Title } from 'components/atoms/Title/Title';
 
 export const InfoBox = styled.div`
   display: flex;
@@ -17,14 +18,11 @@ export const InfoBox = styled.div`
   line-height: 1.2rem;
 `;
 
-export const Header = styled.h1`
-  color: #595959;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
+export const StyledTitle = styled(Title)`
   font-size: 1.2rem;
-  padding: 20px 10px;
+  padding: 20px 0;
   text-align: center;
-  margin: 10px 0 0 0;
+  width: 100%;
 `;
 
 export const Info = styled.div`
