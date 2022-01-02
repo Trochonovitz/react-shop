@@ -20,8 +20,8 @@ export const StyledHamburgerInner = styled.span`
   width: 100%;
   height: 2px;
   position: relative;
-  background-color: ${({ scrollPosition }) =>
-    scrollPosition < 15 ? 'black' : '#fff'};
+  background-color: ${({ scrollPosition, isHover }) =>
+    scrollPosition < 15 || isHover ? 'black' : '#fff'};
 
   &::after,
   &::before {
@@ -30,8 +30,8 @@ export const StyledHamburgerInner = styled.span`
     content: '';
     width: 100%;
     height: 2px;
-    background-color: ${({ scrollPosition }) =>
-      scrollPosition < 15 ? 'black' : '#fff'};
+    background-color: ${({ scrollPosition, isHover }) =>
+      scrollPosition < 15 || isHover ? 'black' : '#fff'};
   }
 
   &::after {

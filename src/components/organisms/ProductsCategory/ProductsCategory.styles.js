@@ -4,14 +4,16 @@ import { breakpoints } from 'theme/theme';
 
 export const Wrapper = styled.div`
   width: 100%;
+  display: grid;
 
   @media ${breakpoints.bigPhone} {
-    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
   }
 
   @media ${breakpoints.desktop} {
     grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 50% 50%;
   }
 `;
 

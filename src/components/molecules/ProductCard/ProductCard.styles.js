@@ -55,11 +55,6 @@ export const Image = styled.img`
   height: 350px;
 
   @media ${breakpoints.phone} {
-    width: 544px;
-    height: 544px;
-  }
-
-  @media ${breakpoints.bigPhone} {
     width: 100%;
     height: 100%;
   }

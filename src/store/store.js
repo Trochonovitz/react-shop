@@ -7,6 +7,7 @@ const actionsTypes = {
 };
 
 export const addItem = (payload) => {
+  alert(`Dodałeś ${payload.name} do koszyka`);
   return {
     type: actionsTypes.ADD_ITEM,
     payload,
@@ -49,7 +50,18 @@ const shopReducer = (state = initialState, { type, payload }) => {
         basket: [
           ...state.basket.filter((element) => element.id !== payload.id),
         ],
-        // basketValue: state.basketValue - payload.price
+        // basketValue: state.basket.reduce(
+        //   (acc, current) => acc - current.price * current.quantity,
+        //   0
+        // ),
+
+        // state.basketValue -
+        // state.basket[
+        //   state.basket.findIndex((item) => item.id === payload.id).quantity *
+        //     state.basket[
+        //       state.basket.findIndex((item) => item.id === payload.id)
+        //     ].price
+        // ],
       };
 
     case actionsTypes.INCREMENT_VALUE:

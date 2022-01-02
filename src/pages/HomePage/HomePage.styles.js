@@ -32,17 +32,8 @@ export const Info = styled.div`
   padding: 120px 60px;
   line-height: 1.7rem;
 
-  @media ${breakpoints.desktop} {
-    width: 30%;
-  }
-`;
-
-export const StyledP = styled.p`
-  @media ${breakpoints.desktop} {
-    width: 70%;
+  @media ${breakpoints.laptop} {
     height: 100%;
-    border: 1px solid black;
-    text-align: center;
   }
 `;
 
@@ -56,11 +47,16 @@ export const NewItemsBox = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100%;
+  margin: 40px 0;
 
-  @media ${breakpoints.desktop} {
+  @media ${breakpoints.laptop} {
+    display: grid;
+    grid-template-columns: 30% 70%;
+  }
+
+  /* @media ${breakpoints.desktop} {
     margin: 50px 0 0 0;
     padding: 50px 100px;
-    flex-direction: row;
     height: 400px;
-  }
+  } */
 `;

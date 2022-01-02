@@ -22,22 +22,24 @@ export const Wrapper = styled.nav`
 export const WrapperAbsolute = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 10px 0;
+  padding: 10px;
+  top: 0;
+  border-bottom: 1px solid #e0e0e0;
+  width: 100%;
+
+  background-color: ${({ scrollPosition, isHover }) =>
+    scrollPosition < 15 || isHover ? '#fff' : 'transparent'};
+  transition: background-color 250ms linear;
+
   ${({ isAbsolute }) =>
     isAbsolute &&
     css`
       position: absolute;
     `};
-  top: 0;
-  border-bottom: 1px solid #e0e0e0;
-  width: 100%;
-
-  background-color: ${({ scrollPosition }) =>
-    scrollPosition < 15 ? '#fff' : 'transparent'};
-  transition: background-color 250ms linear;
 
   @media ${breakpoints.desktop} {
     grid-template-columns: 15% 70% 15%;
+    padding: 0px;
   }
 `;
 
@@ -94,11 +96,30 @@ export const NavigationElement = styled.li`
 
   @media ${breakpoints.desktop} {
     border: none;
-    padding: 10px;
-    margin: 0;
+    margin: 0 10px;
     width: fit-content;
-    color: ${({ scrollPosition }) =>
-      scrollPosition < 15 ? '#303030' : '#fff'};
+    color: ${({ scrollPosition, isHover }) =>
+      scrollPosition < 15 || isHover ? '#303030' : '#fff'};
+    position: relative;
+
+    &::before {
+      content: '';
+      width: 100%;
+      height: 2px;
+      background-color: black;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    &:hover {
+      &::before {
+        transform: scaleX(1);
+      }
+    }
 
     &:last-child {
       display: none;
@@ -126,7 +147,8 @@ export const Logo = styled.h1`
   letter-spacing: 0.2em;
   text-transform: uppercase;
   margin: 0;
-  color: ${({ scrollPosition }) => (scrollPosition < 15 ? 'black' : '#fff')};
+  color: ${({ scrollPosition, isHover }) =>
+    scrollPosition < 15 || isHover ? 'black' : '#fff'};
   cursor: pointer;
   text-decoration: none;
 
@@ -150,7 +172,8 @@ export const Icon = styled.button`
   background: transparent;
   cursor: pointer;
   margin: 0 0 0 10px;
-  color: ${({ scrollPosition }) => (scrollPosition < 15 ? 'black' : '#fff')};
+  color: ${({ scrollPosition, isHover }) =>
+    scrollPosition < 15 || isHover ? 'black' : '#fff'};
 
   &:last-child {
     margin: 0 10px 0 10px;
@@ -161,4 +184,9 @@ export const Icon = styled.button`
       display: none;
     }
   }
+`;
+
+export const StyledSVG = styled.svg`
+  width: 20px;
+  height: 20px;
 `;

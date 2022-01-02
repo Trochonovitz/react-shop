@@ -1,7 +1,21 @@
 export const useContent = () => {
   const blogsArticlesQuery = `query
     {
-      allArticles {
+      allArticles(first: 3) {
+        id
+        category
+            title
+        mainPhoto {
+          url(imgixParams: {})
+        }
+        content
+      }
+    }
+    `;
+
+  const twoBlogsArticlesQuery = `query
+    {
+      allArticles(first: 2) {
         id
         category
             title
@@ -25,5 +39,5 @@ export const useContent = () => {
       }
       `;
 
-  return { blogsArticlesQuery, productsQuery };
+  return { blogsArticlesQuery, twoBlogsArticlesQuery, productsQuery };
 };

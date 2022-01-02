@@ -10,10 +10,16 @@ import {
   StyledButton,
   BlogContent,
 } from './BlogSection.styles';
+import { useMediaQuery } from 'react-responsive';
+import { breakpoints } from 'theme/theme';
 
 const BlogSection = () => {
-  const { blogsArticlesQuery } = useContent();
-  const { loading, error, data } = useQuery(blogsArticlesQuery);
+  const { blogsArticlesQuery, twoBlogsArticlesQuery } = useContent();
+  const tabletViewArticles = useMediaQuery({ query: breakpoints.maxTablet });
+  const conditionalArticlesView = tabletViewArticles
+    ? twoBlogsArticlesQuery
+    : blogsArticlesQuery;
+  const { loading, error, data } = useQuery(conditionalArticlesView);
 
   if (loading) return 'Loading...';
   if (error) return 'Something Bad Happened';

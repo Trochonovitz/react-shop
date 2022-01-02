@@ -6,7 +6,7 @@ import { ButtonWithUnderline } from 'components/atoms/ButtonWithUnderline/Button
 export const BlogsArticle = styled.article`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
   align-items: flex-start;
   padding: 20px 25px;
   line-height: 1.65rem;
@@ -15,7 +15,7 @@ export const BlogsArticle = styled.article`
 
 export const Image = styled.img`
   width: 100%;
-  height: 40%;
+  /* height: 40%; */
   object-fit: cover;
 `;
 

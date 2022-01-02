@@ -10,20 +10,21 @@ export const Wrapper = styled.footer`
   padding: 24px;
   width: 100%;
 
+  @media ${breakpoints.tablet} {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+  }
+
   @media ${breakpoints.desktop} {
-    padding: 50px;
-    flex-direction: row;
-    justify-content: space-between;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100%;
   }
 `;
 
 export const TextBox = styled.div`
   display: flex;
   flex-direction: column;
-
-  @media ${breakpoints.desktop} {
-    width: 20%;
-  }
 `;
 
 export const StyledUl = styled.ul`

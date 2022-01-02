@@ -17,7 +17,10 @@ const ProductCard = ({ name, price, img, id }) => {
   };
 
   return (
-    <Wrapper as={Link} to={`/products/${id}`}>
+    <Wrapper
+    // as={Link}
+    // to={`/products/${id}`}
+    >
       <ImageWrapper>
         <Image alt={`${name}`} src={img} />
         <BuyButton onClick={handleAddItem}>

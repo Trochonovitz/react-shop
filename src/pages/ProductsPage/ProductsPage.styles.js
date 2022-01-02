@@ -5,6 +5,7 @@ export const Header = styled.header`
   display: grid;
   grid-template-rows: 70% 30%;
   width: 100%;
+  margin: 0 0 20px 0;
 `;
 
 export const StyledTitle = styled(Title)`
@@ -12,7 +13,6 @@ export const StyledTitle = styled(Title)`
   height: 100%;
   margin: 0;
   padding: 30px 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
