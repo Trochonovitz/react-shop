@@ -14,12 +14,9 @@ import { useMediaQuery } from 'react-responsive';
 import { breakpoints } from 'theme/theme';
 
 const BlogSection = () => {
-  const { blogsArticlesQuery, twoBlogsArticlesQuery } = useContent();
-  const tabletViewArticles = useMediaQuery({ query: breakpoints.maxTablet });
-  const conditionalArticlesView = tabletViewArticles
-    ? twoBlogsArticlesQuery
-    : blogsArticlesQuery;
-  const { loading, error, data } = useQuery(conditionalArticlesView);
+  const tabletView = useMediaQuery({ query: breakpoints.maxTablet });
+  const { blogsArticlesQuery } = useContent(`(first: ${tabletView ? 2 : 3})`);
+  const { loading, error, data } = useQuery(blogsArticlesQuery);
 
   if (loading) return 'Loading...';
   if (error) return 'Something Bad Happened';

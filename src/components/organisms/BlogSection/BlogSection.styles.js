@@ -28,7 +28,6 @@ export const BlogContent = styled.div`
 
   @media ${breakpoints.laptop} {
     grid-template-columns: repeat(3, 1fr);
-    /* padding: 30px 100px; */
   }
 `;
 

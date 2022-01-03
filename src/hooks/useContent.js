@@ -1,21 +1,7 @@
-export const useContent = () => {
+export const useContent = (quantity = '') => {
   const blogsArticlesQuery = `query
     {
-      allArticles(first: 3) {
-        id
-        category
-            title
-        mainPhoto {
-          url(imgixParams: {})
-        }
-        content
-      }
-    }
-    `;
-
-  const twoBlogsArticlesQuery = `query
-    {
-      allArticles(first: 2) {
+      allArticles${quantity} {
         id
         category
             title
@@ -39,5 +25,5 @@ export const useContent = () => {
       }
       `;
 
-  return { blogsArticlesQuery, twoBlogsArticlesQuery, productsQuery };
+  return { blogsArticlesQuery, productsQuery };
 };

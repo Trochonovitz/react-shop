@@ -4,8 +4,8 @@ import { Provider } from 'react-redux';
 import { GraphQLClient, ClientContext } from 'graphql-hooks';
 import { store } from 'store/store';
 import HomePage from './pages/HomePage/HomePage';
-import ProductDetailPage from 'pages/ProductDetailPage/ProductDetailPage';
 import ProductsPage from 'pages/ProductsPage/ProductsPage';
+import BlogPage from 'pages/BlogPage/BlogPage';
 
 const BASIC_URL = 'https://graphql.datocms.com/';
 const client = new GraphQLClient({
@@ -22,7 +22,8 @@ const App = () => (
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/products" component={ProductsPage} />
-          <Route path="/products/:id" component={ProductDetailPage} />
+          <Route exact path="/blog" component={BlogPage} />
+          {/* <Route path="/products/:id" component={ProductDetailPage} /> */}
         </Switch>
       </Router>
     </ClientContext.Provider>
