@@ -6,6 +6,7 @@ import { store } from 'store/store';
 import HomePage from './pages/HomePage/HomePage';
 import ProductsPage from 'pages/ProductsPage/ProductsPage';
 import BlogPage from 'pages/BlogPage/BlogPage';
+import ContactPage from 'pages/ContactPage/ContactPage';
 
 const BASIC_URL = 'https://graphql.datocms.com/';
 const client = new GraphQLClient({
@@ -21,8 +22,9 @@ const App = () => (
       <Router>
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/products" component={ProductsPage} />
-          <Route exact path="/blog" component={BlogPage} />
+          <Route path="/sklep" component={ProductsPage} />
+          <Route path="/blog" component={BlogPage} />
+          <Route path="/kontakt" component={ContactPage} />
           {/* <Route path="/products/:id" component={ProductDetailPage} /> */}
         </Switch>
       </Router>

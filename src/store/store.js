@@ -44,26 +44,6 @@ const shopReducer = (state = initialState, { type, payload }) => {
           basketValue: payload.price + state.basketValue,
         };
 
-    case actionsTypes.REMOVE_ITEM:
-      return {
-        ...state,
-        basket: [
-          ...state.basket.filter((element) => element.id !== payload.id),
-        ],
-        // basketValue: state.basket.reduce(
-        //   (acc, current) => acc - current.price * current.quantity,
-        //   0
-        // ),
-
-        // state.basketValue -
-        // state.basket[
-        //   state.basket.findIndex((item) => item.id === payload.id).quantity *
-        //     state.basket[
-        //       state.basket.findIndex((item) => item.id === payload.id)
-        //     ].price
-        // ],
-      };
-
     case actionsTypes.INCREMENT_VALUE:
       state.basket[
         state.basket.findIndex((item) => item.id === payload.id)
@@ -75,6 +55,15 @@ const shopReducer = (state = initialState, { type, payload }) => {
           (acc, current) => acc + current.price * current.quantity,
           0
         ),
+      };
+
+    case actionsTypes.REMOVE_ITEM:
+      return {
+        ...state,
+        basket: [
+          ...state.basket.filter((element) => element.id !== payload.id),
+        ],
+        basketValue: state.basketValue - payload.price * payload.quantity,
       };
     default:
       return state;

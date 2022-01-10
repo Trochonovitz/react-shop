@@ -58,7 +58,7 @@ const Navigation = ({ isVisible, setVisibility }) => {
               <NavigationElement
                 as={NavLink}
                 scrollPosition={scrollPosition}
-                to={'#'}
+                to={option}
                 key={`${option}${index}`}
                 isHover={isHover}
               >

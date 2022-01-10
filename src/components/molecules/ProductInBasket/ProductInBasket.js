@@ -14,7 +14,7 @@ import {
   StyledButtonWithUnderline,
 } from './ProductInBasket.styles';
 
-const ProductInBasket = ({ name, price, img, id }) => {
+const ProductInBasket = ({ name, price, img, id, quantity }) => {
   const dispatch = useDispatch();
 
   const handleIncrementProductValue = (event) => {
@@ -33,7 +33,7 @@ const ProductInBasket = ({ name, price, img, id }) => {
         <Control>
           <Input onChange={(event) => handleIncrementProductValue(event)} />
           <StyledButtonWithUnderline
-            onClick={() => dispatch(removeItem({ id, price }))}
+            onClick={() => dispatch(removeItem({ id, price, quantity }))}
           >
             USUŃ
           </StyledButtonWithUnderline>

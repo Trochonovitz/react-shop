@@ -39,6 +39,7 @@ const Basket = ({ isVisible, setVisibility }) => {
                 price={product.price}
                 img={product.img}
                 id={product.id}
+                quantity={product.quantity}
                 key={`${product}${index}`}
               />
             ))

@@ -10,7 +10,7 @@ export const Header = styled.header`
 
 export const StyledTitle = styled(Title)`
   border-bottom: 1px solid #e0e0e0;
-  font-size: 1.5px;
+  font-size: 1.5rem;
   height: 100%;
   margin: 0;
   padding: 30px 0;

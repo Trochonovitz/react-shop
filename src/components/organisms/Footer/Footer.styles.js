@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import { Title } from 'components/atoms/Title/Title';
 import { breakpoints } from 'theme/theme';
+import { Title } from 'components/atoms/Title/Title';
 import { Button } from 'components/atoms/Buttton/Button';
+import { Input } from 'components/atoms/Input/Input';
 
 export const Wrapper = styled.footer`
   display: flex;
@@ -54,26 +55,22 @@ export const StyledTitle = styled(Title)`
   font-size: 0.9rem;
 `;
 
-export const StyledParagraph = styled.p`
+export const Paragraph = styled.p`
   color: #595959;
   line-height: 1.65;
   font-size: 0.9rem;
 `;
 
-export const StyledInput = styled.input`
-  background-color: transparent;
-  border: 1px solid #e0e0e0;
-  height: 50px;
-  margin: 10px 0 30px;
-  padding: 0 20px;
-
-  &::placeholder {
-    color: #595959;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-  }
+export const Form = styled.form`
+  display: flex;
+  flex-direction: column;
 `;
 
 export const StyledButton = styled(Button)`
   width: 50%;
+`;
+
+export const StyledInput = styled(Input)`
+  margin: 10px 0 30px;
+  padding: 0 20px;
 `;

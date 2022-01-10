@@ -25,3 +25,25 @@ export const BlogContent = styled.div`
     grid-template-columns: repeat(3, 1fr);
   }
 `;
+
+export const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const CategoryButton = styled.button`
+  background: transparent;
+  border: none;
+  color: #595959;
+  font-family: 'Montserrat';
+  cursor: pointer;
+  text-transform: uppercase;
+  margin: 0 10px 10px 10px;
+  padding: 0px;
+  letter-spacing: 0.1em;
+
+  ${({ activeCategory, pickedCategory }) =>
+    activeCategory === pickedCategory && 'border-bottom: 1px solid #595959'}
+`;

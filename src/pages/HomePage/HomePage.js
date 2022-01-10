@@ -49,7 +49,7 @@ const HomePage = () => {
             inspiracje.
             <br />
             <br />
-            <InfoLink to="#">więcej</InfoLink>
+            <InfoLink to="/sklep">więcej</InfoLink>
           </Info>
           <ItemsCarousel />
         </NewItemsBox>

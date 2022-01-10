@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useQuery } from 'graphql-hooks';
 import { useContent } from 'hooks/useContent';
 import BlogArticle from 'components/molecules/BlogArticle/BlogArticle';
@@ -41,6 +42,8 @@ const BlogSection = () => {
         )}
       </BlogContent>
       <StyledButton
+        as={Link}
+        to={'/blog'}
         backgroundColor={'#d4e4d4'}
         backgroundColorHover={'#fff'}
         fontColorMain={'#303030'}

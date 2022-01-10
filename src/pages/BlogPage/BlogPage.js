@@ -3,7 +3,13 @@ import { useQuery } from 'graphql-hooks';
 import { useContent } from 'hooks/useContent';
 import MainTemplate from 'templates/MainTemplate';
 import BlogArticle from 'components/molecules/BlogArticle/BlogArticle';
-import { BlogContent, Header, StyledTitle } from './BlogPage.styles';
+import {
+  BlogContent,
+  CategoryButton,
+  Header,
+  StyledTitle,
+  Wrapper,
+} from './BlogPage.styles';
 
 const BlogPage = () => {
   const { blogsArticlesQuery } = useContent();
@@ -13,45 +19,48 @@ const BlogPage = () => {
   if (loading) return 'Loading...';
   if (error) return 'Something Bad Happened';
 
-  const articles = data.allArticles;
-  const filteredArticles = articles.filter(
-    (item) => item.category === pickedCategory
-  );
+  const allArticles = data.allArticles;
+  const filteredArticles =
+    pickedCategory === 'wszystkie'
+      ? allArticles
+      : allArticles.filter((item) => item.category === pickedCategory);
+  const handleCategory = (category) => setCategory(category);
 
   return (
     <MainTemplate>
       <Header>
         <StyledTitle color="#595959">Papiernicze inspiracje</StyledTitle>
-        <ul>
-          <li onClick={() => setCategory('wszystkie')}>wszystkie</li>
-          {articles.map(({ category }) => (
-            <li onClick={() => setCategory(category)}>{category}</li>
+        <Wrapper>
+          <CategoryButton
+            onClick={() => handleCategory('wszystkie')}
+            activeCategory={`wszystkie`}
+            pickedCategory={pickedCategory}
+          >
+            wszystkie
+          </CategoryButton>
+          {allArticles.map(({ category }, index) => (
+            <CategoryButton
+              key={`${category}${index}`}
+              onClick={() => handleCategory(category)}
+              activeCategory={category}
+              pickedCategory={pickedCategory}
+            >
+              {category}
+            </CategoryButton>
           ))}
-        </ul>
+        </Wrapper>
         <BlogContent>
-          {pickedCategory === 'wszystkie'
-            ? articles.map(
-                ({ id, category, title, mainPhoto: { url }, content }) => (
-                  <BlogArticle
-                    key={id}
-                    category={category}
-                    title={title}
-                    img={url}
-                    content={content}
-                  />
-                )
-              )
-            : filteredArticles.map(
-                ({ id, category, title, mainPhoto: { url }, content }) => (
-                  <BlogArticle
-                    key={id}
-                    category={category}
-                    title={title}
-                    img={url}
-                    content={content}
-                  />
-                )
-              )}
+          {filteredArticles.map(
+            ({ id, category, title, mainPhoto: { url }, content }) => (
+              <BlogArticle
+                key={id}
+                category={category}
+                title={title}
+                img={url}
+                content={content}
+              />
+            )
+          )}
         </BlogContent>
       </Header>
     </MainTemplate>

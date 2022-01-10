@@ -43,9 +43,13 @@ export const StyledTitle = styled(Title)`
 `;
 
 export const StyledButton = styled(Button)`
+  display: grid;
   width: 70%;
+  text-decoration: none;
+  align-items: center;
+  justify-items: center;
 
   @media ${breakpoints.desktop} {
-    width: 20%;
+    width: 25%;
   }
 `;

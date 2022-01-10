@@ -96,7 +96,7 @@ export const NavigationElement = styled.li`
 
   @media ${breakpoints.desktop} {
     border: none;
-    margin: 0 10px;
+    margin: 0 20px;
     width: fit-content;
     color: ${({ scrollPosition, isHover }) =>
       scrollPosition < 15 || isHover ? '#303030' : '#fff'};
