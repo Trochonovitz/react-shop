@@ -1,24 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { Global } from '../theme/Global';
-import { Wrapper } from './MainTemplate.styles';
 import Navigation from '../components/organisms/Navigation/Navigation';
 import Basket from 'components/organisms/Basket/Basket';
 import Footer from 'components/organisms/Footer/Footer';
+import { Wrapper, InfoBox } from './MainTemplate.styles';
 
 const MainTemplate = ({ children }) => {
-  const [isVisible, setVisibility] = useState({
-    mobileNav: false,
-    basket: false,
-  });
+  const { pathname } = useLocation();
 
   return (
     <Wrapper>
       <Global />
-      <Basket isVisible={isVisible.basket} setVisibility={setVisibility} />
-      <Navigation
-        isVisible={isVisible.mobileNav}
-        setVisibility={setVisibility}
-      />
+      <Basket />
+      {pathname.length === 1 && (
+        <InfoBox>Darmowa wysyłka przy zakupach od 200 zł</InfoBox>
+      )}
+      <Navigation />
       {children}
       <Footer />
     </Wrapper>

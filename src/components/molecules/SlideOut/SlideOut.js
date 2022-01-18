@@ -2,8 +2,7 @@ import styled, { css } from 'styled-components';
 import { breakpoints } from 'theme/theme';
 
 export const SlideOut = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
   width: 80%;
   height: 100vh;
   position: absolute;

@@ -1,21 +1,27 @@
 import styled, { css } from 'styled-components';
-import { breakpoints } from 'theme/theme';
 import { Button } from 'components/atoms/Buttton/Button';
 
 export const Wrapper = styled.div`
   display: grid;
   width: 100%;
-  height: ${({ height }) => `${height}`};
+  height: ${({ height, main }) => (main ? '100vh' : `${height}`)};
   background-image: url(${({ cover }) => cover});
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 
   ${({ main }) =>
     main &&
     css`
-      @media ${breakpoints.phone} {
-        height: 95vh;
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
       }
     `}
 `;
@@ -25,7 +31,7 @@ export const InfoBox = styled.div`
   flex-direction: column;
   align-items: flex-start;
   align-self: end;
-  padding: 0 0 50px 20px;
+  margin: 0 0 50px 50px;
 `;
 
 export const StyledButton = styled(Button)`

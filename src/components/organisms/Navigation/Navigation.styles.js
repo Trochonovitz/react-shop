@@ -45,6 +45,7 @@ export const WrapperAbsolute = styled.div`
 
 export const StyledSlideOut = styled(SlideOut)`
   left: 0;
+  box-shadow: 10px 0px 8px 1px rgba(99, 99, 98, 0.36);
 
   @media ${breakpoints.desktop} {
     position: static;
@@ -53,6 +54,7 @@ export const StyledSlideOut = styled(SlideOut)`
     grid-column: 2;
     height: 100%;
     background-color: transparent;
+    box-shadow: none;
   }
 `;
 

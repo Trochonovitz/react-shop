@@ -3,21 +3,6 @@ import { breakpoints } from 'theme/theme';
 import { Link } from 'react-router-dom';
 import { Title } from 'components/atoms/Title/Title';
 
-export const InfoBox = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: #f1e4d8;
-  color: #343434;
-  padding: 15px;
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  text-align: center;
-  line-height: 1.2rem;
-`;
-
 export const StyledTitle = styled(Title)`
   font-size: 1.2rem;
   padding: 20px 0;

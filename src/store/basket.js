@@ -1,5 +1,3 @@
-import { createStore } from 'redux';
-
 const actionsTypes = {
   ADD_ITEM: 'ADD_ITEM',
   REMOVE_ITEM: 'REMOVE_ITEM',
@@ -8,6 +6,7 @@ const actionsTypes = {
 
 export const addItem = (payload) => {
   alert(`Dodałeś ${payload.name} do koszyka`);
+
   return {
     type: actionsTypes.ADD_ITEM,
     payload,
@@ -33,7 +32,7 @@ const initialState = {
   basketValue: 0,
 };
 
-const shopReducer = (state = initialState, { type, payload }) => {
+export const basketReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case actionsTypes.ADD_ITEM:
       if (state.basket.find(({ id }) => id === payload.id)) return { ...state };
@@ -45,16 +44,17 @@ const shopReducer = (state = initialState, { type, payload }) => {
         };
 
     case actionsTypes.INCREMENT_VALUE:
-      state.basket[
-        state.basket.findIndex((item) => item.id === payload.id)
-      ].quantity = payload.incrementValue;
+      let index = state.basket.findIndex((item) => item.id === payload.id);
+      state.basket[index].quantity = payload.incrementValue;
+      const handleBasketValue = () =>
+        state.basket.reduce(
+          (acc, current) => acc + current.price * current.quantity,
+          0
+        );
 
       return {
         ...state,
-        basketValue: state.basket.reduce(
-          (acc, current) => acc + current.price * current.quantity,
-          0
-        ),
+        basketValue: handleBasketValue(),
       };
 
     case actionsTypes.REMOVE_ITEM:
@@ -69,8 +69,3 @@ const shopReducer = (state = initialState, { type, payload }) => {
       return state;
   }
 };
-
-export const store = createStore(
-  shopReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);

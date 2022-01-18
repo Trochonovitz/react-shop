@@ -5,9 +5,8 @@ export const Wrapper = styled.li`
   display: grid;
   grid-template-columns: 40% 60%;
   width: 100%;
-  /* height: 125px; */
   padding: 10px 20px;
-  margin: 20px 0;
+  margin: 0 0 20px 0;
 `;
 
 export const Info = styled.div`

@@ -1,7 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { closeMobileNav, openBasket, openMobileNav } from 'store/navigation';
 import Hamburger from '../../molecules/Hamburger/Hamburger';
 import { ScrollPositionContext } from 'pages/HomePage/HomePage';
 import {
@@ -28,30 +29,32 @@ const options = [
   'moje konto',
 ];
 
-const Navigation = ({ isVisible, setVisibility }) => {
+const Navigation = () => {
   const [isHover, setHover] = useState(false);
+  const { pathname } = useLocation();
   const scrollPosition = useContext(ScrollPositionContext);
-  const location = useLocation().pathname;
-  const state = useSelector((store) => store?.basket);
+  const products = useSelector((store) => store.basket.basket);
+  const mobileNavState = useSelector((store) => store.nav.mobileNav);
+  const dispatch = useDispatch();
+  const hoverOnMouseEnter = () => setHover(true);
+  const hoverOnMouseLeave = () => setHover(false);
+  const handleOpenMobileNav = () => dispatch(openMobileNav(true));
+  const handleCloseMobileNav = () => dispatch(closeMobileNav(false));
+  const handleOpenBasket = () => dispatch(openBasket(true));
 
   return (
     <Wrapper>
       <WrapperAbsolute
         scrollPosition={scrollPosition}
-        isAbsolute={location.length === 1}
-        onMouseEnter={() => setHover(true)}
-        onMouseLeave={() => setHover(false)}
+        isAbsolute={pathname.length === 1}
+        onMouseEnter={hoverOnMouseEnter}
+        onMouseLeave={hoverOnMouseLeave}
         isHover={isHover}
       >
-        <Hamburger
-          onClick={() => setVisibility({ mobileNav: true })}
-          isHover={isHover}
-        />
-        <StyledSlideOut isVisible={isVisible} from={'left'}>
-          <ListElements isVisible={isVisible}>
-            <NavbarCloseButton
-              onClick={() => setVisibility({ mobileNav: false })}
-            >
+        <Hamburger onClick={handleOpenMobileNav} isHover={isHover} />
+        <StyledSlideOut isVisible={mobileNavState} from={'left'}>
+          <ListElements isVisible={mobileNavState}>
+            <NavbarCloseButton onClick={handleCloseMobileNav}>
               X
             </NavbarCloseButton>
             {options.map((option, index) => (
@@ -98,11 +101,11 @@ const Navigation = ({ isVisible, setVisibility }) => {
           </Icon>
 
           <Icon
-            onClick={() => setVisibility({ basket: true })}
+            onClick={handleOpenBasket}
             scrollPosition={scrollPosition}
             isHover={isHover}
           >
-            {state.length > 0 ? (
+            {products.length ? (
               <StyledSVG
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"

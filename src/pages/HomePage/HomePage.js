@@ -7,13 +7,7 @@ import ItemsCarousel from '../../components/organisms/Carousel/Carousel';
 import Slide from 'components/molecules/Slide/Slide';
 import BlogSection from 'components/organisms/BlogSection/BlogSection';
 import AboutUs from 'components/organisms/AboutUs/AboutUs';
-import {
-  InfoBox,
-  StyledTitle,
-  Info,
-  InfoLink,
-  NewItemsBox,
-} from './HomePage.styles';
+import { StyledTitle, Info, InfoLink, NewItemsBox } from './HomePage.styles';
 
 export const ScrollPositionContext = createContext(0);
 
@@ -31,12 +25,10 @@ const HomePage = () => {
 
   return (
     <ScrollPositionContext.Provider value={elementPosition}>
-      <InfoBox>Darmowa wysyłka przy zakupach od 200 zł</InfoBox>
       <MainTemplate>
         <Slide
           cover={slides[0].link}
           title={slides[0].title}
-          height={'752px'}
           ref={ref}
           animated
           main

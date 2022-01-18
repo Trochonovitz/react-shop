@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { addItem } from 'store/store';
+import { addItem } from 'store/basket';
 import {
   Wrapper,
   Paragraph,
@@ -17,10 +16,7 @@ const ProductCard = ({ name, price, img, id }) => {
   };
 
   return (
-    <Wrapper
-    // as={Link}
-    // to={`/products/${id}`}
-    >
+    <Wrapper>
       <ImageWrapper>
         <Image alt={`${name}`} src={img} />
         <BuyButton onClick={handleAddItem}>

@@ -16,6 +16,7 @@ export const Title = styled.h2`
   color: ${({ color }) => color};
   letter-spacing: 0.2em;
   text-transform: uppercase;
+  z-index: 1;
 
   ${({ animated }) =>
     animated &&
