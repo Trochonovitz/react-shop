@@ -7,7 +7,7 @@ import ItemsCarousel from '../../components/organisms/Carousel/Carousel';
 import Slide from 'components/molecules/Slide/Slide';
 import BlogSection from 'components/organisms/BlogSection/BlogSection';
 import AboutUs from 'components/organisms/AboutUs/AboutUs';
-import { StyledTitle, Info, InfoLink, NewItemsBox } from './HomePage.styles';
+import { Title, Info, InfoLink, NewItemsBox } from './HomePage.styles';
 
 export const ScrollPositionContext = createContext(0);
 
@@ -33,7 +33,7 @@ const HomePage = () => {
           animated
           main
         />
-        <StyledTitle color="#595959">Polecamy</StyledTitle>
+        <Title textType="h2">Polecamy</Title>
         <ProductsCategory />
         <NewItemsBox>
           <Info>

@@ -73,6 +73,7 @@ const Navigation = () => {
         <Logo
           as={NavLink}
           to="/"
+          textType="h1"
           scrollPosition={scrollPosition}
           isHover={isHover}
         >

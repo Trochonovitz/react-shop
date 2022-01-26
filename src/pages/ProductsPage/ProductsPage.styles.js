@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Title } from 'components/atoms/Title/Title';
+import Text from 'components/atoms/Text/Text';
 
 export const Header = styled.header`
   display: grid;
@@ -8,7 +8,7 @@ export const Header = styled.header`
   margin: 0 0 20px 0;
 `;
 
-export const StyledTitle = styled(Title)`
+export const Title = styled(Text)`
   border-bottom: 1px solid #e0e0e0;
   font-size: 1.5rem;
   height: 100%;

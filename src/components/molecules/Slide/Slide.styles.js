@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
-import { Button } from 'components/atoms/Buttton/Button';
+import { colors } from 'theme/theme';
+import Text from 'components/atoms/Text/Text';
+import Button from 'components/atoms/Button/Button';
 
 export const Wrapper = styled.div`
   display: grid;
@@ -36,4 +38,12 @@ export const InfoBox = styled.div`
 
 export const StyledButton = styled(Button)`
   width: 130px;
+`;
+
+export const Title = styled(Text)`
+  z-index: 1;
+`;
+
+export const Subtitle = styled(Text)`
+  color: ${colors.white};
 `;

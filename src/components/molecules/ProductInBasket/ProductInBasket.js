@@ -11,7 +11,7 @@ import {
   Input,
   Control,
   ProductInfo,
-  StyledButtonWithUnderline,
+  StyledButton,
 } from './ProductInBasket.styles';
 
 const ProductInBasket = ({ name, price, img, id, quantity }) => {
@@ -27,16 +27,17 @@ const ProductInBasket = ({ name, price, img, id, quantity }) => {
       <Image src={img} alt={`${name} visualistation`} />
       <InsideWrapper>
         <ProductInfo>
-          <Paragraph>{name}</Paragraph>
-          <Paragraph>{price} zł</Paragraph>
+          <Paragraph textType="p">{name}</Paragraph>
+          <Paragraph textType="p">{price} zł</Paragraph>
         </ProductInfo>
         <Control>
           <Input onChange={(event) => handleIncrementProductValue(event)} />
-          <StyledButtonWithUnderline
+          <StyledButton
+            buttonType="underline"
             onClick={() => dispatch(removeItem({ id, price, quantity }))}
           >
             USUŃ
-          </StyledButtonWithUnderline>
+          </StyledButton>
         </Control>
       </InsideWrapper>
     </Wrapper>

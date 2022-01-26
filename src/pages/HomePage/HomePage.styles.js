@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { breakpoints } from 'theme/theme';
 import { Link } from 'react-router-dom';
-import { Title } from 'components/atoms/Title/Title';
+import { breakpoints } from 'theme/theme';
+import Text from 'components/atoms/Text/Text';
 
-export const StyledTitle = styled(Title)`
+export const Title = styled(Text)`
   font-size: 1.2rem;
   padding: 20px 0;
   text-align: center;

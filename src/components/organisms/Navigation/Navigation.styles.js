@@ -1,6 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
-import { breakpoints } from 'theme/theme';
+import { breakpoints, colors } from 'theme/theme';
 import { SlideOut } from 'components/molecules/SlideOut/SlideOut';
+import Text from 'components/atoms/Text/Text';
 
 const slidein = keyframes`
 0% {
@@ -24,11 +25,11 @@ export const WrapperAbsolute = styled.div`
   grid-template-columns: repeat(3, 1fr);
   padding: 10px;
   top: 0;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid ${colors.lightGrey};
   width: 100%;
 
   background-color: ${({ scrollPosition, isHover }) =>
-    scrollPosition < 15 || isHover ? '#fff' : 'transparent'};
+    scrollPosition < 15 || isHover ? colors.white : colors.transparnet};
   transition: background-color 250ms linear;
 
   ${({ isAbsolute }) =>
@@ -84,16 +85,16 @@ export const ListElements = styled.ul`
 export const NavigationElement = styled.li`
   text-decoration: none;
   text-transform: uppercase;
-  color: #303030;
+  color: ${colors.black};
   padding: 20px 0;
   font-size: 0.8rem;
   letter-spacing: 0.8px;
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid ${colors.lightGrey};
   width: 80%;
 
   &:last-child {
     text-transform: none;
-    color: #595959;
+    color: ${colors.darkGrey};
   }
 
   @media ${breakpoints.desktop} {
@@ -101,7 +102,7 @@ export const NavigationElement = styled.li`
     margin: 0 20px;
     width: fit-content;
     color: ${({ scrollPosition, isHover }) =>
-      scrollPosition < 15 || isHover ? '#303030' : '#fff'};
+      scrollPosition < 15 || isHover ? colors.black : colors.black};
     position: relative;
 
     &::before {
@@ -133,7 +134,7 @@ export const NavbarCloseButton = styled.button`
   cursor: pointer;
   border: none;
   background: transparent;
-  color: #303030;
+  color: ${colors.black};
   padding: 20px 20px 20px 0;
 
   @media ${breakpoints.desktop} {
@@ -141,18 +142,14 @@ export const NavbarCloseButton = styled.button`
   }
 `;
 
-export const Logo = styled.h1`
+export const Logo = styled(Text)`
   justify-self: center;
   align-self: center;
   font-size: 0.9rem;
-  font-weight: bold;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin: 0;
-  color: ${({ scrollPosition, isHover }) =>
-    scrollPosition < 15 || isHover ? 'black' : '#fff'};
   cursor: pointer;
   text-decoration: none;
+  color: ${({ scrollPosition, isHover }) =>
+    scrollPosition < 15 || isHover ? colors.black : colors.black};
 
   @media ${breakpoints.desktop} {
     grid-column: 2;
@@ -175,7 +172,7 @@ export const Icon = styled.button`
   cursor: pointer;
   margin: 0 0 0 10px;
   color: ${({ scrollPosition, isHover }) =>
-    scrollPosition < 15 || isHover ? 'black' : '#fff'};
+    scrollPosition < 15 || isHover ? colors.black : colors.black};
 
   &:last-child {
     margin: 0 10px 0 10px;

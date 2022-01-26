@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { breakpoints } from 'theme/theme';
+import { breakpoints, colors } from 'theme/theme';
 import { SlideOut } from 'components/molecules/SlideOut/SlideOut';
-import { Title } from 'components/atoms/Title/Title';
-import { Button } from 'components/atoms/Buttton/Button';
+import Button from 'components/atoms/Button/Button';
+import Text from 'components/atoms/Text/Text';
 
 export const StickyWrapper = styled.div`
   width: 100%;
@@ -39,22 +39,21 @@ export const BasketCloseButton = styled.button`
   cursor: pointer;
   border: none;
   background: transparent;
-  color: #303030;
+  color: ${colors.darkGrey};
   font-size: 1.15rem;
   margin: 0 20px 0 0;
 `;
 
-export const StyledTitle = styled(Title)`
-  font-size: 1rem;
-  font-weight: normal;
+export const Title = styled(Text)`
   height: fit-content;
   margin: 20px;
   align-self: start;
+  color: ${colors.darkGrey};
 `;
 
-export const Paragraph = styled.p`
+export const Paragraph = styled(Text)`
   font-size: 0.8rem;
-  border: 1px solid #e6e6e6;
+  border: 1px solid ${colors.lightGrey};
   border-left: none;
   border-right: none;
   padding: 10px 20px;
@@ -64,12 +63,12 @@ export const ItemsList = styled.ul`
   width: 100%;
   margin: 0;
   padding: 0;
-  overflow-y: scroll;
+  overflow-y: auto;
 `;
 
 export const Checkout = styled.div`
   width: 100%;
-  border-top: 1px #e6e6e6 solid;
+  border-top: 1px ${colors.lightGrey} solid;
   padding: 25px 5px;
   display: flex;
   align-items: center;

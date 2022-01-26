@@ -1,12 +1,13 @@
+import Text from 'components/atoms/Text/Text';
 import styled from 'styled-components';
-import { breakpoints } from 'theme/theme';
+import { breakpoints, colors } from 'theme/theme';
 
 export const BuyButton = styled.button`
   width: 65px;
   height: 65px;
   border-radius: 50%;
   border: none;
-  background: #fff;
+  background-color: ${colors.white};
   position: absolute;
   visibility: hidden;
   opacity: 0;
@@ -60,14 +61,10 @@ export const Image = styled.img`
   }
 `;
 
-export const Paragraph = styled.p`
+export const Paragraph = styled(Text)`
   justify-self: center;
   align-self: center;
-  text-transform: uppercase;
   font-size: 0.7rem;
-  letter-spacing: 0.2em;
-  color: #595959;
+  color: ${colors.darkGrey};
   margin: 10px 0 0 0;
-  font-weight: normal;
-  cursor: pointer;
 `;

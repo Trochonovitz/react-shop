@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { breakpoints } from 'theme/theme';
+import { breakpoints, colors } from 'theme/theme';
 
 export const StyledHamburger = styled.button`
   width: 30px;
@@ -21,7 +21,7 @@ export const StyledHamburgerInner = styled.span`
   height: 2px;
   position: relative;
   background-color: ${({ scrollPosition, isHover }) =>
-    scrollPosition < 15 || isHover ? 'black' : '#fff'};
+    scrollPosition < 15 || isHover ? colors.black : colors.white};
 
   &::after,
   &::before {
@@ -31,7 +31,7 @@ export const StyledHamburgerInner = styled.span`
     width: 100%;
     height: 2px;
     background-color: ${({ scrollPosition, isHover }) =>
-      scrollPosition < 15 || isHover ? 'black' : '#fff'};
+      scrollPosition < 15 || isHover ? colors.black : colors.white};
   }
 
   &::after {

@@ -4,14 +4,14 @@ import MainTemplate from 'templates/MainTemplate';
 import {
   CategoriesWrapper,
   Header,
-  StyledTitle,
+  Title,
   StyledSecondTitle,
 } from './ProductsPage.styles';
 
 const ProductsPage = () => (
   <MainTemplate>
     <Header>
-      <StyledTitle color="#595959">Polecamy</StyledTitle>
+      <Title textType="h2">Polecamy</Title>
       <CategoriesWrapper>
         <StyledSecondTitle>Kategorie</StyledSecondTitle>
         <StyledSecondTitle>Sortuj</StyledSecondTitle>

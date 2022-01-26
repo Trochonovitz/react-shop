@@ -1,13 +1,13 @@
 import styled from 'styled-components';
-import { breakpoints } from 'theme/theme';
-import { Title } from 'components/atoms/Title/Title';
-import { Button } from 'components/atoms/Buttton/Button';
+import { breakpoints, colors } from 'theme/theme';
 import { Input } from 'components/atoms/Input/Input';
+import Button from 'components/atoms/Button/Button';
+import Text from 'components/atoms/Text/Text';
 
 export const Wrapper = styled.footer`
   display: flex;
   flex-direction: column;
-  background-color: #f3f3f3;
+  background-color: ${colors.lightGrey};
   padding: 24px;
   width: 100%;
 
@@ -38,7 +38,7 @@ export const StyledUl = styled.ul`
 
 export const StyledElement = styled.li`
   text-decoration: none;
-  color: #595959;
+  color: ${colors.darkGrey};
   margin: 0 0 20px 0;
   font-size: 0.9rem;
 
@@ -51,12 +51,11 @@ export const StyledElement = styled.li`
   }
 `;
 
-export const StyledTitle = styled(Title)`
-  font-size: 0.9rem;
+export const Title = styled(Text)`
+  color: ${colors.black};
 `;
 
-export const Paragraph = styled.p`
-  color: #595959;
+export const Paragraph = styled(Text)`
   line-height: 1.65;
   font-size: 0.9rem;
 `;

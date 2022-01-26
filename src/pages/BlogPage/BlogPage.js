@@ -3,11 +3,12 @@ import { useQuery } from 'graphql-hooks';
 import { useContent } from 'hooks/useContent';
 import MainTemplate from 'templates/MainTemplate';
 import BlogArticle from 'components/molecules/BlogArticle/BlogArticle';
+import { colors } from 'theme/theme';
 import {
   BlogContent,
   CategoryButton,
   Header,
-  StyledTitle,
+  Title,
   Wrapper,
 } from './BlogPage.styles';
 
@@ -29,7 +30,7 @@ const BlogPage = () => {
   return (
     <MainTemplate>
       <Header>
-        <StyledTitle color="#595959">Papiernicze inspiracje</StyledTitle>
+        <Title textType="h1">Papiernicze inspiracje</Title>
         <Wrapper>
           <CategoryButton
             onClick={() => handleCategory('wszystkie')}

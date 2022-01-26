@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { useQuery } from 'graphql-hooks';
 import { useContent } from 'hooks/useContent';
-import { StyledButton, Wrapper } from './ProductsCategory.styles';
+import Button from 'components/atoms/Button/Button';
 import ProductCard from 'components/molecules/ProductCard/ProductCard';
+import { Wrapper, StyledLink } from './ProductsCategory.styles';
 
 const ProductsCategory = () => {
   const { productsQuery } = useContent();
@@ -31,17 +32,9 @@ const ProductsCategory = () => {
           : `Coś poszło nie tak. Ponownie przeładuj stronę!`}
       </Wrapper>
       {pathname.length === 1 && (
-        <StyledButton
-          backgroundColor={'#d4e4d4'}
-          backgroundColorHover={'#fff'}
-          fontColorMain={'#303030'}
-          fontColorHover={'#bbccbb'}
-          borderColor={'#bbccbb'}
-          as={Link}
-          to="/products"
-        >
-          Przejdź do sklepu
-        </StyledButton>
+        <StyledLink to="/products">
+          <Button buttonType="green">Przejdź do sklepu</Button>
+        </StyledLink>
       )}
     </>
   );

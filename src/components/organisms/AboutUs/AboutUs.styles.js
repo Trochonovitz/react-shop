@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { colors } from 'theme/theme';
+import Text from 'components/atoms/Text/Text';
 
 export const AboutUsSection = styled.div`
   display: flex;
@@ -16,9 +18,9 @@ export const AboutUsSection = styled.div`
 export const AboutUsInfo = styled.div`
   width: 70%;
   height: 50%;
-  background-color: #fff;
+  background-color: ${colors.white};
   box-shadow: rgb(184, 182, 184) 2px 26px 68px -21px;
-  color: #1c1b1b;
+  color: ${colors.black};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -31,14 +33,7 @@ export const AboutUsInfo = styled.div`
   }
 `;
 
-export const StyledTitle = styled.h3`
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.8rem;
-  margin: 0;
-`;
-
-export const StyledParagraph = styled.p`
+export const Paragraph = styled(Text)`
   font-size: 0.8rem;
   text-align: center;
   line-height: 1.2rem;

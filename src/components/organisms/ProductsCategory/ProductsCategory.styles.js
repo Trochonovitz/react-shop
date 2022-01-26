@@ -1,6 +1,6 @@
-import { Button } from 'components/atoms/Buttton/Button';
 import styled from 'styled-components';
 import { breakpoints } from 'theme/theme';
+import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -17,14 +17,26 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const StyledButton = styled(Button)`
-  display: grid;
-  width: 70%;
-  text-decoration: none;
+// export const StyledButton = styled(Button)`
+//   display: grid;
+//   width: 70%;
+//   text-decoration: none;
+//   align-items: center;
+//   justify-items: center;
+
+//   @media ${breakpoints.desktop} {
+//     width: 25%;
+//   }
+// `;
+
+export const StyledLink = styled(Link)`
+  display: flex;
+  justify-content: center;
   align-items: center;
-  justify-items: center;
+  text-decoration: none;
+  width: 100%;
 
   @media ${breakpoints.desktop} {
-    width: 25%;
+    width: 50%;
   }
 `;

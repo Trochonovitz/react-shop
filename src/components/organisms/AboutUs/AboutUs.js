@@ -1,21 +1,17 @@
 import React from 'react';
-import { ButtonWithUnderline } from 'components/atoms/ButtonWithUnderline/ButtonWithUnderline';
-import {
-  AboutUsSection,
-  AboutUsInfo,
-  StyledTitle,
-  StyledParagraph,
-} from './AboutUs.styles';
+import Button from 'components/atoms/Button/Button';
+import Text from 'components/atoms/Text/Text';
+import { AboutUsSection, AboutUsInfo, Paragraph } from './AboutUs.styles';
 
 const AboutUs = () => (
   <AboutUsSection>
     <AboutUsInfo>
-      <StyledTitle>o nas</StyledTitle>
-      <StyledParagraph>
+      <Text textType="h3">o nas</Text>
+      <Paragraph>
         Chcemy, żeby korzystanie z naszych notesów pomagało w codziennych
         sprawach, a odręczne pisanie dostarczało pozytywnych doznań.
-      </StyledParagraph>
-      <ButtonWithUnderline>więcej</ButtonWithUnderline>
+      </Paragraph>
+      <Button buttonType="underline">więcej</Button>
     </AboutUsInfo>
   </AboutUsSection>
 );

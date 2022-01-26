@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { ButtonWithUnderline } from 'components/atoms/ButtonWithUnderline/ButtonWithUnderline';
+import { colors } from 'theme/theme';
+import Text from 'components/atoms/Text/Text';
+import Button from 'components/atoms/Button/Button';
 
 export const Wrapper = styled.li`
   display: grid;
@@ -41,12 +43,8 @@ export const Control = styled.div`
   grid-template-columns: 60% 40%;
 `;
 
-export const Paragraph = styled.p`
-  text-transform: uppercase;
-  color: #595959;
-  margin: 0;
-  font-size: 0.8rem;
-  letter-spacing: 0.2em;
+export const Paragraph = styled(Text)`
+  color: ${colors.darkGrey};
   margin: 0 0 10px 0;
 `;
 
@@ -57,12 +55,11 @@ export const Input = styled.input.attrs({
   max: 15,
 })`
   width: 80%;
-  border: 1px solid #e3e3e3;
+  border: 1px solid ${colors.lightGrey};
 `;
 
-export const StyledButtonWithUnderline = styled(ButtonWithUnderline)`
+export const StyledButton = styled(Button)`
   align-self: center;
   justify-self: center;
-  font-size: 0.7rem;
   width: 50%;
 `;

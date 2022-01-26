@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { breakpoints } from 'theme/theme';
-import { Title } from 'components/atoms/Title/Title';
+import Text from 'components/atoms/Text/Text';
 
 export const Header = styled.header`
   display: flex;
@@ -8,8 +8,7 @@ export const Header = styled.header`
   justify-content: center;
 `;
 
-export const StyledTitle = styled(Title)`
-  margin: 0;
+export const Title = styled(Text)`
   padding: 30px 0;
   font-size: 1.4rem;
   text-align: center;

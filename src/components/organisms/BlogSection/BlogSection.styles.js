@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { breakpoints } from 'theme/theme';
-import { Title } from 'components/atoms/Title/Title';
-import { Button } from 'components/atoms/Buttton/Button';
+import { Link } from 'react-router-dom';
+import { breakpoints, colors } from 'theme/theme';
+import Text from 'components/atoms/Text/Text';
 
 export const BlogWrapper = styled.div`
   display: flex;
@@ -31,25 +31,19 @@ export const BlogContent = styled.div`
   }
 `;
 
-export const StyledParagraph = styled.p`
-  color: #595959;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.8rem;
-`;
-
-export const StyledTitle = styled(Title)`
+export const Title = styled(Text)`
   font-size: 1.3rem;
+  color: ${colors.darkGrey};
 `;
 
-export const StyledButton = styled(Button)`
-  display: grid;
-  width: 70%;
-  text-decoration: none;
+export const StyledLink = styled(Link)`
+  display: flex;
+  justify-content: center;
   align-items: center;
-  justify-items: center;
+  text-decoration: none;
+  width: 100%;
 
   @media ${breakpoints.desktop} {
-    width: 25%;
+    width: 50%;
   }
 `;

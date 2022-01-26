@@ -1,22 +1,23 @@
 import React from 'react';
+import Text from 'components/atoms/Text/Text';
 import {
   BlogsArticle,
   Image,
-  StyledButtonWithUnderline,
-  StyledParagraph,
-  StyledTitle,
+  StyledButton,
+  Category,
   TextBox,
+  Title,
 } from './BlogArticle.styles';
 
 const BlogArticle = ({ category, title, img, content }) => (
   <BlogsArticle>
     <Image src={img} alt="article's visualisation" />
     <TextBox>
-      <StyledParagraph>{category}</StyledParagraph>
-      <StyledTitle color={'#595959'}>{title}</StyledTitle>
-      <p>{content}</p>
+      <Category textType="p">{category}</Category>
+      <Title textType="h2">{title}</Title>
+      <Text>{content}</Text>
     </TextBox>
-    <StyledButtonWithUnderline>Czytaj dalej</StyledButtonWithUnderline>
+    <StyledButton buttonType={'underline'}>Czytaj dalej</StyledButton>
   </BlogsArticle>
 );
 

@@ -1,18 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { useQuery } from 'graphql-hooks';
+import { useMediaQuery } from 'react-responsive';
+import { breakpoints } from 'theme/theme';
 import { useContent } from 'hooks/useContent';
+import Button from 'components/atoms/Button/Button';
+import Text from 'components/atoms/Text/Text';
 import BlogArticle from 'components/molecules/BlogArticle/BlogArticle';
 import {
   BlogWrapper,
   BlogHeader,
-  StyledParagraph,
-  StyledTitle,
-  StyledButton,
+  Title,
+  StyledLink,
   BlogContent,
 } from './BlogSection.styles';
-import { useMediaQuery } from 'react-responsive';
-import { breakpoints } from 'theme/theme';
 
 const BlogSection = () => {
   const tabletView = useMediaQuery({ query: breakpoints.maxTablet });
@@ -25,8 +25,8 @@ const BlogSection = () => {
   return (
     <BlogWrapper>
       <BlogHeader>
-        <StyledParagraph>czytaj</StyledParagraph>
-        <StyledTitle color={'#595959'}>Artykuły na blogu</StyledTitle>
+        <Text textType="p">czytaj</Text>
+        <Title textType="h2">Artykuły na blogu</Title>
       </BlogHeader>
       <BlogContent>
         {data.allArticles.map(
@@ -41,17 +41,9 @@ const BlogSection = () => {
           )
         )}
       </BlogContent>
-      <StyledButton
-        as={Link}
-        to={'/blog'}
-        backgroundColor={'#d4e4d4'}
-        backgroundColorHover={'#fff'}
-        fontColorMain={'#303030'}
-        fontColorHover={'#bbccbb'}
-        borderColor={'#bbccbb'}
-      >
-        Przejdź do bloga
-      </StyledButton>
+      <StyledLink to="/blog">
+        <Button buttonType="green">Przejdź do bloga</Button>
+      </StyledLink>
     </BlogWrapper>
   );
 };

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {
   Wrapper,
-  StyledTitle,
+  Title,
   Paragraph,
   StyledUl,
   StyledElement,
@@ -27,8 +27,8 @@ const Footer = () => {
     register,
     handleSubmit,
     reset,
-    watch,
-    formState: { errors },
+    // watch,
+    // formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
     alert(`Gratulacje, ${data.Email}! Zapisałeś się do naszego newslettera!`);
@@ -38,7 +38,7 @@ const Footer = () => {
   return (
     <Wrapper>
       <TextBox>
-        <StyledTitle color={'#303030'}>strefa klienta</StyledTitle>
+        <Title textType="h2">strefa klienta</Title>
         <StyledUl>
           {options.map((option, index) => (
             <StyledElement key={`${option}${index}`} as={Link} to="#">
@@ -48,7 +48,7 @@ const Footer = () => {
         </StyledUl>
       </TextBox>
       <TextBox>
-        <StyledTitle color={'#303030'}>Odwiedź nasz sklep</StyledTitle>
+        <Title textType="h2">Odwiedź nasz sklep</Title>
         <Paragraph>Kraków, ul. Limanowskiego 18</Paragraph>
         <br />
         <Paragraph>
@@ -61,7 +61,7 @@ const Footer = () => {
         <Paragraph>tel. 504 865 233</Paragraph>
       </TextBox>
       <TextBox>
-        <StyledTitle color={'#303030'}>newsletter</StyledTitle>
+        <Title textType="h2">newsletter</Title>
         <Paragraph>
           Zapisz się do naszego newslettera i bądź na bieżąco z nowościami.
         </Paragraph>
@@ -71,14 +71,7 @@ const Footer = () => {
             placeholder="Podaj adres e-mail"
             {...register('Email', { required: true })}
           />
-          <StyledButton
-            type="submit"
-            backgroundColor={'#d4e4d4'}
-            backgroundColorHover={'#f3f3f3'}
-            fontColorMain={'#303030'}
-            fontColorHover={'#bbccbb'}
-            borderColor={'#bbccbb'}
-          >
+          <StyledButton type="submit" buttonType="green">
             Zapisz się
           </StyledButton>
         </Form>

@@ -6,7 +6,7 @@ import {
   StyledSlideOut,
   Header,
   Wrapper,
-  StyledTitle,
+  Title,
   BasketCloseButton,
   Paragraph,
   StickyWrapper,
@@ -28,14 +28,14 @@ const Basket = () => {
         <Header>
           <Wrapper>
             <BasketCloseButton onClick={handleCloseBasket}>X</BasketCloseButton>
-            <StyledTitle color={'#595959'}>Koszyk</StyledTitle>
+            <Title textType="h2">Koszyk</Title>
           </Wrapper>
           <Paragraph>
-            {basketValue <= 200
-              ? `Dodaj do koszyka produkty za ${
+            {basketValue >= 200
+              ? `Zamówienie kwalifikuje się do darmowej przesyłki`
+              : `Dodaj do koszyka produkty za ${
                   200 - basketValue
-                } zł i uzyskaj darmową przesyłkę`
-              : `Zamówienie kwalifikuje się do darmowej przesyłki`}
+                } zł i uzyskaj darmową przesyłkę`}
           </Paragraph>
         </Header>
         <ItemsList>
@@ -51,18 +51,12 @@ const Basket = () => {
               />
             ))
           ) : (
-            <StyledTitle>Twój koszyk jest pusty</StyledTitle>
+            <Title>Twój koszyk jest pusty</Title>
           )}
         </ItemsList>
         {basketValue > 0 && (
           <Checkout>
-            <StyledButton
-              backgroundColor={'#d4e4d4'}
-              backgroundColorHover={'#fff'}
-              fontColorMain={'#303030'}
-              fontColorHover={'#bbccbb'}
-              borderColor={'#bbccbb'}
-            >
+            <StyledButton buttonType="green">
               Do kasy - {basketValue} złotych
             </StyledButton>
           </Checkout>

@@ -20,14 +20,7 @@ const Form = () => {
       <StyledInput placeholder="Imię i nazwisko" {...register('name')} />
       <StyledInput type="email" placeholder="E-mail" {...register('email')} />
       <StyledInput placeholder="Twoja wiadomość" {...register('message')} />
-      <StyledButton
-        type="submit"
-        backgroundColor={'#d4e4d4'}
-        backgroundColorHover={'#fff'}
-        fontColorMain={'#303030'}
-        fontColorHover={'#bbccbb'}
-        borderColor={'#bbccbb'}
-      >
+      <StyledButton type="submit" buttonType="green">
         Wyślij
       </StyledButton>
     </Wrapper>

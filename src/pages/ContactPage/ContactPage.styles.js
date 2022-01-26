@@ -1,21 +1,12 @@
-import styled, { css } from 'styled-components';
-import { Title } from 'components/atoms/Title/Title';
+import styled from 'styled-components';
 import { breakpoints } from 'theme/theme';
+import Text from 'components/atoms/Text/Text';
 
-const TitleMixin = css`
-  margin: 0;
-  padding: 30px 0;
-  text-align: center;
-  color: #595959;
-`;
-
-export const StyledTitle = styled(Title)`
-  ${TitleMixin};
+export const Title = styled(Text)`
   font-size: 1.4rem;
 `;
 
-export const H3Title = styled.h3`
-  ${TitleMixin};
+export const H3Title = styled(Text)`
   text-transform: uppercase;
   letter-spacing: 0.2em;
   font-weight: normal;

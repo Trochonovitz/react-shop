@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { breakpoints } from 'theme/theme';
+import { breakpoints, colors } from 'theme/theme';
 
 export const SlideOut = styled.div`
   display: grid;
@@ -7,7 +7,7 @@ export const SlideOut = styled.div`
   height: 100vh;
   position: absolute;
   top: 0;
-  background-color: #fff;
+  background-color: ${colors.white};
 
   transform: translateX(${({ from }) => (from === 'left' ? '-125%' : '125%')});
   transition: transform 0.6s 0.1s ease-in-out;

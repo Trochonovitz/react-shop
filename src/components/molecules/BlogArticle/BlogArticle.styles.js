@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import { breakpoints } from 'theme/theme';
-import { Title } from 'components/atoms/Title/Title';
-import { ButtonWithUnderline } from 'components/atoms/ButtonWithUnderline/ButtonWithUnderline';
+import { breakpoints, colors } from 'theme/theme';
+import Text from 'components/atoms/Text/Text';
+import Button from 'components/atoms/Button/Button';
 
 export const BlogsArticle = styled.article`
   display: flex;
   flex-direction: column;
-  /* justify-content: flex-start; */
   align-items: flex-start;
   padding: 20px 25px;
   line-height: 1.65rem;
@@ -15,7 +14,6 @@ export const BlogsArticle = styled.article`
 
 export const Image = styled.img`
   width: 100%;
-  /* height: 40%; */
   object-fit: cover;
 `;
 
@@ -27,20 +25,21 @@ export const TextBox = styled.div`
   }
 `;
 
-export const StyledParagraph = styled.p`
-  color: #595959;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
+export const StyledText = styled(Text)`
   font-size: 0.8rem;
 `;
 
-export const StyledTitle = styled(Title)`
+export const Title = styled(Text)`
   font-size: 1.3rem;
-  margin: 0;
+  color: ${colors.darkGrey};
 `;
 
-export const StyledButtonWithUnderline = styled(ButtonWithUnderline)`
+export const StyledButton = styled(Button)`
   @media ${breakpoints.desktop} {
     margin: 0 20px;
   }
+`;
+
+export const Category = styled(Text)`
+  color: ${colors.darkGrey};
 `;

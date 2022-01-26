@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { breakpoints } from 'theme/theme';
 import { Input } from 'components/atoms/Input/Input';
-import { Button } from 'components/atoms/Buttton/Button';
+import Button from 'components/atoms/Button/Button';
 
 export const Wrapper = styled.form`
   display: flex;

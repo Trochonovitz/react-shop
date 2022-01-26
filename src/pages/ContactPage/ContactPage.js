@@ -1,11 +1,11 @@
 import React from 'react';
 import MainTemplate from 'templates/MainTemplate';
 import Form from 'components/molecules/Form/Form';
-import { StyledTitle, H3Title, Paragraph, Wrapper } from './ContactPage.styles';
+import { Title, H3Title, Paragraph, Wrapper } from './ContactPage.styles';
 
 const ContactPage = () => (
   <MainTemplate>
-    <StyledTitle color="#595959">Kontakt</StyledTitle>
+    <Title textType="h1">Kontakt</Title>
     <Wrapper>
       <H3Title>Skontaktuj się z nami</H3Title>
       <Paragraph>
@@ -15,7 +15,7 @@ const ContactPage = () => (
         <br />
         pozostałe sprawy: hej@papierniczeni.pl
       </Paragraph>
-      <H3Title>Sklep stacjonarny</H3Title>
+      <H3Title textType="h3">Sklep stacjonarny</H3Title>
       <Paragraph>
         Papierniczeni
         <br />

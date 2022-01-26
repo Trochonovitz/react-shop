@@ -22,8 +22,6 @@ const ProductCard = ({ name, price, img, id }) => {
         <BuyButton onClick={handleAddItem}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
             fill="currentColor"
             className="bi bi-cart-plus"
             viewBox="0 0 16 16"
@@ -33,8 +31,8 @@ const ProductCard = ({ name, price, img, id }) => {
           </svg>
         </BuyButton>
       </ImageWrapper>
-      <Paragraph>{name}</Paragraph>
-      <Paragraph>{price} zł</Paragraph>
+      <Paragraph textType="p">{name}</Paragraph>
+      <Paragraph textType="p">{price} zł</Paragraph>
     </Wrapper>
   );
 };
