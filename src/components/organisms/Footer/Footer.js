@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {
@@ -40,11 +40,13 @@ const Footer = () => {
       <TextBox>
         <Title textType="h2">strefa klienta</Title>
         <StyledUl>
-          {options.map((option, index) => (
-            <StyledElement key={`${option}${index}`} as={Link} to="#">
-              {option}
-            </StyledElement>
-          ))}
+          {Children.toArray(
+            options.map((option) => (
+              <StyledElement as={Link} to="#">
+                {option}
+              </StyledElement>
+            ))
+          )}
         </StyledUl>
       </TextBox>
       <TextBox>

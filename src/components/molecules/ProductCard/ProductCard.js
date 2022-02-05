@@ -31,8 +31,8 @@ const ProductCard = ({ name, price, img, id }) => {
           </svg>
         </BuyButton>
       </ImageWrapper>
-      <Paragraph textType="p">{name}</Paragraph>
-      <Paragraph textType="p">{price} zł</Paragraph>
+      <Paragraph>{name}</Paragraph>
+      <Paragraph>{price} zł</Paragraph>
     </Wrapper>
   );
 };

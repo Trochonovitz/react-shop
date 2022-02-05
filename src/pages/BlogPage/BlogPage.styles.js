@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { breakpoints } from 'theme/theme';
 import Text from 'components/atoms/Text/Text';
 
@@ -44,5 +44,8 @@ export const CategoryButton = styled.button`
   letter-spacing: 0.1em;
 
   ${({ activeCategory, pickedCategory }) =>
-    activeCategory === pickedCategory && 'border-bottom: 1px solid #595959'}
+    activeCategory === pickedCategory &&
+    css`
+      border-bottom: 1px solid #595959;
+    `}
 `;

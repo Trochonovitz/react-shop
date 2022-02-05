@@ -17,24 +17,13 @@ export const Wrapper = styled.div`
   }
 `;
 
-// export const StyledButton = styled(Button)`
-//   display: grid;
-//   width: 70%;
-//   text-decoration: none;
-//   align-items: center;
-//   justify-items: center;
-
-//   @media ${breakpoints.desktop} {
-//     width: 25%;
-//   }
-// `;
-
 export const StyledLink = styled(Link)`
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
   width: 100%;
+  margin: 50px 0;
 
   @media ${breakpoints.desktop} {
     width: 50%;

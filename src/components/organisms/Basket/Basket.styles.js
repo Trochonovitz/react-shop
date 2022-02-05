@@ -4,13 +4,6 @@ import { SlideOut } from 'components/molecules/SlideOut/SlideOut';
 import Button from 'components/atoms/Button/Button';
 import Text from 'components/atoms/Text/Text';
 
-export const StickyWrapper = styled.div`
-  width: 100%;
-  position: sticky;
-  z-index: 4;
-  top: 0;
-`;
-
 export const StyledSlideOut = styled(SlideOut)`
   right: 0;
   grid-template-rows: 15% 70% 15%;

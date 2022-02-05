@@ -1,4 +1,6 @@
+import Text from 'components/atoms/Text/Text';
 import styled from 'styled-components';
+import { colors, sizes } from 'theme/theme';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -6,6 +8,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
+  overflow-x: hidden;
   position: relative;
 `;
 
@@ -14,12 +17,13 @@ export const InfoBox = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-color: #f1e4d8;
-  color: #343434;
-  padding: 15px;
-  text-transform: uppercase;
-  font-size: 0.7rem;
+  background-color: ${colors.darkBeige};
+`;
+
+export const StyledText = styled(Text)`
   letter-spacing: 0.2em;
   text-align: center;
-  line-height: 1.2rem;
+  text-transform: uppercase;
+  font-size: ${sizes.s};
+  padding: 15px;
 `;

@@ -3,7 +3,7 @@ import { colors } from 'theme/theme';
 
 export const Input = styled.input`
   background-color: transparent;
-  border: 1px solid ${colors.lightGreen};
+  border: 1px solid ${colors.veryLightGrey};
   height: 50px;
 
   &::placeholder {

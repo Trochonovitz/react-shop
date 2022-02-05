@@ -9,6 +9,7 @@ export const Wrapper = styled.form`
   width: 100%;
   row-gap: 20px;
   column-gap: 20px;
+  margin: 0 0 20px 0;
 
   @media ${breakpoints.tablet} {
     display: grid;

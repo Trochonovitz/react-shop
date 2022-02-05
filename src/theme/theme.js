@@ -26,8 +26,17 @@ export const colors = {
   black: '#303030',
   grey: '#363636',
   lightGrey: '#e6e6e6',
+  veryLightGrey: '#e0e0e0',
   darkGrey: '#595959',
   lightGreen: '#d4e4d4',
   darkGreen: '#bbccbb',
-  transparnet: 'transparent',
+  darkBeige: '#f1e4d8',
+  transparent: 'transparent',
+};
+
+export const sizes = {
+  xl: '1.3rem',
+  l: '1.1rem',
+  m: '.9rem',
+  s: '.7rem',
 };

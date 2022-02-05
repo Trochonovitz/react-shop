@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, Children } from 'react';
 import { useQuery } from 'graphql-hooks';
+import { useTransition, animated } from '@react-spring/web';
 import { useContent } from 'hooks/useContent';
 import MainTemplate from 'templates/MainTemplate';
 import BlogArticle from 'components/molecules/BlogArticle/BlogArticle';
-import { colors } from 'theme/theme';
 import {
   BlogContent,
   CategoryButton,
@@ -16,6 +16,11 @@ const BlogPage = () => {
   const { blogsArticlesQuery } = useContent();
   const { loading, error, data } = useQuery(blogsArticlesQuery);
   const [pickedCategory, setCategory] = useState('wszystkie');
+  const transition = useTransition(pickedCategory, {
+    from: { y: 100, opacity: 0 },
+    enter: { y: 0, opacity: 1 },
+  });
+  const AnimatedBlogArticle = animated(BlogArticle);
 
   if (loading) return 'Loading...';
   if (error) return 'Something Bad Happened';
@@ -39,27 +44,31 @@ const BlogPage = () => {
           >
             wszystkie
           </CategoryButton>
-          {allArticles.map(({ category }, index) => (
-            <CategoryButton
-              key={`${category}${index}`}
-              onClick={() => handleCategory(category)}
-              activeCategory={category}
-              pickedCategory={pickedCategory}
-            >
-              {category}
-            </CategoryButton>
-          ))}
+          {Children.toArray(
+            allArticles.map(({ category }) => (
+              <CategoryButton
+                onClick={() => handleCategory(category)}
+                activeCategory={category}
+                pickedCategory={pickedCategory}
+              >
+                {category}
+              </CategoryButton>
+            ))
+          )}
         </Wrapper>
         <BlogContent>
-          {filteredArticles.map(
-            ({ id, category, title, mainPhoto: { url }, content }) => (
-              <BlogArticle
-                key={id}
-                category={category}
-                title={title}
-                img={url}
-                content={content}
-              />
+          {Children.toArray(
+            filteredArticles.map(
+              ({ category, title, mainPhoto: { url }, content }) =>
+                transition((style) => (
+                  <AnimatedBlogArticle
+                    style={style}
+                    category={category}
+                    title={title}
+                    img={url}
+                    content={content}
+                  />
+                ))
             )
           )}
         </BlogContent>

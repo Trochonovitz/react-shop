@@ -8,8 +8,8 @@ export const BlogWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid #e0e0e0;
-  margin: 20px 0 0 0;
+  border-top: 1px solid ${colors.lightGrey};
+  margin: 50px 0 0 0;
 `;
 
 export const BlogHeader = styled.header`
@@ -17,10 +17,12 @@ export const BlogHeader = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px 0 0 0;
+  margin: 30px 0 30px 0;
 `;
 
 export const BlogContent = styled.div`
+  margin: 0 0 50px 0;
+
   @media ${breakpoints.tablet} {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -32,7 +34,6 @@ export const BlogContent = styled.div`
 `;
 
 export const Title = styled(Text)`
-  font-size: 1.3rem;
   color: ${colors.darkGrey};
 `;
 

@@ -4,7 +4,7 @@ import { Global } from '../theme/Global';
 import Navigation from '../components/organisms/Navigation/Navigation';
 import Basket from 'components/organisms/Basket/Basket';
 import Footer from 'components/organisms/Footer/Footer';
-import { Wrapper, InfoBox } from './MainTemplate.styles';
+import { Wrapper, InfoBox, StyledText } from './MainTemplate.styles';
 
 const MainTemplate = ({ children }) => {
   const { pathname } = useLocation();
@@ -12,11 +12,13 @@ const MainTemplate = ({ children }) => {
   return (
     <Wrapper>
       <Global />
-      <Basket />
       {pathname.length === 1 && (
-        <InfoBox>Darmowa wysyłka przy zakupach od 200 zł</InfoBox>
+        <InfoBox>
+          <StyledText>Darmowa wysyłka przy zakupach od 200 zł</StyledText>
+        </InfoBox>
       )}
       <Navigation />
+      <Basket />
       {children}
       <Footer />
     </Wrapper>

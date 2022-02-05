@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { colors, slideInAnimation } from 'theme/theme';
+import { colors, sizes, slideInAnimation } from 'theme/theme';
 
 const TitleMixin = css`
   letter-spacing: 0.2em;
@@ -34,17 +34,18 @@ const getTextType = (textType) => {
     case types.h3:
       return css`
         ${TitleMixin}
-        font-size: 0.8rem;
+        font-size: ${sizes.m};
       `;
     case types.subtitle:
       return css`
         ${TitleMixin}
-        font-size: 0.7rem;
+        font-size: ${sizes.s};
       `;
 
     default:
       return css`
         color: ${colors.darkGrey};
+        margin: 0px;
       `;
   }
 };

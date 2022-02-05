@@ -1,13 +1,13 @@
 import React from 'react';
 import MainTemplate from 'templates/MainTemplate';
 import Form from 'components/molecules/Form/Form';
-import { Title, H3Title, Paragraph, Wrapper } from './ContactPage.styles';
+import { Title, Subtitle, Paragraph, Wrapper } from './ContactPage.styles';
 
 const ContactPage = () => (
   <MainTemplate>
     <Title textType="h1">Kontakt</Title>
     <Wrapper>
-      <H3Title>Skontaktuj się z nami</H3Title>
+      <Subtitle textType="h3">Skontaktuj się z nami</Subtitle>
       <Paragraph>
         telefon: 504 865 233 (poniedziałek–piątek: 12–18)
         <br />
@@ -15,7 +15,7 @@ const ContactPage = () => (
         <br />
         pozostałe sprawy: hej@papierniczeni.pl
       </Paragraph>
-      <H3Title textType="h3">Sklep stacjonarny</H3Title>
+      <Subtitle textType="h3">Sklep stacjonarny</Subtitle>
       <Paragraph>
         Papierniczeni
         <br />

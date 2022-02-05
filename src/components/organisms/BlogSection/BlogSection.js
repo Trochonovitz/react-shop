@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Children } from 'react';
 import { useQuery } from 'graphql-hooks';
 import { useMediaQuery } from 'react-responsive';
 import { breakpoints } from 'theme/theme';
@@ -29,15 +29,16 @@ const BlogSection = () => {
         <Title textType="h2">Artykuły na blogu</Title>
       </BlogHeader>
       <BlogContent>
-        {data.allArticles.map(
-          ({ id, category, title, mainPhoto: { url }, content }) => (
-            <BlogArticle
-              key={id}
-              category={category}
-              title={title}
-              img={url}
-              content={content}
-            />
+        {Children.toArray(
+          data.allArticles.map(
+            ({ category, title, mainPhoto: { url }, content }) => (
+              <BlogArticle
+                category={category}
+                title={title}
+                img={url}
+                content={content}
+              />
+            )
           )
         )}
       </BlogContent>

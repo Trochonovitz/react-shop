@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { colors } from 'theme/theme';
+import { colors, sizes } from 'theme/theme';
 import Text from 'components/atoms/Text/Text';
 
 export const AboutUsSection = styled.div`
@@ -12,7 +12,7 @@ export const AboutUsSection = styled.div`
   background-image: url('https://cdn.shopify.com/s/files/1/0594/6743/2116/files/papierniczeni_onas_01_750x960_crop_center.jpg?v=1634144287');
   background-position: center;
   background-size: cover;
-  margin: 55px 0 0 0;
+  margin: 50px 0 0 0;
 `;
 
 export const AboutUsInfo = styled.div`
@@ -34,7 +34,11 @@ export const AboutUsInfo = styled.div`
 `;
 
 export const Paragraph = styled(Text)`
-  font-size: 0.8rem;
   text-align: center;
   line-height: 1.2rem;
+  font-size: ${sizes.m};
+`;
+
+export const Title = styled(Text)`
+  color: ${colors.darkGrey};
 `;

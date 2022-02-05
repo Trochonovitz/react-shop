@@ -33,15 +33,17 @@ export const InfoBox = styled.div`
   flex-direction: column;
   align-items: flex-start;
   align-self: end;
-  margin: 0 0 50px 50px;
+  margin: 0 0 50px 30px;
 `;
 
 export const StyledButton = styled(Button)`
   width: 130px;
+  margin: 10px 0;
 `;
 
 export const Title = styled(Text)`
   z-index: 1;
+  color ${colors.white};
 `;
 
 export const Subtitle = styled(Text)`

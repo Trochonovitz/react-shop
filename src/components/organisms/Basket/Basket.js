@@ -9,7 +9,6 @@ import {
   Title,
   BasketCloseButton,
   Paragraph,
-  StickyWrapper,
   ItemsList,
   Checkout,
   StyledButton,
@@ -23,46 +22,44 @@ const Basket = () => {
   const handleCloseBasket = () => dispatch(closeBasket(false));
 
   return (
-    <StickyWrapper>
-      <StyledSlideOut isVisible={basketState} from={'right'}>
-        <Header>
-          <Wrapper>
-            <BasketCloseButton onClick={handleCloseBasket}>X</BasketCloseButton>
-            <Title textType="h2">Koszyk</Title>
-          </Wrapper>
-          <Paragraph>
-            {basketValue >= 200
-              ? `Zamówienie kwalifikuje się do darmowej przesyłki`
-              : `Dodaj do koszyka produkty za ${
-                  200 - basketValue
-                } zł i uzyskaj darmową przesyłkę`}
-          </Paragraph>
-        </Header>
-        <ItemsList>
-          {products.length ? (
-            products.map((product, index) => (
-              <ProductInBasket
-                name={product.name}
-                price={product.price}
-                img={product.img}
-                id={product.id}
-                quantity={product.quantity}
-                key={`${product}${index}`}
-              />
-            ))
-          ) : (
-            <Title>Twój koszyk jest pusty</Title>
-          )}
-        </ItemsList>
-        {basketValue > 0 && (
-          <Checkout>
-            <StyledButton buttonType="green">
-              Do kasy - {basketValue} złotych
-            </StyledButton>
-          </Checkout>
+    <StyledSlideOut isVisible={basketState} from={'right'}>
+      <Header>
+        <Wrapper>
+          <BasketCloseButton onClick={handleCloseBasket}>X</BasketCloseButton>
+          <Title textType="h2">Koszyk</Title>
+        </Wrapper>
+        <Paragraph>
+          {basketValue >= 200
+            ? `Zamówienie kwalifikuje się do darmowej przesyłki`
+            : `Dodaj do koszyka produkty za ${
+                200 - basketValue
+              } zł i uzyskaj darmową przesyłkę`}
+        </Paragraph>
+      </Header>
+      <ItemsList>
+        {products.length ? (
+          products.map((product, index) => (
+            <ProductInBasket
+              name={product.name}
+              price={product.price}
+              img={product.img}
+              id={product.id}
+              quantity={product.quantity}
+              key={`${product}${index}`}
+            />
+          ))
+        ) : (
+          <Title>Twój koszyk jest pusty</Title>
         )}
-      </StyledSlideOut>
-    </StickyWrapper>
+      </ItemsList>
+      {basketValue > 0 && (
+        <Checkout>
+          <StyledButton buttonType="green">
+            Do kasy - {basketValue} złotych
+          </StyledButton>
+        </Checkout>
+      )}
+    </StyledSlideOut>
   );
 };
 

@@ -5,8 +5,9 @@ export const SlideOut = styled.div`
   display: grid;
   width: 80%;
   height: 100vh;
-  position: absolute;
+  position: fixed;
   top: 0;
+  z-index: 4;
   background-color: ${colors.white};
 
   transform: translateX(${({ from }) => (from === 'left' ? '-125%' : '125%')});

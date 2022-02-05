@@ -1,7 +1,8 @@
 import styled, { css, keyframes } from 'styled-components';
-import { breakpoints, colors } from 'theme/theme';
+import { breakpoints, colors, sizes } from 'theme/theme';
 import { SlideOut } from 'components/molecules/SlideOut/SlideOut';
 import Text from 'components/atoms/Text/Text';
+import { Link } from 'react-router-dom';
 
 const slidein = keyframes`
 0% {
@@ -67,7 +68,7 @@ export const ListElements = styled.ul`
   justify-content: flex-start;
   list-style: none;
   margin: 0 10px 0 20px;
-  padding: 0;
+  padding: 0px;
 
   ${({ isVisible }) =>
     isVisible &&
@@ -102,7 +103,7 @@ export const NavigationElement = styled.li`
     margin: 0 20px;
     width: fit-content;
     color: ${({ scrollPosition, isHover }) =>
-      scrollPosition < 15 || isHover ? colors.black : colors.black};
+      scrollPosition < 15 || isHover ? colors.black : colors.white};
     position: relative;
 
     &::before {
@@ -127,6 +128,12 @@ export const NavigationElement = styled.li`
     &:last-child {
       display: none;
     }
+
+    &.active {
+      &::before {
+        transform: scaleX(1);
+      }
+    }
   }
 `;
 
@@ -142,19 +149,22 @@ export const NavbarCloseButton = styled.button`
   }
 `;
 
-export const Logo = styled(Text)`
+export const StyledLink = styled(Link)`
   justify-self: center;
   align-self: center;
-  font-size: 0.9rem;
   cursor: pointer;
   text-decoration: none;
-  color: ${({ scrollPosition, isHover }) =>
-    scrollPosition < 15 || isHover ? colors.black : colors.black};
 
   @media ${breakpoints.desktop} {
     grid-column: 2;
     padding: 20px;
   }
+`;
+
+export const Logo = styled(Text)`
+  font-size: ${sizes.l};
+  color: ${({ scrollPosition, isHover }) =>
+    scrollPosition < 15 || isHover ? colors.black : colors.white};
 `;
 
 export const NavigationWrapper = styled.div`
@@ -172,7 +182,7 @@ export const Icon = styled.button`
   cursor: pointer;
   margin: 0 0 0 10px;
   color: ${({ scrollPosition, isHover }) =>
-    scrollPosition < 15 || isHover ? colors.black : colors.black};
+    scrollPosition < 15 || isHover ? colors.black : colors.white};
 
   &:last-child {
     margin: 0 10px 0 10px;

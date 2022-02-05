@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { breakpoints, colors } from 'theme/theme';
+import { breakpoints, colors, sizes } from 'theme/theme';
 import { Input } from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
 import Text from 'components/atoms/Text/Text';
@@ -40,24 +40,21 @@ export const StyledElement = styled.li`
   text-decoration: none;
   color: ${colors.darkGrey};
   margin: 0 0 20px 0;
-  font-size: 0.9rem;
-
-  &:first-child {
-    margin: 20px 0 20px 0;
-  }
+  font-size: ${sizes.m};
 
   &:hover {
-    color: #303030;
+    color: ${colors.black};
   }
 `;
 
 export const Title = styled(Text)`
-  color: ${colors.black};
+  color: ${colors.darkGrey};
+  margin: 0 0 20px 0;
 `;
 
 export const Paragraph = styled(Text)`
   line-height: 1.65;
-  font-size: 0.9rem;
+  font-size: ${sizes.m};
 `;
 
 export const Form = styled.form`

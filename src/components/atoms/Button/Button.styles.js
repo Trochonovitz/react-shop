@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { colors, slideInAnimation } from 'theme/theme';
+import { colors, sizes, slideInAnimation } from 'theme/theme';
 
 const ButtonMixin = css`
   font-family: 'Montserrat', sans-serif;
@@ -12,12 +12,12 @@ const MainButtonMixin = css`
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 0.2em;
-  font-size: 0.8rem;
+  font-size: ${sizes.m};
   height: 45px;
   position: relative;
   transition: color 300ms ease-in-out;
   z-index: 1;
-  width: 50%;
+  width: 100%;
 
   &::before {
     content: '';
@@ -83,6 +83,12 @@ const getButtonType = (buttonType) => {
             transform: scaleX(1);
           }
         }
+
+        ${({ animated }) =>
+          animated &&
+          css`
+            animation: 1s ease-in-out ${slideInAnimation};
+          `}
       `;
     case types.underline:
       return css`
@@ -92,12 +98,6 @@ const getButtonType = (buttonType) => {
         border: none;
         padding: 0 0 5px 0;
         font-size: 0.9rem;
-
-        ${({ animated }) =>
-          animated &&
-          css`
-            animation: 1s ease-in-out ${slideInAnimation};
-          `}
 
         &::before {
           content: '';

@@ -7,9 +7,8 @@ export const BlogsArticle = styled.article`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 20px 25px;
+  padding: 0 25px;
   line-height: 1.65rem;
-  margin: 0 0 40px 0;
 `;
 
 export const Image = styled.img`

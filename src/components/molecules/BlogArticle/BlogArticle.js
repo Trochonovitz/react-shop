@@ -9,8 +9,8 @@ import {
   Title,
 } from './BlogArticle.styles';
 
-const BlogArticle = ({ category, title, img, content }) => (
-  <BlogsArticle>
+const BlogArticle = ({ category, title, img, content, style }) => (
+  <BlogsArticle style={style}>
     <Image src={img} alt="article's visualisation" />
     <TextBox>
       <Category textType="p">{category}</Category>

@@ -16,7 +16,9 @@ const Slide = forwardRef(
         <Title textType={'h2'} animated={animated}>
           {title}
         </Title>
-        <StyledButton animated={animated}>Zobacz</StyledButton>
+        <StyledButton animated={animated} buttonType="transparent">
+          Zobacz
+        </StyledButton>
       </InfoBox>
     </Wrapper>
   )
