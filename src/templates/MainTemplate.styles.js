@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
   align-items: center;
   width: 100%;
   overflow-x: hidden;
-  position: relative;
+  /* position: relative; */
 `;
 
 export const InfoBox = styled.div`

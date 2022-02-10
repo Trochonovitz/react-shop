@@ -1,4 +1,4 @@
-export const useContent = (quantity = '') => {
+export const useContent = (quantity = '', id) => {
   const blogsArticlesQuery = `query
     {
       allArticles${quantity} {
@@ -25,5 +25,17 @@ export const useContent = (quantity = '') => {
       }
       `;
 
-  return { blogsArticlesQuery, productsQuery };
+  const productQuery = `query {
+    allProducts(filter: { id: { eq: "${id}" } }) {
+      name,
+      price,
+      productVisualisation {
+        url(imgixParams: {})
+      },
+      brand,
+      description
+    }
+  }`;
+
+  return { blogsArticlesQuery, productsQuery, productQuery };
 };
