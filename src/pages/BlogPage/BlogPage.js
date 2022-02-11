@@ -13,8 +13,8 @@ import {
 } from './BlogPage.styles';
 
 const BlogPage = () => {
-  const { blogsArticlesQuery } = useContent();
-  const { loading, error, data } = useQuery(blogsArticlesQuery);
+  const { blogArticlesQuery } = useContent();
+  const { loading, error, data } = useQuery(blogArticlesQuery);
   const [pickedCategory, setCategory] = useState('wszystkie');
   const transition = useTransition(pickedCategory, {
     from: { y: 100, opacity: 0 },
@@ -59,14 +59,15 @@ const BlogPage = () => {
         <BlogContent>
           {Children.toArray(
             filteredArticles.map(
-              ({ category, title, mainPhoto: { url }, content }) =>
+              ({ id, category, title, mainPhoto: { url }, lead }) =>
                 transition((style) => (
                   <AnimatedBlogArticle
                     style={style}
+                    id={id}
                     category={category}
                     title={title}
                     img={url}
-                    content={content}
+                    lead={lead}
                   />
                 ))
             )

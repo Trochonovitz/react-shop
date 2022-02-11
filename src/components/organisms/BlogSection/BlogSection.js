@@ -16,8 +16,8 @@ import {
 
 const BlogSection = () => {
   const tabletView = useMediaQuery({ query: breakpoints.maxTablet });
-  const { blogsArticlesQuery } = useContent(`(first: ${tabletView ? 2 : 3})`);
-  const { loading, error, data } = useQuery(blogsArticlesQuery);
+  const { blogArticlesQuery } = useContent(`(first: ${tabletView ? 2 : 3})`);
+  const { loading, error, data } = useQuery(blogArticlesQuery);
 
   if (loading) return 'Loading...';
   if (error) return 'Something Bad Happened';
@@ -31,12 +31,13 @@ const BlogSection = () => {
       <BlogContent>
         {Children.toArray(
           data.allArticles.map(
-            ({ category, title, mainPhoto: { url }, content }) => (
+            ({ id, category, title, mainPhoto: { url }, lead }) => (
               <BlogArticle
+                id={id}
                 category={category}
                 title={title}
                 img={url}
-                content={content}
+                lead={lead}
               />
             )
           )

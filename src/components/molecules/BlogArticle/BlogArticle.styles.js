@@ -3,7 +3,7 @@ import { breakpoints, colors } from 'theme/theme';
 import Text from 'components/atoms/Text/Text';
 import Button from 'components/atoms/Button/Button';
 
-export const BlogsArticle = styled.article`
+export const Wrapper = styled.article`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

@@ -30,11 +30,12 @@ const DetailPageProduct = () => {
   if (loading) return 'Loading...';
   if (error) return 'Something Bad Happened';
 
-  const image = data.allProducts[0].productVisualisation.url;
-  const brand = data.allProducts[0].brand;
-  const name = data.allProducts[0].name;
-  const price = data.allProducts[0].price;
-  const description = data.allProducts[0].description;
+  const product = data.allProducts[0];
+  const image = product.productVisualisation.url;
+  const brand = product.brand;
+  const name = product.name;
+  const price = product.price;
+  const description = product.description;
 
   return (
     <MainTemplate>

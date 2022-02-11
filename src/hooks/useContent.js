@@ -1,14 +1,28 @@
 export const useContent = (quantity = '', id) => {
-  const blogsArticlesQuery = `query
-    {
-      allArticles${quantity} {
-        id
-        category
-            title
-        mainPhoto {
-          url(imgixParams: {})
+  const blogArticlesQuery = `query {
+    allArticles${quantity} {
+      id
+      category
+      title
+      mainPhoto {
+        url(imgixParams: {})
+      }
+      content,
+      lead
         }
-        content
+      }
+    `;
+
+  const blogArticleQuery = `query {
+    allArticles(filter: { id: { eq: "${id}" } }) {
+      category
+      title
+      mainPhoto {
+        url(imgixParams: {})
+        }
+      content,
+      lead,
+      _firstPublishedAt
       }
     }
     `;
@@ -37,5 +51,5 @@ export const useContent = (quantity = '', id) => {
     }
   }`;
 
-  return { blogsArticlesQuery, productsQuery, productQuery };
+  return { blogArticlesQuery, blogArticleQuery, productsQuery, productQuery };
 };
