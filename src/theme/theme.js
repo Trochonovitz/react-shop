@@ -19,6 +19,7 @@ export const breakpoints = {
   maxTablet: '(min-width: 768px) and (max-width: 992px)',
   laptop: '(min-width: 992px)',
   desktop: '(min-width: 1100px)',
+  fullHD: '(min-width: 1520px)',
 };
 
 export const colors = {
