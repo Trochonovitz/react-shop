@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Wrapper, StyledInput, StyledButton } from './Form.styles';
 
-const Form = () => {
+const Form = ({ ...props }) => {
   const {
     register,
     handleSubmit,
@@ -16,7 +16,7 @@ const Form = () => {
     reset();
   };
   return (
-    <Wrapper onSubmit={handleSubmit(onSubmit)}>
+    <Wrapper onSubmit={handleSubmit(onSubmit)} {...props}>
       <StyledInput placeholder="Imię i nazwisko" {...register('name')} />
       <StyledInput type="email" placeholder="E-mail" {...register('email')} />
       <StyledInput placeholder="Twoja wiadomość" {...register('message')} />

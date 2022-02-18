@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Text from 'components/atoms/Text/Text';
 import {
   Wrapper,
@@ -23,5 +24,14 @@ const BlogArticle = ({ id, category, title, img, lead, style }) => (
     </Link>
   </Wrapper>
 );
+
+BlogArticle.propTypes = {
+  title: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  lead: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  style: PropTypes.object,
+};
 
 export default BlogArticle;

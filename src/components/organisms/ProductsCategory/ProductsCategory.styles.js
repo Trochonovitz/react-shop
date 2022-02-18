@@ -3,17 +3,20 @@ import { breakpoints } from 'theme/theme';
 import { Link } from 'react-router-dom';
 
 export const Wrapper = styled.div`
-  width: 100%;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
 
   @media ${breakpoints.bigPhone} {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     grid-gap: 10px;
   }
 
   @media ${breakpoints.desktop} {
+    grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 50% 50%;
   }
 `;
 

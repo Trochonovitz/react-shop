@@ -48,6 +48,8 @@ ProductInBasket.propTypes = {
   name: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   img: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  quantity: PropTypes.number.isRequired,
 };
 
 export default ProductInBasket;

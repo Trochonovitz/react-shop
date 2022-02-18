@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addItem } from 'store/basket';
@@ -36,6 +37,13 @@ const ProductCard = ({ name, price, img, id }) => {
       <Paragraph>{price} zł</Paragraph>
     </Wrapper>
   );
+};
+
+ProductCard.propTypes = {
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  img: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default ProductCard;

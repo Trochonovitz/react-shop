@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import PropTypes from 'prop-types';
 import { breakpoints, colors } from 'theme/theme';
 
 export const SlideOut = styled.div`
@@ -27,3 +28,8 @@ export const SlideOut = styled.div`
     width: 100%;
   }
 `;
+
+SlideOut.propTyes = {
+  from: PropTypes.string.isRequired,
+  isVisible: PropTypes.bool,
+};

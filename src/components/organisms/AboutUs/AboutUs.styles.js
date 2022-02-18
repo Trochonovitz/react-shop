@@ -12,7 +12,6 @@ export const AboutUsSection = styled.div`
   background-image: url('https://cdn.shopify.com/s/files/1/0594/6743/2116/files/papierniczeni_onas_01_750x960_crop_center.jpg?v=1634144287');
   background-position: center;
   background-size: cover;
-  margin: 50px 0 0 0;
 `;
 
 export const AboutUsInfo = styled.div`

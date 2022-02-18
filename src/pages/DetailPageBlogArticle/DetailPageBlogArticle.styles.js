@@ -4,19 +4,11 @@ import { breakpoints, colors, sizes } from 'theme/theme';
 
 export const Image = styled.img`
   width: 100%;
-  /* height: 215px; */
 
-  /* @media ${breakpoints.bigPhone} {
-    height: 335px;
+  @media ${breakpoints.desktop} {
+    height: 60vh;
+    object-fit: cover;
   }
-
-  @media ${breakpoints.tablet} {
-    height: 335px;
-  }
-
-  @media ${breakpoints.laptop} {
-    height: 450px;
-  } */
 `;
 
 export const Wrapper = styled.article`

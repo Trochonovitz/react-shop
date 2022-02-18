@@ -25,9 +25,12 @@ const Slide = forwardRef(
 );
 
 Slide.propTypes = {
+  cover: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  cover: PropTypes.string,
+  height: PropTypes.string,
   animated: PropTypes.bool,
+  description: PropTypes.string,
+  main: PropTypes.bool,
 };
 
 export default Slide;

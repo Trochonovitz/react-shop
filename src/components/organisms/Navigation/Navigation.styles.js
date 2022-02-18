@@ -1,8 +1,8 @@
 import styled, { css, keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 import { breakpoints, colors, sizes } from 'theme/theme';
 import { SlideOut } from 'components/molecules/SlideOut/SlideOut';
 import Text from 'components/atoms/Text/Text';
-import { Link } from 'react-router-dom';
 
 const slidein = keyframes`
 0% {
@@ -15,29 +15,20 @@ const slidein = keyframes`
 `;
 
 export const Wrapper = styled.nav`
-  width: 100%;
-  position: sticky;
-  top: 0;
-  z-index: 3;
-`;
-
-export const WrapperAbsolute = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 10px;
-  top: 0;
   border-bottom: 1px solid ${colors.lightGrey};
   width: 100%;
+  padding: 10px;
+  z-index: 3;
+  /* background-color: ${({ scrollposition, ishover }) =>
+    scrollposition < 15 || ishover ? colors.white : colors.black};
+  transition: background-color 250ms linear; */
 
-  background-color: ${({ scrollPosition, isHover }) =>
-    scrollPosition < 15 || isHover ? colors.white : colors.transparnet};
-  transition: background-color 250ms linear;
-
-  ${({ isAbsolute }) =>
-    isAbsolute &&
-    css`
-      position: absolute;
-    `};
+  //! Dlaczego sticky tu nie działa?
+  position: sticky;
+  top: 0px;
+  background-color: ${colors.darkBeige};
 
   @media ${breakpoints.desktop} {
     grid-template-columns: 15% 70% 15%;
@@ -102,8 +93,8 @@ export const NavigationElement = styled.li`
     border: none;
     margin: 0 20px;
     width: fit-content;
-    color: ${({ scrollPosition, isHover }) =>
-      scrollPosition < 15 || isHover ? colors.black : colors.white};
+    color: ${({ scrollposition, ishover }) =>
+      scrollposition < 15 || ishover ? colors.black : colors.white};
     position: relative;
 
     &::before {
@@ -163,8 +154,8 @@ export const StyledLink = styled(Link)`
 
 export const Logo = styled(Text)`
   font-size: ${sizes.l};
-  color: ${({ scrollPosition, isHover }) =>
-    scrollPosition < 15 || isHover ? colors.black : colors.white};
+  color: ${({ scrollposition, ishover }) =>
+    scrollposition < 15 || ishover ? colors.black : colors.white};
 `;
 
 export const NavigationWrapper = styled.div`
@@ -181,8 +172,8 @@ export const Icon = styled.button`
   background: transparent;
   cursor: pointer;
   margin: 0 0 0 10px;
-  color: ${({ scrollPosition, isHover }) =>
-    scrollPosition < 15 || isHover ? colors.black : colors.white};
+  color: ${({ scrollposition, ishover }) =>
+    scrollposition < 15 || ishover ? colors.black : colors.white};
 
   &:last-child {
     margin: 0 10px 0 10px;

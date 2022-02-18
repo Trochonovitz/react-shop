@@ -5,11 +5,11 @@ import { useContent } from 'hooks/useContent';
 import MainTemplate from 'templates/MainTemplate';
 import BlogArticle from 'components/molecules/BlogArticle/BlogArticle';
 import {
+  Wrapper,
   BlogContent,
   CategoryButton,
-  Header,
   Title,
-  Wrapper,
+  CategorySection,
 } from './BlogPage.styles';
 
 const BlogPage = () => {
@@ -34,9 +34,9 @@ const BlogPage = () => {
 
   return (
     <MainTemplate>
-      <Header>
+      <Wrapper>
         <Title textType="h1">Papiernicze inspiracje</Title>
-        <Wrapper>
+        <CategorySection>
           <CategoryButton
             onClick={() => handleCategory('wszystkie')}
             activeCategory={`wszystkie`}
@@ -55,7 +55,7 @@ const BlogPage = () => {
               </CategoryButton>
             ))
           )}
-        </Wrapper>
+        </CategorySection>
         <BlogContent>
           {Children.toArray(
             filteredArticles.map(
@@ -73,7 +73,7 @@ const BlogPage = () => {
             )
           )}
         </BlogContent>
-      </Header>
+      </Wrapper>
     </MainTemplate>
   );
 };

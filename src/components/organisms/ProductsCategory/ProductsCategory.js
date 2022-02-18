@@ -32,7 +32,7 @@ const ProductsCategory = () => {
           : `Coś poszło nie tak. Ponownie przeładuj stronę!`}
       </Wrapper>
       {pathname.length === 1 && (
-        <StyledLink to="/products">
+        <StyledLink to="/sklep">
           <Button buttonType="green">Przejdź do sklepu</Button>
         </StyledLink>
       )}

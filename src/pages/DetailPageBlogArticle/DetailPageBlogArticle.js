@@ -16,7 +16,6 @@ import {
 
 const DetailPageBlogArticle = () => {
   const { id } = useParams();
-  const params = useParams();
   const { blogArticleQuery } = useContent(null, id);
   const { loading, error, data } = useQuery(blogArticleQuery);
 
@@ -33,7 +32,6 @@ const DetailPageBlogArticle = () => {
 
   return (
     <MainTemplate>
-      {console.log(params)}
       <Image alt="blog's article visualisation" src={image} />
       <Wrapper>
         <Header>

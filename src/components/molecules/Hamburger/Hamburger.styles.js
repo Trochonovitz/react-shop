@@ -16,12 +16,11 @@ export const StyledHamburger = styled.button`
 
 export const StyledHamburgerInner = styled.span`
   display: flex;
-
   width: 100%;
   height: 2px;
   position: relative;
-  background-color: ${({ scrollPosition, isHover }) =>
-    scrollPosition < 15 || isHover ? colors.black : colors.white};
+  background-color: ${({ scrollposition, ishover }) =>
+    scrollposition < 15 || ishover ? colors.black : colors.white};
 
   &::after,
   &::before {
@@ -30,8 +29,8 @@ export const StyledHamburgerInner = styled.span`
     content: '';
     width: 100%;
     height: 2px;
-    background-color: ${({ scrollPosition, isHover }) =>
-      scrollPosition < 15 || isHover ? colors.black : colors.white};
+    background-color: ${({ scrollposition, ishover }) =>
+      scrollposition < 15 || ishover ? colors.black : colors.white};
   }
 
   &::after {

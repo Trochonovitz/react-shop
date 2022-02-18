@@ -2,10 +2,14 @@ import styled, { css } from 'styled-components';
 import { breakpoints } from 'theme/theme';
 import Text from 'components/atoms/Text/Text';
 
-export const Header = styled.header`
+export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media ${breakpoints.desktop} {
+    width: 60%;
+  }
 `;
 
 export const Title = styled(Text)`
@@ -15,9 +19,12 @@ export const Title = styled(Text)`
 `;
 
 export const BlogContent = styled.div`
+  padding: 0 20px;
+
   @media ${breakpoints.tablet} {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
   }
 
   @media ${breakpoints.laptop} {
@@ -25,7 +32,7 @@ export const BlogContent = styled.div`
   }
 `;
 
-export const Wrapper = styled.div`
+export const CategorySection = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

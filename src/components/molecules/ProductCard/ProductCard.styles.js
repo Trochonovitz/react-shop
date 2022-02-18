@@ -1,18 +1,19 @@
 import Text from 'components/atoms/Text/Text';
 import styled from 'styled-components';
-import { breakpoints, colors, sizes } from 'theme/theme';
+import { colors, sizes } from 'theme/theme';
 
 export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   text-decoration: none;
+  margin: 0 0 20px 0;
 `;
 
 export const BuyButton = styled.button`
-  width: 65px;
-  height: 65px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: none;
   background-color: ${colors.white};
@@ -37,22 +38,12 @@ export const ImageWrapper = styled.div`
 `;
 
 export const Image = styled.img`
-  justify-self: center;
-  align-self: center;
-  object-fit: cover;
   cursor: pointer;
-  width: 350px;
-  height: 350px;
-
-  @media ${breakpoints.phone} {
-    width: 100%;
-    height: 100%;
-  }
+  width: 100%;
+  padding: 0 0 20px 0;
 `;
 
 export const Paragraph = styled(Text)`
-  justify-self: center;
-  align-self: center;
   font-size: ${sizes.s};
   text-transform: uppercase;
   letter-spacing: 0.2em;
