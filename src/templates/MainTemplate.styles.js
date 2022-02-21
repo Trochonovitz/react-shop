@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  overflow-x: hidden;
+  position: relative;
 `;
 
 export const InfoBox = styled.div`

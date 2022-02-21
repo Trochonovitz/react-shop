@@ -4,7 +4,7 @@ import { breakpoints, colors } from 'theme/theme';
 import Text from 'components/atoms/Text/Text';
 
 export const Title = styled(Text)`
-  margin: 50px 0;
+  margin: 0 0 50px 0;
   text-align: center;
   width: 100%;
   color: ${colors.darkGrey};
@@ -37,10 +37,4 @@ export const NewItemsBox = styled.div`
     display: grid;
     grid-template-columns: 30% 70%;
   }
-
-  /* @media ${breakpoints.desktop} {
-    margin: 50px 0 0 0;
-    padding: 50px 100px;
-    height: 400px;
-  } */
 `;

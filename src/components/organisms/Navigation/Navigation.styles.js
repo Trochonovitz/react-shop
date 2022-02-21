@@ -21,14 +21,11 @@ export const Wrapper = styled.nav`
   width: 100%;
   padding: 10px;
   z-index: 3;
-  /* background-color: ${({ scrollposition, ishover }) =>
-    scrollposition < 15 || ishover ? colors.white : colors.black};
-  transition: background-color 250ms linear; */
-
-  //! Dlaczego sticky tu nie działa?
+  background-color: ${({ scrollPosition, isHover }) =>
+    scrollPosition < 15 || isHover ? colors.white : colors.transparent};
+  transition: background-color 250ms linear;
   position: sticky;
   top: 0px;
-  background-color: ${colors.darkBeige};
 
   @media ${breakpoints.desktop} {
     grid-template-columns: 15% 70% 15%;
@@ -93,8 +90,8 @@ export const NavigationElement = styled.li`
     border: none;
     margin: 0 20px;
     width: fit-content;
-    color: ${({ scrollposition, ishover }) =>
-      scrollposition < 15 || ishover ? colors.black : colors.white};
+    color: ${({ $scrollPosition, $isHover }) =>
+      $scrollPosition < 15 || $isHover ? colors.black : colors.white};
     position: relative;
 
     &::before {
@@ -154,13 +151,14 @@ export const StyledLink = styled(Link)`
 
 export const Logo = styled(Text)`
   font-size: ${sizes.l};
-  color: ${({ scrollposition, ishover }) =>
-    scrollposition < 15 || ishover ? colors.black : colors.white};
+  color: ${({ $scrollPosition, $isHover }) =>
+    $scrollPosition < 15 || $isHover ? colors.black : colors.white};
 `;
 
 export const NavigationWrapper = styled.div`
   justify-self: end;
   align-self: center;
+  display: flex;
 
   @media ${breakpoints.desktop} {
     grid-column: 3;
@@ -171,22 +169,12 @@ export const Icon = styled.button`
   border: none;
   background: transparent;
   cursor: pointer;
-  margin: 0 0 0 10px;
-  color: ${({ scrollposition, ishover }) =>
-    scrollposition < 15 || ishover ? colors.black : colors.white};
-
-  &:last-child {
-    margin: 0 10px 0 10px;
-  }
+  color: ${({ $scrollPosition, $isHover }) =>
+    $scrollPosition < 15 || $isHover ? colors.black : colors.white};
 
   @media (max-width: 1140px) {
     &:first-child {
       display: none;
     }
   }
-`;
-
-export const StyledSVG = styled.svg`
-  width: 20px;
-  height: 20px;
 `;

@@ -1,4 +1,4 @@
-import React, { useContext, useState, Children } from 'react';
+import React, { useContext, useState, Children, forwardRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { closeMobileNav, openBasket, openMobileNav } from 'store/navigation';
@@ -27,7 +27,7 @@ const options = [
   'moje konto',
 ];
 
-const Navigation = () => {
+const Navigation = forwardRef(({ ...props }, ref) => {
   const [isHover, setHover] = useState(false);
   const scrollPosition = useContext(ScrollPositionContext);
   const products = useSelector((store) => store.basket.basket);
@@ -41,12 +41,13 @@ const Navigation = () => {
 
   return (
     <Wrapper
-      scrollposition={scrollPosition}
+      scrollPosition={scrollPosition}
       onMouseEnter={hoverOnMouseEnter}
       onMouseLeave={hoverOnMouseLeave}
-      ishover={isHover}
+      isHover={isHover}
+      ref={ref}
     >
-      <Hamburger onClick={handleOpenMobileNav} ishover={isHover} />
+      <Hamburger onClick={handleOpenMobileNav} isHover={isHover} />
       <StyledSlideOut isVisible={mobileNavState} from={'left'}>
         <ListElements isVisible={mobileNavState}>
           <NavbarCloseButton onClick={handleCloseMobileNav}>
@@ -56,9 +57,9 @@ const Navigation = () => {
             options.map((option) => (
               <NavigationElement
                 as={NavLink}
-                scrollposition={scrollPosition}
                 to={option}
-                ishover={isHover}
+                $scrollPosition={scrollPosition}
+                $isHover={isHover}
               >
                 {option}
               </NavigationElement>
@@ -67,12 +68,12 @@ const Navigation = () => {
         </ListElements>
       </StyledSlideOut>
       <StyledLink to="/">
-        <Logo textType="h1" scrollposition={scrollPosition} ishover={isHover}>
+        <Logo textType="h1" $scrollPosition={scrollPosition} $isHover={isHover}>
           Papierniczeni
         </Logo>
       </StyledLink>
       <NavigationWrapper>
-        <Icon scrollposition={scrollPosition} ishover={isHover}>
+        <Icon $scrollPosition={scrollPosition} $isHover={isHover}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -83,7 +84,7 @@ const Navigation = () => {
             <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
           </svg>
         </Icon>
-        <Icon scrollposition={scrollPosition} ishover={isHover}>
+        <Icon $scrollPosition={scrollPosition} $isHover={isHover}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -94,11 +95,10 @@ const Navigation = () => {
             <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
           </svg>
         </Icon>
-
         <Icon
           onClick={handleOpenBasket}
-          scrollposition={scrollPosition}
-          ishover={isHover}
+          $scrollPosition={scrollPosition}
+          $isHover={isHover}
         >
           {products.length ? (
             <svg
@@ -129,6 +129,6 @@ const Navigation = () => {
       </NavigationWrapper>
     </Wrapper>
   );
-};
+});
 
 export default Navigation;

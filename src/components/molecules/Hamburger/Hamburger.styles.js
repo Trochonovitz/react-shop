@@ -19,8 +19,8 @@ export const StyledHamburgerInner = styled.span`
   width: 100%;
   height: 2px;
   position: relative;
-  background-color: ${({ scrollposition, ishover }) =>
-    scrollposition < 15 || ishover ? colors.black : colors.white};
+  background-color: ${({ $scrollPosition, $isHover }) =>
+    $scrollPosition < 15 || $isHover ? colors.black : colors.white};
 
   &::after,
   &::before {
@@ -29,8 +29,8 @@ export const StyledHamburgerInner = styled.span`
     content: '';
     width: 100%;
     height: 2px;
-    background-color: ${({ scrollposition, ishover }) =>
-      scrollposition < 15 || ishover ? colors.black : colors.white};
+    background-color: ${({ $scrollPosition, $isHover }) =>
+      $scrollPosition < 15 || $isHover ? colors.black : colors.white};
   }
 
   &::after {
