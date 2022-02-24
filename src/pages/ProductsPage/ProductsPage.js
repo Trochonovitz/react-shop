@@ -1,24 +1,28 @@
 import ProductsCategory from 'components/organisms/ProductsCategory/ProductsCategory';
-import React from 'react';
+import React, { useState } from 'react';
 import MainTemplate from 'templates/MainTemplate';
 import {
   CategoriesWrapper,
   Header,
   Title,
-  StyledSecondTitle,
+  Category,
 } from './ProductsPage.styles';
 
-const ProductsPage = () => (
-  <MainTemplate>
-    <Header>
-      <Title textType="h2">Polecamy</Title>
-      <CategoriesWrapper>
-        <StyledSecondTitle>Kategorie</StyledSecondTitle>
-        <StyledSecondTitle>Sortuj</StyledSecondTitle>
-      </CategoriesWrapper>
-    </Header>
-    <ProductsCategory />
-  </MainTemplate>
-);
+const ProductsPage = () => {
+  const [visibility, setVisibility] = useState(false);
+
+  return (
+    <MainTemplate>
+      <Header>
+        <Title textType="h2">Polecamy</Title>
+        <CategoriesWrapper>
+          <Category textType="h3">Kategorie</Category>
+          <Category textType="h3">Sortuj</Category>
+        </CategoriesWrapper>
+      </Header>
+      <ProductsCategory />
+    </MainTemplate>
+  );
+};
 
 export default ProductsPage;

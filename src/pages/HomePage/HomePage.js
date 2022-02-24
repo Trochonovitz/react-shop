@@ -1,9 +1,9 @@
 import React, { useState, useRef, createContext } from 'react';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import { slides } from 'fixtures';
-import MainTemplate from '../../templates/MainTemplate';
-import ProductsCategory from '../../components/organisms/ProductsCategory/ProductsCategory';
-import ItemsCarousel from '../../components/organisms/Carousel/Carousel';
+import MainTemplate from 'templates/MainTemplate';
+import ProductsCategory from 'components/organisms/ProductsCategory/ProductsCategory';
+import Carousel from 'components/organisms/Carousel/Carousel';
 import Slide from 'components/molecules/Slide/Slide';
 import BlogSection from 'components/organisms/BlogSection/BlogSection';
 import AboutUs from 'components/organisms/AboutUs/AboutUs';
@@ -43,7 +43,7 @@ const HomePage = () => {
             <br />
             <InfoLink to="/sklep">więcej</InfoLink>
           </Info>
-          <ItemsCarousel />
+          <Carousel />
         </NewItemsBox>
         <BlogSection />
         <AboutUs />

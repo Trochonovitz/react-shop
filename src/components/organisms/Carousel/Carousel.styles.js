@@ -2,10 +2,6 @@ import styled from 'styled-components';
 import { Carousel } from 'react-responsive-carousel';
 import { breakpoints } from 'theme/theme';
 
-export const StyledCarousel = styled(Carousel)`
-  width: 100%;
-`;
-
 export const Wrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -18,4 +14,7 @@ export const Wrapper = styled.div`
   @media ${breakpoints.laptop} {
     margin: 0;
   }
+`;
+export const StyledCarousel = styled(Carousel)`
+  width: 100%;
 `;

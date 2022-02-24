@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
   ${({ main }) =>
     main &&
     css`
-      top: ${({ $navHeight }) => `-${$navHeight + 1}px`};
+      top: ${({ $navHeight }) => `-${$navHeight}px`};
       &:after {
         content: '';
         position: absolute;

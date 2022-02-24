@@ -37,4 +37,8 @@ export const NewItemsBox = styled.div`
     display: grid;
     grid-template-columns: 30% 70%;
   }
+
+  @media ${breakpoints.desktop} {
+    padding: 0 50px;
+  }
 `;

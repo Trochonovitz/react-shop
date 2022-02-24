@@ -18,7 +18,7 @@ export const BlogHeader = styled.header`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 30px 0 0;
+  margin: 30px 0;
 `;
 
 export const BlogContent = styled.div`
@@ -32,12 +32,14 @@ export const BlogContent = styled.div`
 
   @media ${breakpoints.laptop} {
     grid-template-columns: repeat(3, 1fr);
+    width: 60%;
   }
 `;
 
 export const Title = styled(Text)`
   color: ${colors.darkGrey};
   font-size: ${sizes.xl};
+  margin: 15px 0 0;
 `;
 
 export const StyledLink = styled(Link)`
@@ -48,6 +50,6 @@ export const StyledLink = styled(Link)`
   width: 100%;
 
   @media ${breakpoints.desktop} {
-    width: 50%;
+    width: 25%;
   }
 `;

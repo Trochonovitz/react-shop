@@ -1,4 +1,4 @@
-import React, { Children } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {
@@ -40,27 +40,28 @@ const Footer = () => {
       <TextBox>
         <Title textType="h2">strefa klienta</Title>
         <StyledUl>
-          {Children.toArray(
-            options.map((option) => (
-              <StyledElement as={Link} to="#">
-                {option}
-              </StyledElement>
-            ))
-          )}
+          {options.map((option, index) => (
+            <StyledElement key={index} as={Link} to="#">
+              {option}
+            </StyledElement>
+          ))}
         </StyledUl>
       </TextBox>
       <TextBox>
         <Title textType="h2">Odwiedź nasz sklep</Title>
-        <Paragraph>Kraków, ul. Limanowskiego 18</Paragraph>
-        <br />
         <Paragraph>
+          Kraków, ul. Limanowskiego 18
+          <br />
+          <br />
           godziny otwarcia:
           <br />
           12.00 – 18.00 (pn – pt),
-          <br /> 12.00 – 16.00 (sb)
+          <br />
+          12.00 – 16.00 (sb)
+          <br />
+          <br />
+          tel. 504 865 233
         </Paragraph>
-        <br />
-        <Paragraph>tel. 504 865 233</Paragraph>
       </TextBox>
       <TextBox>
         <Title textType="h2">newsletter</Title>

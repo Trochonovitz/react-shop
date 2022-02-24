@@ -1,4 +1,4 @@
-import React, { useState, Children } from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'graphql-hooks';
 import { useTransition, animated } from '@react-spring/web';
 import { useContent } from 'hooks/useContent';
@@ -44,33 +44,31 @@ const BlogPage = () => {
           >
             wszystkie
           </CategoryButton>
-          {Children.toArray(
-            allArticles.map(({ category }) => (
-              <CategoryButton
-                onClick={() => handleCategory(category)}
-                activeCategory={category}
-                pickedCategory={pickedCategory}
-              >
-                {category}
-              </CategoryButton>
-            ))
-          )}
+          {allArticles.map(({ category }, index) => (
+            <CategoryButton
+              key={index}
+              onClick={() => handleCategory(category)}
+              activeCategory={category}
+              pickedCategory={pickedCategory}
+            >
+              {category}
+            </CategoryButton>
+          ))}
         </CategorySection>
         <BlogContent>
-          {Children.toArray(
-            filteredArticles.map(
-              ({ id, category, title, mainPhoto: { url }, lead }) =>
-                transition((style) => (
-                  <AnimatedBlogArticle
-                    style={style}
-                    id={id}
-                    category={category}
-                    title={title}
-                    img={url}
-                    lead={lead}
-                  />
-                ))
-            )
+          {filteredArticles.map(
+            ({ id, category, title, mainPhoto: { url }, lead }) =>
+              transition((style) => (
+                <AnimatedBlogArticle
+                  key={id}
+                  style={style}
+                  id={id}
+                  category={category}
+                  title={title}
+                  img={url}
+                  lead={lead}
+                />
+              ))
           )}
         </BlogContent>
       </Wrapper>

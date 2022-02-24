@@ -13,8 +13,8 @@ export const Wrapper = styled.footer`
 
   @media ${breakpoints.tablet} {
     display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
   }
 
   @media ${breakpoints.desktop} {
@@ -49,6 +49,7 @@ export const StyledElement = styled.li`
 
 export const Title = styled(Text)`
   color: ${colors.darkGrey};
+  font-size: ${sizes.l};
   margin: 0 0 20px 0;
 `;
 

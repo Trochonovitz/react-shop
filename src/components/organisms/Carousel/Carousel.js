@@ -2,14 +2,14 @@ import React from 'react';
 import { useMediaQuery } from 'react-responsive';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { slides } from 'fixtures';
+import { breakpoints } from 'theme/theme.js';
 import Slide from 'components/molecules/Slide/Slide';
 import {
-  StyledCarousel,
   Wrapper,
+  StyledCarousel,
 } from 'components/organisms/Carousel/Carousel.styles';
-import { breakpoints } from 'theme/theme.js';
 
-const ItemsCarousel = () => {
+const Carousel = () => {
   const carouselConvert = useMediaQuery({ query: breakpoints.bigPhone });
 
   return (
@@ -18,11 +18,11 @@ const ItemsCarousel = () => {
         <Wrapper>
           {slides.map((item, index) => (
             <Slide
+              key={index}
               height={'500px'}
               cover={item.link}
               title={item.title}
               description={item.description}
-              key={`${item.title}${index}`}
             />
           ))}
         </Wrapper>
@@ -36,11 +36,11 @@ const ItemsCarousel = () => {
         >
           {slides.map((item, index) => (
             <Slide
+              key={index}
               height={'500px'}
               cover={item.link}
               title={item.title}
               description={item.description}
-              key={`${item.title}${index}`}
             />
           ))}
         </StyledCarousel>
@@ -49,4 +49,4 @@ const ItemsCarousel = () => {
   );
 };
 
-export default ItemsCarousel;
+export default Carousel;

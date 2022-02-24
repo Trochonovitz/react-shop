@@ -1,4 +1,4 @@
-import React, { useContext, useState, Children, forwardRef } from 'react';
+import React, { useContext, useState, forwardRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { closeMobileNav, openBasket, openMobileNav } from 'store/navigation';
@@ -16,16 +16,7 @@ import {
   StyledLink,
 } from './Navigation.styles';
 
-const options = [
-  'sklep',
-  'kalendarze 2022',
-  'nowości',
-  'o nas',
-  'nasza kolekcja',
-  'blog',
-  'kontakt',
-  'moje konto',
-];
+const options = ['sklep', 'o nas', 'blog', 'kontakt', 'moje konto'];
 
 const Navigation = forwardRef(({ ...props }, ref) => {
   const [isHover, setHover] = useState(false);
@@ -53,18 +44,17 @@ const Navigation = forwardRef(({ ...props }, ref) => {
           <NavbarCloseButton onClick={handleCloseMobileNav}>
             X
           </NavbarCloseButton>
-          {Children.toArray(
-            options.map((option) => (
-              <NavigationElement
-                as={NavLink}
-                to={option}
-                $scrollPosition={scrollPosition}
-                $isHover={isHover}
-              >
-                {option}
-              </NavigationElement>
-            ))
-          )}
+          {options.map((option, index) => (
+            <NavigationElement
+              key={index}
+              as={NavLink}
+              to={option}
+              $scrollPosition={scrollPosition}
+              $isHover={isHover}
+            >
+              {option}
+            </NavigationElement>
+          ))}
         </ListElements>
       </StyledSlideOut>
       <StyledLink to="/">

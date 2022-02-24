@@ -17,6 +17,7 @@ export const Wrapper = styled.div`
   @media ${breakpoints.desktop} {
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(3, 1fr);
+    padding: 0 50px;
   }
 `;
 
@@ -29,6 +30,6 @@ export const StyledLink = styled(Link)`
   margin: 50px 0;
 
   @media ${breakpoints.desktop} {
-    width: 50%;
+    width: 25%;
   }
 `;
