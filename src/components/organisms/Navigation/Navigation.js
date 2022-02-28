@@ -39,7 +39,7 @@ const Navigation = forwardRef(({ ...props }, ref) => {
       ref={ref}
     >
       <Hamburger onClick={handleOpenMobileNav} isHover={isHover} />
-      <StyledSlideOut isVisible={mobileNavState} from={'left'}>
+      <StyledSlideOut isVisible={mobileNavState} $from={'left'}>
         <ListElements isVisible={mobileNavState}>
           <NavbarCloseButton onClick={handleCloseMobileNav}>
             X

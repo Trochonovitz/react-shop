@@ -1,6 +1,6 @@
 import Text from 'components/atoms/Text/Text';
 import styled from 'styled-components';
-import { colors, sizes } from 'theme/theme';
+import { breakpoints, colors, sizes } from 'theme/theme';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -12,8 +12,8 @@ export const Wrapper = styled.div`
 `;
 
 export const BuyButton = styled.button`
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   border: none;
   background-color: ${colors.white};
@@ -22,8 +22,8 @@ export const BuyButton = styled.button`
   opacity: 0;
   transition: all 0.7s ease-in-out;
   cursor: pointer;
-  right: 7px;
-  bottom: 7px;
+  right: 10px;
+  bottom: 30px;
 `;
 
 export const ImageWrapper = styled.div`
@@ -35,11 +35,18 @@ export const ImageWrapper = styled.div`
       opacity: 1;
     }
   }
+
+  @media ${breakpoints.desktop} {
+    width: 216px;
+    height: 216px;
+  }
 `;
 
 export const Image = styled.img`
   cursor: pointer;
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   padding: 0 0 20px 0;
 `;
 

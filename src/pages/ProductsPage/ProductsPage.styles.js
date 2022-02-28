@@ -1,13 +1,18 @@
 import styled from 'styled-components';
 import Text from 'components/atoms/Text/Text';
+import { breakpoints, colors } from 'theme/theme';
 
 export const Header = styled.header`
   display: grid;
-  grid-template-rows: 70% 30%;
+  grid-template-rows: 65% 35%;
   width: 100%;
   margin: 0 0 20px;
   justify-items: center;
   align-items: center;
+
+  @media ${breakpoints.desktop} {
+    margin: 0 0 40px;
+  }
 `;
 
 export const Title = styled(Text)`
@@ -24,6 +29,11 @@ export const CategoriesWrapper = styled.div`
   display: flex;
   width: 100%;
   height: 100%;
+
+  @media ${breakpoints.desktop} {
+    justify-content: flex-end;
+    border: 1px solid ${colors.veryLightGrey};
+  }
 `;
 
 export const Category = styled(Text)`
@@ -33,12 +43,21 @@ export const Category = styled(Text)`
   width: 50%;
   height: 100%;
   cursor: pointer;
-  border: 1px solid #e0e0e0;
+  border: 1px solid ${colors.veryLightGrey};
   font-weight: normal;
-  padding: 15px 0;
+  padding: 25px 0;
   margin: 0;
 
-  /* &:first-child {
-    border-right: 1px solid #e0e0e0;
-  } */
+  @media ${breakpoints.desktop} {
+    border: none;
+    border-left: 1px solid ${colors.veryLightGrey};
+    width: 20%;
+  }
+`;
+
+export const Content = styled.div`
+  @media ${breakpoints.desktop} {
+    display: grid;
+    grid-template-columns: 23% 77%;
+  }
 `;

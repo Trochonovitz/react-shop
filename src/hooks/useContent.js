@@ -1,5 +1,3 @@
-import PropTypes from 'prop-types';
-
 export const useContent = (quantity = '', id) => {
   const blogArticlesQuery = `query {
     allArticles${quantity} {
@@ -53,10 +51,10 @@ export const useContent = (quantity = '', id) => {
     }
   }`;
 
-  return { blogArticlesQuery, blogArticleQuery, productsQuery, productQuery };
-};
-
-useContent.propTypes = {
-  quantity: PropTypes.string,
-  id: PropTypes.string,
+  return {
+    blogArticlesQuery,
+    blogArticleQuery,
+    productsQuery,
+    productQuery,
+  };
 };

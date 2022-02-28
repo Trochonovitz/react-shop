@@ -18,6 +18,7 @@ export const Wrapper = styled.div`
     grid-template-rows: repeat(2, 1fr);
     grid-template-columns: repeat(3, 1fr);
     padding: 0 50px;
+    grid-column: 2;
   }
 `;
 

@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import PropTypes from 'prop-types';
 import { breakpoints, colors } from 'theme/theme';
 
 export const SlideOut = styled.div`
@@ -10,8 +9,10 @@ export const SlideOut = styled.div`
   top: 0;
   z-index: 4;
   background-color: ${colors.white};
-
-  transform: translateX(${({ from }) => (from === 'left' ? '-125%' : '125%')});
+  transform: translateX(
+    ${({ $from }) => ($from === 'left' ? '-125%' : '125%')}
+  );
+  ${({ $bottom }) => $bottom && 'transform: translateY(-100%)'}
   transition: transform 0.6s 0.1s ease-in-out;
 
   ${({ isVisible }) =>
@@ -20,7 +21,15 @@ export const SlideOut = styled.div`
       transform: translateX(0%);
     `};
 
+  @media ${breakpoints.bigPhone} {
+    width: 60%;
+  }
+
   @media ${breakpoints.tablet} {
+    width: 50%;
+  }
+
+  @media ${breakpoints.laptop} {
     width: 40%;
   }
 
@@ -28,8 +37,3 @@ export const SlideOut = styled.div`
     width: 100%;
   }
 `;
-
-SlideOut.propTyes = {
-  from: PropTypes.string.isRequired,
-  isVisible: PropTypes.bool,
-};

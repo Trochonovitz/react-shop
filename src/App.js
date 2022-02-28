@@ -35,6 +35,7 @@ const App = () => (
           <Route path="/kontakt" component={ContactPage} />
           <Route path="/sklep/:id" component={DetailPageProduct} />
           <Route path="/blog/:id" component={DetailPageBlogArticle} />
+          {/* <Route path="/kolekcja/:id" component={} /> */}
         </Switch>
       </Router>
     </ClientContext.Provider>

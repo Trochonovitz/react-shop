@@ -22,7 +22,7 @@ const Basket = () => {
   const handleCloseBasket = () => dispatch(closeBasket(false));
 
   return (
-    <StyledSlideOut isVisible={basketState} from={'right'}>
+    <StyledSlideOut isVisible={basketState} $from="right">
       <Header>
         <Wrapper>
           <BasketCloseButton onClick={handleCloseBasket}>X</BasketCloseButton>
