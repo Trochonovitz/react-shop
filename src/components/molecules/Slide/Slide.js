@@ -7,7 +7,7 @@ import {
   StyledButton,
   Subtitle,
 } from './Slide.styles';
-import { NavigationHeightContext } from 'templates/MainTemplate';
+import { NavigationHeightContext } from 'templates/MainTemplate/MainTemplate';
 
 const Slide = forwardRef(
   ({ cover, title, height, animated, description, main }, ref) => {

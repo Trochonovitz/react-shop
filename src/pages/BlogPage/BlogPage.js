@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useQuery } from 'graphql-hooks';
 import { useTransition, animated } from '@react-spring/web';
 import { useContent } from 'hooks/useContent';
-import MainTemplate from 'templates/MainTemplate';
+import MainTemplate from 'templates/MainTemplate/MainTemplate';
 import BlogArticle from 'components/molecules/BlogArticle/BlogArticle';
 import {
   Wrapper,

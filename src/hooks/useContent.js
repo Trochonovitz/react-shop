@@ -32,6 +32,7 @@ export const useContent = (quantity = '', id) => {
           id
           name
           price
+          category
           productVisualisation {
             url(imgixParams: {})
           }

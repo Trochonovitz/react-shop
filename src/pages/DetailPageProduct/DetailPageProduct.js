@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
 import { useContent } from 'hooks/useContent';
 import useCollapse from 'react-collapsed';
-import MainTemplate from 'templates/MainTemplate';
+import MainTemplate from 'templates/MainTemplate/MainTemplate';
 import Button from 'components/atoms/Button/Button';
 import {
   Wrapper,

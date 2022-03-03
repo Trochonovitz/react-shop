@@ -20,6 +20,7 @@ export const Title = styled(Text)`
   height: 100%;
   margin: 0;
   padding: 30px 0;
+  color: ${colors.darkGrey};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -30,7 +31,7 @@ export const CategoriesWrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  @media ${breakpoints.desktop} {
+  @media ${breakpoints.bigPhone} {
     justify-content: flex-end;
     border: 1px solid ${colors.veryLightGrey};
   }
@@ -48,9 +49,13 @@ export const Category = styled(Text)`
   padding: 25px 0;
   margin: 0;
 
-  @media ${breakpoints.desktop} {
+  @media ${breakpoints.bigPhone} {
+    width: 25%;
     border: none;
     border-left: 1px solid ${colors.veryLightGrey};
+  }
+
+  @media ${breakpoints.desktop} {
     width: 20%;
   }
 `;
@@ -59,5 +64,7 @@ export const Content = styled.div`
   @media ${breakpoints.desktop} {
     display: grid;
     grid-template-columns: 23% 77%;
+    position: relative;
+    width: 100%;
   }
 `;

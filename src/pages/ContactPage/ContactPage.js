@@ -1,5 +1,5 @@
 import React from 'react';
-import MainTemplate from 'templates/MainTemplate';
+import MainTemplate from 'templates/MainTemplate/MainTemplate';
 import Form from 'components/molecules/Form/Form';
 import { Title, Subtitle, Paragraph, Wrapper } from './ContactPage.styles';
 

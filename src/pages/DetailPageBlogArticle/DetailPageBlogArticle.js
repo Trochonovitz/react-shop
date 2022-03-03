@@ -3,7 +3,7 @@ import { useContent } from 'hooks/useContent';
 import { useQuery } from 'graphql-hooks';
 import { useParams } from 'react-router-dom';
 import ReactHtmlParser from 'react-html-parser';
-import MainTemplate from 'templates/MainTemplate';
+import MainTemplate from 'templates/MainTemplate/MainTemplate';
 import {
   Wrapper,
   Header,

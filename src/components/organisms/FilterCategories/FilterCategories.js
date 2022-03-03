@@ -1,11 +1,11 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import {
   FiltersCloseButton,
   Header,
   Title,
   StyledSlideOut,
-  Categories,
+  Content,
   CategoryName,
 } from './FilterCategories.styles';
 
@@ -21,14 +21,21 @@ const FilterCategories = ({ setVisibility, ...props }) => {
           X
         </FiltersCloseButton>
       </Header>
-      <Categories>
+      <Content>
         <CategoryName textType="h3" main>
           Kategorie
         </CategoryName>
-        {categories.map((category) => (
-          <CategoryName textType="h3">{category}</CategoryName>
+        {categories.map((category, index) => (
+          <CategoryName
+            key={index}
+            textType="h3"
+            as={Link}
+            to={`/sklep/kolekcja/${category}`}
+          >
+            {category}
+          </CategoryName>
         ))}
-      </Categories>
+      </Content>
     </StyledSlideOut>
   );
 };
