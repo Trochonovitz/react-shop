@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-import { colors, sizes } from 'theme/theme';
+import { Link } from 'react-router-dom';
+import { breakpoints, colors, sizes } from 'theme/theme';
 import Text from 'components/atoms/Text/Text';
 
 export const AboutUsSection = styled.div`
@@ -9,9 +10,14 @@ export const AboutUsSection = styled.div`
   align-items: center;
   width: 100%;
   height: 500px;
-  background-image: url('https://cdn.shopify.com/s/files/1/0594/6743/2116/files/papierniczeni_onas_01_750x960_crop_center.jpg?v=1634144287');
+  background-image: url('https://cdn.shopify.com/s/files/1/0594/6743/2116/files/papierniczeni_onas_01_1500x.jpg?v=1634144287');
   background-position: center;
   background-size: cover;
+
+  @media ${breakpoints.desktop} {
+    background-attachment: fixed;
+    height: 700px;
+  }
 `;
 
 export const AboutUsInfo = styled.div`
@@ -26,9 +32,14 @@ export const AboutUsInfo = styled.div`
   align-items: center;
   padding: 40px;
 
-  @media (min-width: 567px) {
+  @media ${breakpoints.bigPhone} {
     width: 50%;
     height: 60%;
+  }
+
+  @media ${breakpoints.desktop} {
+    width: 25%;
+    height: 40%;
   }
 `;
 

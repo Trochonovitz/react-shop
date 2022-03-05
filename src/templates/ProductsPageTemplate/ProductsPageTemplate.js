@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
-// import { animated, useTransition } from '@react-spring/web';
+import { animated, useTransition } from '@react-spring/web';
 import { useQuery } from 'graphql-hooks';
 import { useParams } from 'react-router-dom';
 import { useContent } from 'hooks/useContent';
@@ -22,28 +22,33 @@ import {
 const ProductsPageTemplate = () => {
   const [visibility, setVisibility] = useState({ filter: false, sort: false });
   const [sortOption, setSortOption] = useState('');
-  const { id } = useParams();
-  const desktopView = useMediaQuery({ query: breakpoints.desktop });
-  const { sortAlphabetical, sortAlphabeticalReverse, sortByPrice } =
-    useSorting();
   const sortOptions = {
     alphabetical: 'A-Z',
     reverse: 'Z-A',
     byPrice: 'Od najtańszej',
   };
+  const desktopView = useMediaQuery({ query: breakpoints.desktop });
+  const { id } = useParams();
+  const { sortAlphabetical, sortAlphabeticalReverse, sortByPrice } =
+    useSorting();
   const handleOpenFilterCategories = () => setVisibility({ filter: true });
   const handleOpenFilterSort = () =>
     setVisibility(desktopView ? { sort: !visibility.sort } : { sort: true });
+
+  const transition = useTransition(sortOption, {
+    from: { y: 100, opacity: 0 },
+    enter: { y: 0, opacity: 1 },
+  });
+  const AnimatedProductCard = animated(ProductCard);
 
   const { productsQuery } = useContent();
   const { loading, error, data } = useQuery(productsQuery);
   if (loading) return 'Loading...';
   if (error) return 'Something Bad Happened';
 
-  const title = id;
   const products = data.allProducts;
-  const filteredProducts = title
-    ? products.filter((item) => item.category === title)
+  const filteredProducts = id
+    ? products.filter((item) => item.category === id)
     : products;
 
   const productsFn = () => {
@@ -62,7 +67,7 @@ const ProductsPageTemplate = () => {
   return (
     <MainTemplate>
       <Header>
-        <Title textType="h2">{title ? title.toUpperCase() : 'POLECAMY'}</Title>
+        <Title textType="h2">{id ? id.toUpperCase() : 'POLECAMY'}</Title>
         <CategoriesWrapper>
           {!desktopView && (
             <Category textType="h3" onClick={handleOpenFilterCategories}>
@@ -77,33 +82,23 @@ const ProductsPageTemplate = () => {
       <Content>
         <ProductsCategory>
           {productsFn().map(
-            ({ id, name, price, productVisualisation: { url } }) => (
-              <ProductCard
-                name={name}
-                price={price}
-                img={url}
-                id={id}
-                key={id}
-              />
-            )
+            ({ id, name, price, productVisualisation: { url } }) =>
+              transition((style) => (
+                <AnimatedProductCard
+                  style={style}
+                  name={name}
+                  price={price}
+                  img={url}
+                  key={id}
+                  id={id}
+                />
+              ))
           )}
         </ProductsCategory>
         <FilterCategories
           isVisible={visibility.filter}
           setVisibility={setVisibility}
         />
-        {/* {transition(
-          (style, item) =>
-            item && (
-              <AnimatedFilterSort
-                style={style}
-                onClick={desktopView ? handleOpenFilterSort : null}
-                isVisible={desktopView ? visibility.sort : null}
-                setVisibility={setVisibility}
-                setSortOption={setSortOption}
-              />
-            )
-        )} */}
         <FilterSort
           onClick={desktopView ? handleOpenFilterSort : null}
           isVisible={visibility.sort}

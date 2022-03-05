@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from 'components/atoms/Button/Button';
 import {
   AboutUsSection,
@@ -15,7 +16,9 @@ const AboutUs = () => (
         Chcemy, żeby korzystanie z naszych notesów pomagało w codziennych
         sprawach, a odręczne pisanie dostarczało pozytywnych doznań.
       </Paragraph>
-      <Button buttonType="underline">więcej</Button>
+      <Link to="/o nas">
+        <Button buttonType="underline">więcej</Button>
+      </Link>
     </AboutUsInfo>
   </AboutUsSection>
 );

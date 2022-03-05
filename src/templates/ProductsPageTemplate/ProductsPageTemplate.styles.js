@@ -63,7 +63,7 @@ export const Category = styled(Text)`
 export const Content = styled.div`
   @media ${breakpoints.desktop} {
     display: grid;
-    grid-template-columns: 23% 77%;
+    grid-template-columns: 15% 85%;
     position: relative;
     width: 100%;
   }

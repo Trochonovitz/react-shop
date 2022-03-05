@@ -51,5 +51,5 @@ const getTextType = (textType) => {
 };
 
 export const StyledText = styled.p`
-  ${({ textType }) => getTextType(textType)}
+  ${({ $textType }) => getTextType($textType)}
 `;

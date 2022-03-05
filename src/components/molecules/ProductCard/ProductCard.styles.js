@@ -1,6 +1,6 @@
 import Text from 'components/atoms/Text/Text';
 import styled from 'styled-components';
-import { breakpoints, colors, sizes } from 'theme/theme';
+import { colors, sizes } from 'theme/theme';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -34,11 +34,6 @@ export const ImageWrapper = styled.div`
       visibility: visible;
       opacity: 1;
     }
-  }
-
-  @media ${breakpoints.desktop} {
-    width: 216px;
-    height: 216px;
   }
 `;
 

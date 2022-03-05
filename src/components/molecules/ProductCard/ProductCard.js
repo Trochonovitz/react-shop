@@ -11,14 +11,14 @@ import {
   ImageWrapper,
 } from './ProductCard.styles';
 
-const ProductCard = ({ name, price, img, id }) => {
+const ProductCard = ({ name, price, img, id, ...props }) => {
   const dispatch = useDispatch();
   const handleAddItem = () => {
     dispatch(addItem({ name, price, img, id, quantity: 1 }));
   };
 
   return (
-    <Wrapper as={Link} to={`/sklep/${id}`}>
+    <Wrapper as={Link} to={`/sklep/${id}`} {...props}>
       <ImageWrapper>
         <Image alt={`${name}`} src={img} />
         <BuyButton onClick={handleAddItem}>

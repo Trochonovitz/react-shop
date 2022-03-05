@@ -18,20 +18,26 @@ import {
   Header,
   Subtitle,
 } from './DetailPageProduct.styles';
+import { useDispatch } from 'react-redux';
+import { addItem } from 'store/basket';
 
 const DetailPageProduct = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
   const { productQuery } = useContent(null, id);
   const { loading, error, data } = useQuery(productQuery);
   const [isExpanded, setExpanded] = useState(false);
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
   const handleOpenInformation = () => setExpanded(!isExpanded);
+  const handleAddItem = () => {
+    dispatch(addItem({ name, price, img, id, quantity: 1 }));
+  };
 
   if (loading) return 'Loading...';
   if (error) return 'Something Bad Happened';
 
   const product = data.allProducts[0];
-  const image = product.productVisualisation.url;
+  const img = product.productVisualisation.url;
   const brand = product.brand;
   const name = product.name;
   const price = product.price;
@@ -40,7 +46,7 @@ const DetailPageProduct = () => {
   return (
     <MainTemplate>
       <Wrapper>
-        <Image alt="product's visualisation" src={image} />
+        <Image alt="product's visualisation" src={img} />
         <Content>
           <Header>
             <Subtitle textType="p">{brand}</Subtitle>
@@ -48,7 +54,9 @@ const DetailPageProduct = () => {
             <Subtitle textType="p">{price} zł</Subtitle>
           </Header>
           <Description>{ReactHtmlParser(description)}</Description>
-          <Button buttonType="green">Dodaj do koszyka: {price} zł</Button>
+          <Button buttonType="green" onClick={handleAddItem}>
+            Dodaj do koszyka: {price} zł
+          </Button>
         </Content>
         <AdditionalInformations>
           <ShowContentButton

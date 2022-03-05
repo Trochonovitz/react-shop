@@ -28,7 +28,6 @@ const FilterCategories = ({ setVisibility, ...props }) => {
         {categories.map((category, index) => (
           <CategoryName
             key={index}
-            textType="h3"
             as={Link}
             to={`/sklep/kolekcja/${category}`}
           >
