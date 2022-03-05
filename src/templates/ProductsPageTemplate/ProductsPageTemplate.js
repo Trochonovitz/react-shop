@@ -22,7 +22,7 @@ import {
 const ProductsPageTemplate = () => {
   const [visibility, setVisibility] = useState({ filter: false, sort: false });
   const [sortOption, setSortOption] = useState('');
-  const { id } = useParams();
+  const { id: title } = useParams();
   const desktopView = useMediaQuery({ query: breakpoints.desktop });
   const { sortAlphabetical, sortAlphabeticalReverse, sortByPrice } =
     useSorting();
@@ -31,7 +31,6 @@ const ProductsPageTemplate = () => {
     reverse: 'Z-A',
     byPrice: 'Od najtańszej',
   };
-  const handleOpenFilterCategories = () => setVisibility({ filter: true });
   const handleOpenFilterSort = () =>
     setVisibility(desktopView ? { sort: !visibility.sort } : { sort: true });
 
@@ -40,7 +39,6 @@ const ProductsPageTemplate = () => {
   if (loading) return 'Loading...';
   if (error) return 'Something Bad Happened';
 
-  const title = id;
   const products = data.allProducts;
   const filteredProducts = title
     ? products.filter((item) => item.category === title)
@@ -65,7 +63,10 @@ const ProductsPageTemplate = () => {
         <Title textType="h2">{title ? title.toUpperCase() : 'POLECAMY'}</Title>
         <CategoriesWrapper>
           {!desktopView && (
-            <Category textType="h3" onClick={handleOpenFilterCategories}>
+            <Category
+              textType="h3"
+              onClick={() => setVisibility({ filter: true })}
+            >
               Kategorie
             </Category>
           )}
