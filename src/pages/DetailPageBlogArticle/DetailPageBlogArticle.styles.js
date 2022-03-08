@@ -1,5 +1,5 @@
-import Text from 'components/atoms/Text/Text';
 import styled from 'styled-components';
+import Text from 'components/atoms/Text/Text';
 import { breakpoints, colors, sizes } from 'theme/theme';
 
 export const Image = styled.img`
@@ -12,14 +12,14 @@ export const Image = styled.img`
 `;
 
 export const Wrapper = styled.article`
-  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
 
   @media ${breakpoints.bigPhone} {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     position: relative;
-    padding: 120px 30px 20px;
+    padding: 120px 30px 30px;
     width: calc(100% - 40px);
   }
 
@@ -29,7 +29,7 @@ export const Wrapper = styled.article`
 
   @media ${breakpoints.laptop} {
     width: 60%;
-    padding: 120px 60px 20px;
+    padding: 120px 60px 30px;
   }
 
   @media ${breakpoints.desktop} {
@@ -50,26 +50,6 @@ export const Header = styled.header`
   }
 `;
 
-export const Lead = styled(Text)`
-  margin: 0 0 0 40px;
-  line-height: ${sizes.xxl};
-  position: relative;
-
-  &:before {
-    position: absolute;
-    content: '';
-    background-color: ${colors.lightGrey};
-    height: 100%;
-    width: 3px;
-    top: 0px;
-    left: -25px;
-
-    @media ${breakpoints.laptop} {
-      left: -40px;
-    }
-  }
-`;
-
 export const Title = styled(Text)`
   color: ${colors.darkGrey};
   margin: 20px 0;
@@ -86,12 +66,4 @@ export const Content = styled.div`
   @media ${breakpoints.phone} {
     font-size: ${sizes.m};
   }
-
-  /* @media ${breakpoints.bigPhone} {
-    padding: 20px 60px;
-  }
-  
-  @media ${breakpoints.tablet} {
-    padding: 30px 120px;
-  } */
 `;

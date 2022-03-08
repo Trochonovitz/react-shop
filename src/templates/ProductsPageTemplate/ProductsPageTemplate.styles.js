@@ -66,5 +66,6 @@ export const Content = styled.div`
     grid-template-columns: 15% 85%;
     position: relative;
     width: 100%;
+    overflow: hidden;
   }
 `;

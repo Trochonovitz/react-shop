@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import { breakpoints, colors, sizes } from 'theme/theme';
 import Text from 'components/atoms/Text/Text';
 

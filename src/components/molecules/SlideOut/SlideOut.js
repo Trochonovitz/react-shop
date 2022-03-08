@@ -14,7 +14,7 @@ export const SlideOut = styled.div`
           height: 40vh;
           width: 100%;
           bottom: 0;
-          transform: translateY(100%);
+          transform: translateY(1000%);
         `
       : css`
           height: 100vh;
@@ -42,6 +42,6 @@ export const SlideOut = styled.div`
   ${({ isVisible }) =>
     isVisible &&
     css`
-      transform: translate(0%);
+      transform: translate(0%, 0%);
     `};
 `;

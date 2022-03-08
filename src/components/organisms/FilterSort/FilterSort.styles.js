@@ -9,7 +9,6 @@ export const StyledSlideOut = styled(SlideOut)`
 
   @media ${breakpoints.desktop} {
     position: absolute;
-    transform: translate(0%);
     width: 20%;
     height: fit-content;
     box-shadow: -5px -10px 20px -15px rgba(0, 0, 0, 0.75);

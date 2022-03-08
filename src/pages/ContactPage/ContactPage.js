@@ -5,7 +5,7 @@ import { Title, Subtitle, Paragraph, Wrapper } from './ContactPage.styles';
 
 const ContactPage = () => (
   <MainTemplate>
-    <Title textType="h1">Kontakt</Title>
+    <Title textType="h2">Kontakt</Title>
     <Wrapper>
       <Subtitle textType="h3">Skontaktuj się z nami</Subtitle>
       <Paragraph>

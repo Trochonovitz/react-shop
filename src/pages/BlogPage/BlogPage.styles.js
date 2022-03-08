@@ -37,6 +37,7 @@ export const CategorySection = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  margin: 0 0 30px 0;
 `;
 
 export const CategoryButton = styled.button`

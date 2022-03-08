@@ -22,13 +22,13 @@ import {
 const ProductsPageTemplate = () => {
   const [visibility, setVisibility] = useState({ filter: false, sort: false });
   const [sortOption, setSortOption] = useState('');
+  const { id: title } = useParams();
   const sortOptions = {
     alphabetical: 'A-Z',
     reverse: 'Z-A',
     byPrice: 'Od najtańszej',
   };
   const desktopView = useMediaQuery({ query: breakpoints.desktop });
-  const { id } = useParams();
   const { sortAlphabetical, sortAlphabeticalReverse, sortByPrice } =
     useSorting();
   const handleOpenFilterCategories = () => setVisibility({ filter: true });
@@ -47,8 +47,8 @@ const ProductsPageTemplate = () => {
   if (error) return 'Something Bad Happened';
 
   const products = data.allProducts;
-  const filteredProducts = id
-    ? products.filter((item) => item.category === id)
+  const filteredProducts = title
+    ? products.filter((item) => item.category === title)
     : products;
 
   const productsFn = () => {
@@ -67,7 +67,7 @@ const ProductsPageTemplate = () => {
   return (
     <MainTemplate>
       <Header>
-        <Title textType="h2">{id ? id.toUpperCase() : 'POLECAMY'}</Title>
+        <Title textType="h2">{title ? title.toUpperCase() : 'POLECAMY'}</Title>
         <CategoriesWrapper>
           {!desktopView && (
             <Category textType="h3" onClick={handleOpenFilterCategories}>
