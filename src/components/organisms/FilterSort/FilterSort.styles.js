@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { colors, breakpoints, sizes } from 'theme/theme';
-import { SlideOut } from 'components/molecules/SlideOut/SlideOut';
+import SlideOut from 'components/molecules/SlideOut/SlideOut';
 import Text from 'components/atoms/Text/Text';
 
 export const StyledSlideOut = styled(SlideOut)`

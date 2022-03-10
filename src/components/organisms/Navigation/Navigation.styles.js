@@ -1,7 +1,7 @@
 import styled, { css, keyframes } from 'styled-components';
 import { Link } from 'react-router-dom';
 import { breakpoints, colors, sizes } from 'theme/theme';
-import { SlideOut } from 'components/molecules/SlideOut/SlideOut';
+import SlideOut from 'components/molecules/SlideOut/SlideOut';
 import Text from 'components/atoms/Text/Text';
 
 const slidein = keyframes`
@@ -34,7 +34,6 @@ export const Wrapper = styled.nav`
 `;
 
 export const StyledSlideOut = styled(SlideOut)`
-  left: 0;
   box-shadow: 10px 0px 8px 1px rgba(99, 99, 98, 0.36);
 
   @media ${breakpoints.desktop} {

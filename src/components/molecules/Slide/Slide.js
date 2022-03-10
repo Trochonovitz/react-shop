@@ -1,5 +1,6 @@
 import React, { forwardRef, useContext } from 'react';
 import PropTypes from 'prop-types';
+import { NavigationHeightContext } from 'templates/MainTemplate/MainTemplate';
 import {
   Wrapper,
   InfoBox,
@@ -7,11 +8,10 @@ import {
   StyledButton,
   Subtitle,
 } from './Slide.styles';
-import { NavigationHeightContext } from 'templates/MainTemplate/MainTemplate';
 
 const Slide = forwardRef(
   ({ cover, title, height, animated, description, main }, ref) => {
-    const navHeight = useContext(NavigationHeightContext);
+    const { heightNav } = useContext(NavigationHeightContext);
 
     return (
       <Wrapper
@@ -19,7 +19,7 @@ const Slide = forwardRef(
         cover={cover}
         height={height}
         main={main}
-        $navHeight={navHeight}
+        $navHeight={heightNav}
       >
         <InfoBox>
           {description && <Subtitle textType="p">{description}</Subtitle>}

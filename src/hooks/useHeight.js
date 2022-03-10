@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react';
 
-export const useHeight = (customRef) => {
-  const [height, setHeight] = useState(0);
+export const useHeight = (refNav, refInfoBox) => {
+  const [height, setHeight] = useState({ heightNav: 0, heightInfoBox: 0 });
 
   useEffect(() => {
-    const handleHeight = () => setHeight(customRef.current.clientHeight);
+    const handleHeight = () =>
+      setHeight({
+        heightNav: refNav.current.clientHeight,
+        heightInfoBox: refInfoBox.current.clientHeight,
+      });
     handleHeight();
     window.addEventListener('resize', handleHeight);
     return () => window.removeEventListener('resize', handleHeight);
-  }, [customRef]);
+  }, [refNav, refInfoBox]);
 
   return { height };
 };

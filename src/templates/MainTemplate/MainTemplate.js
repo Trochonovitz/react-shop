@@ -5,27 +5,33 @@ import { useHeight } from 'hooks/useHeight';
 import { Global } from 'theme/Global';
 import Navigation from 'components/organisms/Navigation/Navigation';
 import Basket from 'components/organisms/Basket/Basket';
+import SearchBar from 'components/molecules/SearchBar/SearchBar';
 import Footer from 'components/organisms/Footer/Footer';
 import { Wrapper, InfoBox, StyledText } from './MainTemplate.styles';
 
-export const NavigationHeightContext = createContext(0);
+export const NavigationHeightContext = createContext({
+  heightNav: 0,
+  heightInfoBox: 0,
+});
 
 const MainTemplate = ({ children }) => {
-  const ref = useRef(null);
+  const refNav = useRef(0);
+  const refInfoBox = useRef(0);
   const { pathname } = useLocation();
-  const { height } = useHeight(ref);
+  const { height } = useHeight(refNav, refInfoBox);
 
   return (
     <NavigationHeightContext.Provider value={height}>
       <Wrapper>
         <Global />
         {pathname.length === 1 && (
-          <InfoBox>
+          <InfoBox ref={refInfoBox}>
             <StyledText>Darmowa wysyłka przy zakupach od 200 zł</StyledText>
           </InfoBox>
         )}
         <Basket />
-        <Navigation ref={ref} />
+        <SearchBar />
+        <Navigation ref={refNav} />
         {children}
         <Footer />
       </Wrapper>

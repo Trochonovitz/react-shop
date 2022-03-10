@@ -14,7 +14,7 @@ const FilterCategories = ({ setVisibility, ...props }) => {
   const categories = ['notatnik', 'długopis', 'kartka'];
 
   return (
-    <StyledSlideOut $from="right" {...props}>
+    <StyledSlideOut slideType="right" {...props}>
       <Header>
         <Title textType="h2">Filtry</Title>
         <FiltersCloseButton onClick={handleCloseFilterCategories}>

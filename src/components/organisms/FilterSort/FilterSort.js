@@ -15,7 +15,7 @@ const FilterSort = ({ setVisibility, setSortOption, isVisible }) => {
   const sortOptions = ['A-Z', 'Z-A', 'Od najtańszej'];
 
   return (
-    <StyledSlideOut bottom isVisible={isVisible}>
+    <StyledSlideOut slideType="bottom" isVisible={isVisible}>
       <Header>
         <SortCloseButton onClick={handleCloseSort}>X</SortCloseButton>
         <Title textType="h2">Sortuj</Title>

@@ -52,10 +52,22 @@ export const useContent = (quantity = '', id) => {
     }
   }`;
 
+  const productInfoQuery = `query {
+    allProducts {
+      id,
+      name,
+      price,
+      productVisualisation {
+        url(imgixParams: {})
+      },
+    }
+  }`;
+
   return {
     blogArticlesQuery,
     blogArticleQuery,
     productsQuery,
     productQuery,
+    productInfoQuery,
   };
 };

@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 import { breakpoints, colors } from 'theme/theme';
-import { SlideOut } from 'components/molecules/SlideOut/SlideOut';
+import SlideOut from 'components/molecules/SlideOut/SlideOut';
 import Button from 'components/atoms/Button/Button';
 import Text from 'components/atoms/Text/Text';
 
 export const StyledSlideOut = styled(SlideOut)`
-  right: 0;
   grid-template-rows: 15% 70% 15%;
   box-shadow: -10px 0px 8px 1px rgba(99, 99, 98, 0.36);
 
