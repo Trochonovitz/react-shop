@@ -66,11 +66,13 @@ const DetailPageProduct = () => {
           >
             <Title textType="h2">Dostawa i płatność</Title>
           </ShowContentButton>
-          <Content {...getCollapseProps()}>
-            <Title textType="h2">Dostawa</Title>
-            <StyledText>
-              Zamówienia realizujemy na terenie Polski. Możesz wybrać jedną z
-              kilku opcji wysyłki towaru:
+          <div {...getCollapseProps()}>
+            <Content>
+              <Title textType="h2">Dostawa</Title>
+              <StyledText>
+                Zamówienia realizujemy na terenie Polski. Możesz wybrać jedną z
+                kilku opcji wysyłki towaru:
+              </StyledText>
               <ul>
                 <li>Kurier DHL – 15 zł</li>
                 <li>Kurier DPD – 15 zł</li>
@@ -81,26 +83,29 @@ const DetailPageProduct = () => {
                   Sb.: 12-16
                 </li>
               </ul>
-              Dla zamówień o wartości min. 200 zł dostawa jest darmowa. Paczki
-              docierają zazwyczaj na kolejny dzień roboczy od momentu wysłania.
-            </StyledText>
-            <Title textType="h2">Wysyłka zagraniczna</Title>
-            <StyledText>
-              Jeśli chcesz zamówić towar z dostawą poza granice Polski, napisz
-              na: hej@papierniczeni.pl. Skalkulujemy koszty wysyłki i
-              poinformujemy Cię o dalszych krokach.
-            </StyledText>
-            <Title textType="h2">Czas realizacji zamówienia</Title>
-            <StyledText>
-              Zamówienia wysyłamy codziennie w dni robocze. Od momentu
-              zaksięgowania wpłaty, Twoje zamówienie wyślemy najpóźniej w ciągu
-              48 h. Jeśli zależy Ci na ekspresowej wysyłce, napisz na
-              help@papierniczeni.pl lub zadzwoń 504 865 233, zadziałamy
-              najszybciej jak to możliwe!
-            </StyledText>
-            <Title textType="h2">Płatność</Title>
-            <StyledText>
-              Płatności za zamówienie dokonasz na dwa sposoby:
+              <StyledText>
+                Dla zamówień o wartości min. 200 zł dostawa jest darmowa. Paczki
+                docierają zazwyczaj na kolejny dzień roboczy od momentu
+                wysłania.
+              </StyledText>
+              <Title textType="h2">Wysyłka zagraniczna</Title>
+              <StyledText>
+                Jeśli chcesz zamówić towar z dostawą poza granice Polski, napisz
+                na: hej@papierniczeni.pl. Skalkulujemy koszty wysyłki i
+                poinformujemy Cię o dalszych krokach.
+              </StyledText>
+              <Title textType="h2">Czas realizacji zamówienia</Title>
+              <StyledText>
+                Zamówienia wysyłamy codziennie w dni robocze. Od momentu
+                zaksięgowania wpłaty, Twoje zamówienie wyślemy najpóźniej w
+                ciągu 48 h. Jeśli zależy Ci na ekspresowej wysyłce, napisz na
+                help@papierniczeni.pl lub zadzwoń 504 865 233, zadziałamy
+                najszybciej jak to możliwe!
+              </StyledText>
+              <Title textType="h2">Płatność</Title>
+              <StyledText>
+                Płatności za zamówienie dokonasz na dwa sposoby:
+              </StyledText>
               <ol>
                 <li>
                   tradycyjnym na rachunek bankowy Nr rachunku: 67 1870 1045 2083
@@ -113,11 +118,14 @@ const DetailPageProduct = () => {
                   elektronicznych online (Przelewy24).
                 </li>
               </ol>
-              Płatność zostanie od razu zaksięgowana i szybciej przygotujemy
-              Twoje zamówienie do wysyłki. Na opłacenie zamówienia czekamy 5 dni
-              roboczych. Po upływie tego terminu, zamówienie zostanie anulowane.
-            </StyledText>
-          </Content>
+              <StyledText>
+                Płatność zostanie od razu zaksięgowana i szybciej przygotujemy
+                Twoje zamówienie do wysyłki. Na opłacenie zamówienia czekamy 5
+                dni roboczych. Po upływie tego terminu, zamówienie zostanie
+                anulowane.
+              </StyledText>
+            </Content>
+          </div>
         </AdditionalInformations>
       </Wrapper>
     </MainTemplate>

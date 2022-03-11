@@ -37,6 +37,7 @@ export const Header = styled.header`
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+
   padding: 0 20px 20px;
 
   @media ${breakpoints.phone} {
@@ -73,10 +74,11 @@ export const Subtitle = styled(Text)`
   }
 `;
 
-export const Description = styled(Text)`
+export const Description = styled.div`
   border-top: 1px solid ${colors.veryLightGrey};
   line-height: ${sizes.xxl};
   font-size: ${sizes.m};
+  color: ${colors.darkGrey};
 `;
 
 export const AdditionalInformations = styled.div`

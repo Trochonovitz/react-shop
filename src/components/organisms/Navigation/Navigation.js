@@ -54,7 +54,7 @@ const Navigation = forwardRef(({ ...props }, ref) => {
             <NavigationElement
               key={index}
               as={NavLink}
-              to={option}
+              to={`/${option}`}
               $scrollPosition={scrollPosition}
               $isHover={isHover}
             >

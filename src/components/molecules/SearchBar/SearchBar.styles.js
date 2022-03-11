@@ -6,10 +6,15 @@ import { Link } from 'react-router-dom';
 
 export const StyledSlideOut = styled(SlideOut)`
   ${({ heightNav, heightInfoBox }) =>
-    css`
-      top: ${heightNav + heightInfoBox}px;
-      height: ${heightNav}px;
-    `};
+    !heightInfoBox
+      ? css`
+          top: ${heightNav}px;
+          height: ${heightNav}px;
+        `
+      : css`
+          top: ${heightNav + heightInfoBox}px;
+          height: ${heightNav}px;
+        `};
   width: 100%;
   grid-template-columns: 15% 75% 10%;
   justify-items: center;
@@ -38,14 +43,6 @@ export const ListElements = styled.ul`
   flex-direction: column;
   list-style-type: none;
   padding: 0px;
-`;
-
-export const SingleElement = styled.li`
-  ${({ highlightedIndex, index }) =>
-    highlightedIndex === index &&
-    css`
-      background-color: ${colors.veryLightGrey};
-    `}
 `;
 
 export const StyledLink = styled(Link)`

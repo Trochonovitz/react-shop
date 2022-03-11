@@ -34,10 +34,14 @@ const App = () => (
           <Route exact path="/sklep" component={ProductsPageTemplate} />
           <Route exact path="/blog" component={BlogPage} />
           <Route exact path="/o nas" component={AboutUsPage} />
-          <Route path="/kontakt" component={ContactPage} />
+          <Route exact path="/kontakt" component={ContactPage} />
           <Route exact path="/sklep/:id" component={DetailPageProduct} />
-          <Route path="/blog/:id" component={DetailPageBlogArticle} />
-          <Route path="/sklep/kolekcja/:id" component={ProductsPageTemplate} />
+          <Route exac path="/blog/:id" component={DetailPageBlogArticle} />
+          <Route
+            exact
+            path="/sklep/kolekcja/:id"
+            component={ProductsPageTemplate}
+          />
         </Switch>
       </Router>
     </ClientContext.Provider>

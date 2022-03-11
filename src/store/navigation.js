@@ -6,7 +6,7 @@ const actionTypes = {
   OPEN_SEARCHBAR: 'OPEN_SEARCHBAR',
   CLOSE_SEARCHBAR: 'CLOSE_SEARCHBAR',
 };
-const initialState = { mobileNav: false, basketView: false, searchBar: true };
+const initialState = { mobileNav: false, basketView: false, searchBar: false };
 
 export const openMobileNav = (payload) => {
   return { type: actionTypes.OPEN_MOBILE_NAV, payload };

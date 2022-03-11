@@ -5,15 +5,14 @@ import { useCombobox } from 'downshift';
 import { closeSearchBar } from 'store/navigation';
 import { useContent } from 'hooks/useContent';
 import { NavigationHeightContext } from 'templates/MainTemplate/MainTemplate';
+import SearchBarListElement from 'components/molecules/SearchBarListElement/SearchBarListElement';
 import {
   ListElements,
-  SingleElement,
   StyledInput,
   StyledLink,
   StyledSlideOut,
   Wrapper,
 } from './SearchBar.styles';
-import { Redirect } from 'react-router-dom';
 
 const SearchBar = () => {
   const [products, setProducts] = useState([]);
@@ -28,7 +27,6 @@ const SearchBar = () => {
     getMenuProps,
     getInputProps,
     getComboboxProps,
-    highlightedIndex,
     getItemProps,
   } = useCombobox({
     items: inputItems,
@@ -86,18 +84,18 @@ const SearchBar = () => {
           heightNav={heightNav}
           heightInfoBox={heightInfoBox}
         >
-          {inputItems.map((item, index) => (
-            <StyledLink to={`/sklep/${item.id}`}>
-              <SingleElement
-                {...getItemProps({ item, index })}
-                highlightedIndex={highlightedIndex}
-                index={index}
-                key={index}
-              >
-                {item.name.toUpperCase()}
-              </SingleElement>
-            </StyledLink>
-          ))}
+          {isOpen &&
+            inputItems.map((item, index) => (
+              <li {...getItemProps({ item, index })} key={index}>
+                <StyledLink to={`/sklep/${item.id}`}>
+                  <SearchBarListElement
+                    name={item.name}
+                    price={item.price}
+                    image={item.productVisualisation.url}
+                  />
+                </StyledLink>
+              </li>
+            ))}
         </ListElements>
       </Wrapper>
       <p onClick={handleCloseSearchBar}>X</p>

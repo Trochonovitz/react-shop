@@ -4,14 +4,14 @@ export const useHeight = (refNav, refInfoBox) => {
   const [height, setHeight] = useState({ heightNav: 0, heightInfoBox: 0 });
 
   useEffect(() => {
-    const handleHeight = () =>
+    const getHeight = () =>
       setHeight({
         heightNav: refNav.current.clientHeight,
         heightInfoBox: refInfoBox.current.clientHeight,
       });
-    handleHeight();
-    window.addEventListener('resize', handleHeight);
-    return () => window.removeEventListener('resize', handleHeight);
+    getHeight();
+    window.addEventListener('resize', getHeight);
+    return () => window.removeEventListener('resize', getHeight);
   }, [refNav, refInfoBox]);
 
   return { height };
