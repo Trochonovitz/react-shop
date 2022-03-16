@@ -30,13 +30,21 @@ const BlogSection = () => {
       </BlogHeader>
       <BlogContent>
         {data.allArticles.map(
-          ({ id, category, title, mainPhoto: { url }, lead }) => (
+          ({
+            id,
+            category,
+            title,
+            mainPhoto: {
+              responsiveImage: { srcSet },
+            },
+            lead,
+          }) => (
             <BlogArticle
               key={id}
               id={id}
               category={category}
               title={title}
-              img={url}
+              img={srcSet}
               lead={lead}
             />
           )

@@ -45,11 +45,18 @@ const HomePage = () => {
         <Title textType="h2">Polecamy</Title>
         <ProductsCategory>
           {products.map(
-            ({ id, name, price, productVisualisation: { url } }) => (
+            ({
+              id,
+              name,
+              price,
+              productVisualisation: {
+                responsiveImage: { srcSet },
+              },
+            }) => (
               <ProductCard
                 name={name}
                 price={price}
-                img={url}
+                img={srcSet}
                 id={id}
                 key={id}
               />
@@ -66,7 +73,6 @@ const HomePage = () => {
           </Info>
           <Carousel />
         </NewItemsBox>
-        {/* BlogSection zamienić (jak w Products Category) na renderowanie chilld */}
         <BlogSection />
         <AboutUs />
       </MainTemplate>

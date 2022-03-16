@@ -161,21 +161,6 @@ export const NavigationWrapper = styled.div`
 
   @media ${breakpoints.desktop} {
     grid-column: 3;
-    padding: 10px 50px 10px;
-  }
-`;
-
-export const Icon = styled.button`
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  margin: 0 5px 0 0;
-  color: ${({ $scrollPosition, $isHover }) =>
-    $scrollPosition < 15 || $isHover ? colors.black : colors.white};
-
-  @media (max-width: 1140px) {
-    &:first-child {
-      display: none;
-    }
+    margin: 0 50px 0 0;
   }
 `;

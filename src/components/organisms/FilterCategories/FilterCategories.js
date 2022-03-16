@@ -1,5 +1,7 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { closeFilter } from 'store/navigation';
 import {
   FiltersCloseButton,
   Header,
@@ -9,15 +11,17 @@ import {
   CategoryName,
 } from './FilterCategories.styles';
 
-const FilterCategories = ({ setVisibility, ...props }) => {
-  const handleCloseFilterCategories = () => setVisibility({ filter: false });
+const FilterCategories = () => {
+  const dispatch = useDispatch();
+  const filterState = useSelector((store) => store.nav.filter);
   const categories = ['notatnik', 'długopis', 'kartka'];
+  const closeFilterCategories = () => dispatch(closeFilter(false));
 
   return (
-    <StyledSlideOut slideType="right" {...props}>
+    <StyledSlideOut slideType="right" isVisible={filterState}>
       <Header>
         <Title textType="h2">Filtry</Title>
-        <FiltersCloseButton onClick={handleCloseFilterCategories}>
+        <FiltersCloseButton onClick={closeFilterCategories}>
           X
         </FiltersCloseButton>
       </Header>

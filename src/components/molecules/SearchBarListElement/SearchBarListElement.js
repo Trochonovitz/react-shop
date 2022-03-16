@@ -3,7 +3,7 @@ import { Image, InfoBox, Title, Wrapper } from './SearchBarListElement.styles';
 
 const SearchBarListElement = ({ name, image, price }) => (
   <Wrapper>
-    <Image src={image} />
+    <Image srcSet={image} />
     <InfoBox>
       <Title textType="h3">{name}</Title>
       <Title textType="h3">{price} ZŁ</Title>

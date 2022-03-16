@@ -13,7 +13,7 @@ import { Link } from 'react-router-dom';
 
 const BlogArticle = ({ id, category, title, img, lead, style }) => (
   <Wrapper style={style}>
-    <Image src={img} alt="article's visualisation" />
+    <Image alt="article's visualisation" srcSet={img} />
     <TextBox>
       <Category textType="p">{category}</Category>
       <Title textType="h2">{title}</Title>

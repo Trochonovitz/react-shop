@@ -58,6 +58,7 @@ export const SortCloseButton = styled.button`
   border: none;
   cursor: pointer;
   font-size: ${sizes.l};
+  grid-column: 1;
 `;
 
 export const Content = styled.div`

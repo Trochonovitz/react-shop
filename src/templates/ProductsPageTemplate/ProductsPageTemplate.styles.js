@@ -57,6 +57,10 @@ export const Category = styled(Text)`
 
   @media ${breakpoints.desktop} {
     width: 20%;
+
+    &:first-child {
+      display: none;
+    }
   }
 `;
 

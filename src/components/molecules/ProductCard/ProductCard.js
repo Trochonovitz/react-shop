@@ -20,7 +20,7 @@ const ProductCard = ({ name, price, img, id, ...props }) => {
   return (
     <Wrapper as={Link} to={`/sklep/${id}`} {...props}>
       <ImageWrapper>
-        <Image alt={`${name}`} src={img} />
+        <Image alt={`${name}`} srcSet={img} />
         <BuyButton onClick={handleAddItem}>
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -57,7 +57,15 @@ const BlogPage = () => {
         </CategorySection>
         <BlogContent>
           {filteredArticles.map(
-            ({ id, category, title, mainPhoto: { url }, lead }) =>
+            ({
+              id,
+              category,
+              title,
+              mainPhoto: {
+                responsiveImage: { srcSet },
+              },
+              lead,
+            }) =>
               transition((style) => (
                 <AnimatedBlogArticle
                   key={id}
@@ -65,7 +73,7 @@ const BlogPage = () => {
                   id={id}
                   category={category}
                   title={title}
-                  img={url}
+                  img={srcSet}
                   lead={lead}
                 />
               ))

@@ -23,7 +23,7 @@ const DetailPageBlogArticle = () => {
   if (error) return 'Something Bad Happened';
 
   const article = data.allArticles[0];
-  const image = article.mainPhoto.url;
+  const srcSet = article.mainPhoto.responsiveImage.srcSet;
   const category = article.category;
   const title = article.title;
   const lead = article.lead;
@@ -32,7 +32,7 @@ const DetailPageBlogArticle = () => {
 
   return (
     <MainTemplate>
-      <Image alt="blog's article visualisation" src={image} />
+      <Image alt="blog's article visualisation" srcSet={srcSet} />
       <Wrapper>
         <Header>
           <Subtitle textType="p">

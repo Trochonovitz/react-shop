@@ -91,7 +91,7 @@ const SearchBar = () => {
                   <SearchBarListElement
                     name={item.name}
                     price={item.price}
-                    image={item.productVisualisation.url}
+                    image={item.productVisualisation.responsiveImage.srcSet}
                   />
                 </StyledLink>
               </li>

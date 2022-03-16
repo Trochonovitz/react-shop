@@ -45,6 +45,7 @@ export const FiltersCloseButton = styled.button`
   border: none;
   cursor: pointer;
   font-size: ${sizes.l};
+  grid-column: 2;
 `;
 
 export const Content = styled.div`

@@ -5,7 +5,9 @@ export const useContent = (quantity = '', id) => {
       category
       title
       mainPhoto {
-        url(imgixParams: {})
+        responsiveImage {
+          srcSet
+        }
       }
       content,
       lead
@@ -18,8 +20,10 @@ export const useContent = (quantity = '', id) => {
       category
       title
       mainPhoto {
-        url(imgixParams: {})
+        responsiveImage {
+          srcSet
         }
+      }
       content,
       lead,
       _firstPublishedAt
@@ -34,7 +38,9 @@ export const useContent = (quantity = '', id) => {
           price
           category
           productVisualisation {
-            url(imgixParams: {})
+            responsiveImage {
+              srcSet
+            }
           }
         }
       }
@@ -45,7 +51,8 @@ export const useContent = (quantity = '', id) => {
       name,
       price,
       productVisualisation {
-        url(imgixParams: {})
+        responsiveImage {
+          srcSet
       },
       brand,
       description
@@ -59,6 +66,9 @@ export const useContent = (quantity = '', id) => {
       price,
       productVisualisation {
         url(imgixParams: {})
+        responsiveImage {
+          srcSet
+        }
       },
     }
   }`;
