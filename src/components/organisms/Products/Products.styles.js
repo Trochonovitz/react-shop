@@ -26,12 +26,13 @@ export const Wrapper = styled.div`
 export const StyledLink = styled(Link)`
   display: flex;
   justify-content: center;
+  justify-self: center;
   align-items: center;
   text-decoration: none;
   width: 100%;
   margin: 50px 0;
 
   @media ${breakpoints.desktop} {
-    width: 25%;
+    grid-column: 2 / 3;
   }
 `;

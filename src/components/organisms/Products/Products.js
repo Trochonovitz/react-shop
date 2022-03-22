@@ -36,7 +36,7 @@ const Products = ({ products, option = '' }) => {
             />
           ))
       )}
-      {pathname.length === 1 && (
+      {pathname !== '/sklep' && (
         <StyledLink to="/sklep">
           <Button buttonType="green">Przejdź do sklepu</Button>
         </StyledLink>

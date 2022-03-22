@@ -58,6 +58,8 @@ export const CategoryName = styled(Text)`
   color: ${colors.darkGrey};
   font-weight: normal;
   padding: 5px 0;
+  text-decoration: none;
+  text-transform: uppercase;
 
   ${({ main }) =>
     main &&
