@@ -11,7 +11,7 @@ export const StyledSlideOut = styled(SlideOut)`
     position: absolute;
     width: 20%;
     height: fit-content;
-    box-shadow: -5px -10px 20px -15px rgba(0, 0, 0, 0.75);
+    box-shadow: -5px -20px 20px -15px rgba(0, 0, 0, 0.75);
     padding: 20px;
     top: -20px;
     right: 3px;
@@ -65,7 +65,6 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
 `;
 
 export const SortName = styled(Text)`

@@ -2,6 +2,10 @@ import styled from 'styled-components';
 import Text from 'components/atoms/Text/Text';
 import { breakpoints, colors } from 'theme/theme';
 
+export const Wrapper = styled.main`
+  overflow: hidden;
+`;
+
 export const Header = styled.header`
   display: grid;
   grid-template-rows: 65% 35%;
@@ -70,6 +74,5 @@ export const Content = styled.div`
     grid-template-columns: 15% 85%;
     position: relative;
     width: 100%;
-    overflow: hidden;
   }
 `;

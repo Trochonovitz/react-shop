@@ -12,6 +12,7 @@ import FilterCategories from 'components/organisms/FilterCategories/FilterCatego
 import Products from 'components/organisms/Products/Products';
 import FilterSort from 'components/organisms/FilterSort/FilterSort';
 import {
+  Wrapper,
   CategoriesWrapper,
   Header,
   Title,
@@ -61,22 +62,26 @@ const ShopPage = () => {
 
   return (
     <MainTemplate>
-      <Header>
-        <Title textType="h2">{title ? title.toUpperCase() : 'POLECAMY'}</Title>
-        <CategoriesWrapper>
-          <Category textType="h3" onClick={openFilterCategories}>
-            Kategorie
-          </Category>
-          <Category textType="h3" onClick={openFilterSort}>
-            Sortuj
-          </Category>
-        </CategoriesWrapper>
-      </Header>
-      <Content>
-        <Products products={handleProducts()} option={sortOption} />
-        <FilterCategories />
-        <FilterSort onClick={openFilterSort} setSortOption={setSortOption} />
-      </Content>
+      <Wrapper>
+        <Header>
+          <Title textType="h2">
+            {title ? title.toUpperCase() : 'POLECAMY'}
+          </Title>
+          <CategoriesWrapper>
+            <Category textType="h3" onClick={openFilterCategories}>
+              Kategorie
+            </Category>
+            <Category textType="h3" onClick={openFilterSort}>
+              Sortuj
+            </Category>
+          </CategoriesWrapper>
+        </Header>
+        <Content>
+          <Products products={handleProducts()} option={sortOption} />
+          <FilterCategories />
+          <FilterSort onClick={openFilterSort} setSortOption={setSortOption} />
+        </Content>
+      </Wrapper>
     </MainTemplate>
   );
 };
