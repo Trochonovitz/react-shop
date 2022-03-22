@@ -1,18 +1,19 @@
 import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 import { colors } from 'theme/theme';
+import Icon from 'components/atoms/Icon/Icon';
 import { Input } from 'components/atoms/Input/Input';
 import SlideOut from 'components/molecules/SlideOut/SlideOut';
-import { Link } from 'react-router-dom';
 
 export const StyledSlideOut = styled(SlideOut)`
-  ${({ heightNav, heightInfoBox }) =>
+  ${({ heightNav, heightInfoBox, scrollPosition }) =>
     !heightInfoBox
       ? css`
           top: ${heightNav}px;
           height: ${heightNav}px;
         `
       : css`
-          top: ${heightNav + heightInfoBox}px;
+          top: ${scrollPosition < 15 ? heightNav : heightNav + heightInfoBox}px;
           height: ${heightNav}px;
         `};
   width: 100%;
@@ -21,6 +22,11 @@ export const StyledSlideOut = styled(SlideOut)`
   align-items: center;
   border-top: 1px solid ${colors.lightGrey};
   padding: 0 10px;
+`;
+
+export const StyledIcon = styled(Icon)`
+  color: ${colors.darkGrey};
+  cursor: auto;
 `;
 
 export const Wrapper = styled.div`
@@ -48,4 +54,11 @@ export const ListElements = styled.ul`
 export const StyledLink = styled(Link)`
   text-decoration: none;
   width: 100%;
+`;
+
+export const Button = styled.button`
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
 `;

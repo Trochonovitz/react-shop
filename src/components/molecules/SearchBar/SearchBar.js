@@ -7,17 +7,22 @@ import { useContent } from 'hooks/useContent';
 import { NavigationHeightContext } from 'templates/MainTemplate/MainTemplate';
 import SearchBarListElement from 'components/molecules/SearchBarListElement/SearchBarListElement';
 import {
+  Button,
   ListElements,
+  StyledIcon,
   StyledInput,
   StyledLink,
   StyledSlideOut,
   Wrapper,
 } from './SearchBar.styles';
+import { ScrollPositionContext } from 'pages/HomePage/HomePage';
+import { icons } from 'theme/theme';
 
 const SearchBar = () => {
   const [products, setProducts] = useState([]);
   const [inputItems, setInputItems] = useState(products);
   const { heightNav, heightInfoBox } = useContext(NavigationHeightContext);
+  const scrollPosition = useContext(ScrollPositionContext);
   const { productInfoQuery } = useContent();
   const dispatch = useDispatch();
   const searchBarState = useSelector((store) => store.nav.searchBar);
@@ -40,17 +45,18 @@ const SearchBar = () => {
   });
 
   useEffect(() => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
-      },
-    };
+    const controller = new AbortController();
+    const { signal } = controller;
     const fetchData = async () => {
       try {
         const response = await axios.post(
           'https://graphql.datocms.com/',
-          { query: productInfoQuery },
-          config
+          { query: productInfoQuery, signal },
+          {
+            headers: {
+              Authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
+            },
+          }
         );
         const products = response.data.data.allProducts;
         setProducts(products);
@@ -59,6 +65,7 @@ const SearchBar = () => {
       }
     };
     fetchData();
+    return () => controller.abort();
   }, [productInfoQuery]);
 
   return (
@@ -67,16 +74,9 @@ const SearchBar = () => {
       heightNav={heightNav}
       heightInfoBox={heightInfoBox}
       isVisible={searchBarState}
+      scrollPosition={scrollPosition}
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        className="bi bi-search"
-        viewBox="0 0 16 16"
-        width="16"
-      >
-        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-      </svg>
+      <StyledIcon size="20" path={icons.search} />
       <Wrapper {...getComboboxProps()}>
         <StyledInput {...getInputProps()} placeholder="Szukaj" />
         <ListElements
@@ -98,7 +98,7 @@ const SearchBar = () => {
             ))}
         </ListElements>
       </Wrapper>
-      <p onClick={handleCloseSearchBar}>X</p>
+      <Button onClick={handleCloseSearchBar}>X</Button>
     </StyledSlideOut>
   );
 };

@@ -22,22 +22,22 @@ import { useDispatch } from 'react-redux';
 import { addItem } from 'store/basket';
 
 const DetailPageProduct = () => {
-  const { id } = useParams();
-  const dispatch = useDispatch();
-  const { productQuery } = useContent(null, id);
-  const { loading, error, data } = useQuery(productQuery);
   const [isExpanded, setExpanded] = useState(false);
+  const dispatch = useDispatch();
+  const { id } = useParams();
   const { getCollapseProps, getToggleProps } = useCollapse({ isExpanded });
   const handleOpenInformation = () => setExpanded(!isExpanded);
   const handleAddItem = () => {
     dispatch(addItem({ name, price, img, id, quantity: 1 }));
   };
 
+  const { productQuery } = useContent(null, id);
+  const { loading, error, data } = useQuery(productQuery);
   if (loading) return 'Loading...';
   if (error) return 'Something Bad Happened';
 
   const product = data.allProducts[0];
-  const img = product.productVisualisation.url;
+  const img = product.productVisualisation.responsiveImage.srcSet;
   const brand = product.brand;
   const name = product.name;
   const price = product.price;

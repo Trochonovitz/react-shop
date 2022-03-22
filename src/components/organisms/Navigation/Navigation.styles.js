@@ -21,8 +21,10 @@ export const Wrapper = styled.nav`
   width: 100%;
   padding: 10px;
   z-index: 3;
-  background-color: ${({ scrollPosition, isHover }) =>
-    scrollPosition < 15 || isHover ? colors.white : colors.transparent};
+  background-color: ${({ scrollPosition, isHover, searchBarState }) =>
+    scrollPosition < 15 || isHover || searchBarState
+      ? colors.white
+      : colors.transparent};
   transition: background-color 250ms linear;
   position: sticky;
   top: 0px;
@@ -89,8 +91,10 @@ export const NavigationElement = styled.li`
     border: none;
     margin: 0 20px;
     width: fit-content;
-    color: ${({ $scrollPosition, $isHover }) =>
-      $scrollPosition < 15 || $isHover ? colors.black : colors.white};
+    color: ${({ $scrollPosition, $isHover, $searchBarState }) =>
+      $scrollPosition < 15 || $isHover || $searchBarState
+        ? colors.black
+        : colors.white};
     position: relative;
 
     &::before {
@@ -150,8 +154,10 @@ export const StyledLink = styled(Link)`
 
 export const Logo = styled(Text)`
   font-size: ${sizes.l};
-  color: ${({ $scrollPosition, $isHover }) =>
-    $scrollPosition < 15 || $isHover ? colors.black : colors.white};
+  color: ${({ $scrollPosition, $isHover, searchBarState }) =>
+    $scrollPosition < 15 || $isHover || searchBarState
+      ? colors.black
+      : colors.white};
 `;
 
 export const NavigationWrapper = styled.div`

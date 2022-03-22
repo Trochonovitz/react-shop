@@ -1,11 +1,10 @@
-import React, { useState, useRef, createContext } from 'react';
-import { useQuery } from 'graphql-hooks';
+import React, { useState, useEffect, useRef, createContext } from 'react';
+import axios from 'axios';
 import { useContent } from 'hooks/useContent';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import { slides } from 'fixtures';
 import MainTemplate from 'templates/MainTemplate/MainTemplate';
-import ProductsCategory from 'components/organisms/ProductsCategory/ProductsCategory';
-import ProductCard from 'components/molecules/ProductCard/ProductCard';
+import Products from 'components/organisms/Products/Products';
 import Carousel from 'components/organisms/Carousel/Carousel';
 import Slide from 'components/molecules/Slide/Slide';
 import BlogSection from 'components/organisms/BlogSection/BlogSection';
@@ -16,6 +15,8 @@ export const ScrollPositionContext = createContext(0);
 
 const HomePage = () => {
   const [elementPosition, setElementPosition] = useState();
+  const [products, setProducts] = useState([]);
+  const { productsQuery } = useContent();
   const ref = useRef();
 
   useScrollPosition(
@@ -26,11 +27,29 @@ const HomePage = () => {
     ref
   );
 
-  const { productsQuery } = useContent();
-  const { loading, error, data } = useQuery(productsQuery);
-  if (loading) return 'Loading...';
-  if (error) return 'Something Bad Happened';
-  const products = data.allProducts;
+  useEffect(() => {
+    const controller = new AbortController();
+    const { signal } = controller;
+    const fetchData = async () => {
+      try {
+        const response = await axios.post(
+          'https://graphql.datocms.com/',
+          { query: productsQuery, signal },
+          {
+            headers: {
+              Authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
+            },
+          }
+        );
+        setProducts(response.data.data.allProducts);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+
+    return () => controller.abort();
+  }, [productsQuery]);
 
   return (
     <ScrollPositionContext.Provider value={elementPosition}>
@@ -43,26 +62,7 @@ const HomePage = () => {
           main
         />
         <Title textType="h2">Polecamy</Title>
-        <ProductsCategory>
-          {products.map(
-            ({
-              id,
-              name,
-              price,
-              productVisualisation: {
-                responsiveImage: { srcSet },
-              },
-            }) => (
-              <ProductCard
-                name={name}
-                price={price}
-                img={srcSet}
-                id={id}
-                key={id}
-              />
-            )
-          )}
-        </ProductsCategory>
+        <Products products={products} />
         <NewItemsBox>
           <Info>
             Zobacz ostatnio dodane produkty i odkryj świeże papiernicze

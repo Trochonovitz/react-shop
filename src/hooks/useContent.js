@@ -52,7 +52,8 @@ export const useContent = (quantity = '', id) => {
       price,
       productVisualisation {
         responsiveImage {
-          srcSet
+					srcSet
+        },
       },
       brand,
       description

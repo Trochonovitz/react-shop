@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { breakpoints } from 'theme/theme';
 import { Link } from 'react-router-dom';
+import { breakpoints } from 'theme/theme';
 
 export const Wrapper = styled.div`
   display: flex;

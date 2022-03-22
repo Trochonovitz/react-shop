@@ -27,9 +27,7 @@ const DetailPageProduct = lazy(() =>
 const DetailPageBlogArticle = lazy(() =>
   import('pages/DetailPageBlogArticle/DetailPageBlogArticle')
 );
-const ProductsPageTemplate = lazy(() =>
-  import('templates/ProductsPageTemplate/ProductsPageTemplate')
-);
+const ShopPage = lazy(() => import('pages/ShopPage/ShopPage'));
 const AboutUsPage = lazy(() => import('pages/AboutUsPage/AboutUsPage'));
 
 const App = () => (
@@ -39,17 +37,13 @@ const App = () => (
         <Switch>
           <Suspense fallback={<div>loading....</div>}>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/sklep" component={ProductsPageTemplate} />
+            <Route exact path="/sklep" component={ShopPage} />
             <Route exact path="/blog" component={BlogPage} />
             <Route exact path="/o nas" component={AboutUsPage} />
             <Route exact path="/kontakt" component={ContactPage} />
             <Route exact path="/sklep/:id" component={DetailPageProduct} />
-            <Route exac path="/blog/:id" component={DetailPageBlogArticle} />
-            <Route
-              exact
-              path="/sklep/kolekcja/:id"
-              component={ProductsPageTemplate}
-            />
+            <Route exact path="/blog/:id" component={DetailPageBlogArticle} />
+            <Route exact path="/sklep/kolekcja/:id" component={ShopPage} />
           </Suspense>
         </Switch>
       </Router>

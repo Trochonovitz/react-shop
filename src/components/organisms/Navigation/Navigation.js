@@ -28,6 +28,7 @@ const Navigation = forwardRef((props, ref) => {
   const scrollPosition = useContext(ScrollPositionContext);
   const products = useSelector((store) => store.basket.basket);
   const mobileNavState = useSelector((store) => store.nav.mobileNav);
+  const searchBarState = useSelector((store) => store.nav.searchBar);
   const options = ['sklep', 'o nas', 'blog', 'kontakt', 'moje konto'];
   const hoverOnMouseEnter = () => setHover(true);
   const hoverOnMouseLeave = () => setHover(false);
@@ -46,6 +47,7 @@ const Navigation = forwardRef((props, ref) => {
       onMouseEnter={hoverOnMouseEnter}
       onMouseLeave={hoverOnMouseLeave}
       isHover={isHover}
+      searchBarState={searchBarState}
       ref={ref}
     >
       <Hamburger onClick={handleOpenMobileNav} isHover={isHover} />
@@ -61,6 +63,7 @@ const Navigation = forwardRef((props, ref) => {
               to={`/${option}`}
               $scrollPosition={scrollPosition}
               $isHover={isHover}
+              $searchBarState={searchBarState}
             >
               {option}
             </NavigationElement>
@@ -68,13 +71,19 @@ const Navigation = forwardRef((props, ref) => {
         </ListElements>
       </StyledSlideOut>
       <StyledLink to="/">
-        <Logo textType="h1" $scrollPosition={scrollPosition} $isHover={isHover}>
+        <Logo
+          textType="h1"
+          $scrollPosition={scrollPosition}
+          $isHover={isHover}
+          searchBarState={searchBarState}
+        >
           Papierniczeni
         </Logo>
       </StyledLink>
       <NavigationWrapper>
         <Icon
           scrollPosition={scrollPosition}
+          searchBarState={searchBarState}
           isHover={isHover}
           onClick={handleAccount}
           size="20"
@@ -82,6 +91,7 @@ const Navigation = forwardRef((props, ref) => {
         />
         <Icon
           scrollPosition={scrollPosition}
+          searchBarState={searchBarState}
           isHover={isHover}
           onClick={handleOpenSearchBar}
           size="20"
@@ -89,6 +99,7 @@ const Navigation = forwardRef((props, ref) => {
         />
         <Icon
           scrollPosition={scrollPosition}
+          searchBarState={searchBarState}
           isHover={isHover}
           onClick={handleOpenBasket}
           size="20"

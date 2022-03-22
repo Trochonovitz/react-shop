@@ -20,7 +20,7 @@ const Icon = ({ size, path, isHover, scrollPosition, ...props }) => (
 Icon.propTypes = {
   size: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired,
-  isHover: PropTypes.bool.isRequired,
+  isHover: PropTypes.bool,
   scrollPosition: PropTypes.number,
 };
 
