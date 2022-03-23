@@ -1,4 +1,23 @@
+import axios from 'axios';
+
 export const useContent = (quantity = '', id) => {
+  const getProducts = async (signal) => {
+    try {
+      const response = await axios.post(
+        'https://graphql.datocms.com/',
+        { query: productsQuery, signal },
+        {
+          headers: {
+            Authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
+          },
+        }
+      );
+      return response.data.data.allProducts;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const blogArticlesQuery = `query {
     allArticles${quantity} {
       id
@@ -75,6 +94,7 @@ export const useContent = (quantity = '', id) => {
   }`;
 
   return {
+    getProducts,
     blogArticlesQuery,
     blogArticleQuery,
     productsQuery,

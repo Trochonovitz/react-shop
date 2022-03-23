@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { breakpoints, colors, sizes } from 'theme/theme';
 import SlideOut from 'components/molecules/SlideOut/SlideOut';
 import Text from 'components/atoms/Text/Text';
+import Icon from 'components/atoms/Icon/Icon';
 
 const slidein = keyframes`
 0% {
@@ -168,5 +169,11 @@ export const NavigationWrapper = styled.div`
   @media ${breakpoints.desktop} {
     grid-column: 3;
     margin: 0 50px 0 0;
+  }
+`;
+
+export const StyledIcon = styled(Icon)`
+  @media ${breakpoints.maxDesktop} {
+    display: none;
   }
 `;

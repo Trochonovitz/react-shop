@@ -20,6 +20,7 @@ import {
   NavbarCloseButton,
   ListElements,
   StyledLink,
+  StyledIcon,
 } from './Navigation.styles';
 
 const Navigation = forwardRef((props, ref) => {
@@ -81,7 +82,7 @@ const Navigation = forwardRef((props, ref) => {
         </Logo>
       </StyledLink>
       <NavigationWrapper>
-        <Icon
+        <StyledIcon
           scrollPosition={scrollPosition}
           searchBarState={searchBarState}
           isHover={isHover}

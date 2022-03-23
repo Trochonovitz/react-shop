@@ -40,7 +40,7 @@ export const StyledInput = styled(Input)`
 
 export const ListElements = styled.ul`
   position: absolute;
-  top: 33px;
+  top: ${({ heightNav }) => `${heightNav - 1}px`};
   left: 0px;
   width: 100%;
   height: fit-content;
@@ -49,6 +49,7 @@ export const ListElements = styled.ul`
   flex-direction: column;
   list-style-type: none;
   padding: 0px;
+  margin: 0px;
 `;
 
 export const StyledLink = styled(Link)`

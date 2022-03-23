@@ -38,7 +38,7 @@ const SearchBar = () => {
     onInputValueChange: ({ inputValue }) => {
       setInputItems(
         products.filter((item) =>
-          item.name.toUpperCase().startsWith(inputValue.toUpperCase())
+          item.name.toUpperCase().includes(inputValue.toUpperCase())
         )
       );
     },

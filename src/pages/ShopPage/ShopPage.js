@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useDispatch, useSelector } from 'react-redux';
 import { openFilter, openSort } from 'store/navigation';
-import { useQuery } from 'graphql-hooks';
 import { useParams } from 'react-router-dom';
 import { useContent } from 'hooks/useContent';
 import { useSorting } from 'hooks/useSorting';
@@ -21,8 +20,10 @@ import {
 } from './ShopPage.styles';
 
 const ShopPage = () => {
+  const [products, setProducts] = useState([]);
   const [sortOption, setSortOption] = useState('');
   const { id: title } = useParams();
+  const { getProducts } = useContent();
   const dispatch = useDispatch();
   const sortState = useSelector((store) => store.nav.sort);
   const sortOptions = {
@@ -36,13 +37,6 @@ const ShopPage = () => {
   const openFilterCategories = () => dispatch(openFilter(true));
   const openFilterSort = () =>
     dispatch(openSort(desktopView ? !sortState : true));
-
-  const { productsQuery } = useContent();
-  const { loading, error, data } = useQuery(productsQuery);
-  if (loading) return 'Loading...';
-  if (error) return 'Something Bad Happened';
-  const products = data.allProducts;
-
   const handleProducts = () => {
     const filteredProducts = title
       ? products.filter((item) => item.category === title)
@@ -59,6 +53,18 @@ const ShopPage = () => {
         return filteredProducts;
     }
   };
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const { signal } = controller;
+
+    (async () => {
+      const fetchedProducts = await getProducts(signal);
+      setProducts(fetchedProducts);
+    })();
+
+    return () => controller.abort();
+  }, []);
 
   return (
     <MainTemplate>

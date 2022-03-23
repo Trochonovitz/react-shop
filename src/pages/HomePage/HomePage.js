@@ -16,7 +16,7 @@ export const ScrollPositionContext = createContext(0);
 const HomePage = () => {
   const [elementPosition, setElementPosition] = useState();
   const [products, setProducts] = useState([]);
-  const { productsQuery } = useContent();
+  const { getProducts } = useContent();
   const ref = useRef();
 
   useScrollPosition(
@@ -30,26 +30,14 @@ const HomePage = () => {
   useEffect(() => {
     const controller = new AbortController();
     const { signal } = controller;
-    const fetchData = async () => {
-      try {
-        const response = await axios.post(
-          'https://graphql.datocms.com/',
-          { query: productsQuery, signal },
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
-            },
-          }
-        );
-        setProducts(response.data.data.allProducts);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
+
+    (async () => {
+      const fetchedProducts = await getProducts(signal);
+      setProducts(fetchedProducts);
+    })();
 
     return () => controller.abort();
-  }, [productsQuery]);
+  }, []);
 
   return (
     <ScrollPositionContext.Provider value={elementPosition}>
