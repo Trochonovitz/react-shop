@@ -64,7 +64,7 @@ const ShopPage = () => {
     })();
 
     return () => controller.abort();
-  }, []);
+  }, [getProducts]);
 
   return (
     <MainTemplate>
