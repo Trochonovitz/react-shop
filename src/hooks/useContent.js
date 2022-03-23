@@ -1,23 +1,20 @@
+import { useCallback } from 'react';
 import axios from 'axios';
 
-export const useContent = (quantity = '', id) => {
-  const getProducts = async (signal) => {
-    try {
-      const response = await axios.post(
-        'https://graphql.datocms.com/',
-        { query: productsQuery, signal },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
-          },
-        }
-      );
-      return response.data.data.allProducts;
-    } catch (error) {
-      console.log(error);
-    }
-  };
+const BASIC_URL = 'https://graphql.datocms.com/';
+const contentAPI = axios.create({});
+contentAPI.interceptors.request.use(
+  (config) => {
+    config.headers.authorization = `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`;
 
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
+export const useContent = (quantity = '', id) => {
   const blogArticlesQuery = `query {
     allArticles${quantity} {
       id
@@ -92,6 +89,21 @@ export const useContent = (quantity = '', id) => {
       },
     }
   }`;
+
+  const getProducts = useCallback(
+    async (signal) => {
+      try {
+        const response = await contentAPI.post(BASIC_URL, {
+          query: productsQuery,
+          signal,
+        });
+        return response.data.data.allProducts;
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [productsQuery]
+  );
 
   return {
     getProducts,

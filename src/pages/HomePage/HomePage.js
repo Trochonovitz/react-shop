@@ -37,7 +37,7 @@ const HomePage = () => {
     })();
 
     return () => controller.abort();
-  }, []);
+  }, [getProducts]);
 
   return (
     <ScrollPositionContext.Provider value={elementPosition}>
