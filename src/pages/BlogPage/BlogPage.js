@@ -1,36 +1,35 @@
-import React, { useState } from 'react';
-import { useQuery } from 'graphql-hooks';
-import { useTransition, animated } from '@react-spring/web';
+import React, { useEffect, useState } from 'react';
 import { useContent } from 'hooks/useContent';
 import MainTemplate from 'templates/MainTemplate/MainTemplate';
-import BlogArticle from 'components/molecules/BlogArticle/BlogArticle';
 import {
   Wrapper,
-  BlogContent,
   CategoryButton,
   Title,
   CategorySection,
 } from './BlogPage.styles';
+import Articles from 'components/organisms/Articles/Articles';
 
 const BlogPage = () => {
-  const { blogArticlesQuery } = useContent();
-  const { loading, error, data } = useQuery(blogArticlesQuery);
+  const [articles, setArticles] = useState([]);
   const [pickedCategory, setCategory] = useState('wszystkie');
-  const transition = useTransition(pickedCategory, {
-    from: { y: 100, opacity: 0 },
-    enter: { y: 0, opacity: 1 },
-  });
-  const AnimatedBlogArticle = animated(BlogArticle);
-
-  if (loading) return 'Loading...';
-  if (error) return 'Something Bad Happened';
-
-  const allArticles = data.allArticles;
+  const { getArticles } = useContent();
   const filteredArticles =
     pickedCategory === 'wszystkie'
-      ? allArticles
-      : allArticles.filter((item) => item.category === pickedCategory);
+      ? articles
+      : articles.filter((item) => item.category === pickedCategory);
   const handleCategory = (category) => setCategory(category);
+
+  useEffect(() => {
+    let flag = false;
+    (async () => {
+      const fetchedArticles = await getArticles();
+      if (!flag) {
+        setArticles(fetchedArticles);
+      }
+    })();
+
+    return () => (flag = true);
+  }, [getArticles]);
 
   return (
     <MainTemplate>
@@ -39,12 +38,12 @@ const BlogPage = () => {
         <CategorySection>
           <CategoryButton
             onClick={() => handleCategory('wszystkie')}
-            activeCategory={`wszystkie`}
+            activeCategory="wszystkie"
             pickedCategory={pickedCategory}
           >
             wszystkie
           </CategoryButton>
-          {allArticles.map(({ category }, index) => (
+          {articles.map(({ category }, index) => (
             <CategoryButton
               key={index}
               onClick={() => handleCategory(category)}
@@ -55,30 +54,7 @@ const BlogPage = () => {
             </CategoryButton>
           ))}
         </CategorySection>
-        <BlogContent>
-          {filteredArticles.map(
-            ({
-              id,
-              category,
-              title,
-              mainPhoto: {
-                responsiveImage: { srcSet },
-              },
-              lead,
-            }) =>
-              transition((style) => (
-                <AnimatedBlogArticle
-                  key={id}
-                  style={style}
-                  id={id}
-                  category={category}
-                  title={title}
-                  img={srcSet}
-                  lead={lead}
-                />
-              ))
-          )}
-        </BlogContent>
+        <Articles articles={filteredArticles} option={pickedCategory} />
       </Wrapper>
     </MainTemplate>
   );

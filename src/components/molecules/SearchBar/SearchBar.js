@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import { useCombobox } from 'downshift';
 import { closeSearchBar } from 'store/navigation';
@@ -23,7 +22,7 @@ const SearchBar = () => {
   const [inputItems, setInputItems] = useState(products);
   const { heightNav, heightInfoBox } = useContext(NavigationHeightContext);
   const scrollPosition = useContext(ScrollPositionContext);
-  const { productInfoQuery } = useContent();
+  const { getProducts } = useContent();
   const dispatch = useDispatch();
   const searchBarState = useSelector((store) => store.nav.searchBar);
   const handleCloseSearchBar = () => dispatch(closeSearchBar(false));
@@ -45,28 +44,14 @@ const SearchBar = () => {
   });
 
   useEffect(() => {
-    const controller = new AbortController();
-    const { signal } = controller;
-    const fetchData = async () => {
-      try {
-        const response = await axios.post(
-          'https://graphql.datocms.com/',
-          { query: productInfoQuery, signal },
-          {
-            headers: {
-              Authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
-            },
-          }
-        );
-        const products = response.data.data.allProducts;
-        setProducts(products);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-    return () => controller.abort();
-  }, [productInfoQuery]);
+    let flag = false;
+    (async () => {
+      const fetchedProducts = await getProducts();
+      if (!flag) setProducts(fetchedProducts);
+    })();
+
+    return () => (flag = true);
+  }, [getProducts]);
 
   return (
     <StyledSlideOut
@@ -78,7 +63,11 @@ const SearchBar = () => {
     >
       <StyledIcon size="20" path={icons.search} />
       <Wrapper {...getComboboxProps()}>
-        <StyledInput {...getInputProps()} placeholder="Szukaj" />
+        <StyledInput
+          {...getInputProps()}
+          placeholder="Szukaj"
+          data-testid="searchBar-input"
+        />
         <ListElements
           {...getMenuProps()}
           heightNav={heightNav}
@@ -86,7 +75,11 @@ const SearchBar = () => {
         >
           {isOpen &&
             inputItems.map((item, index) => (
-              <li {...getItemProps({ item, index })} key={index}>
+              <li
+                {...getItemProps({ item, index })}
+                key={index}
+                data-testid={`listElement-${index}`}
+              >
                 <StyledLink to={`/sklep/${item.id}`}>
                   <SearchBarListElement
                     name={item.name}

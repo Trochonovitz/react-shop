@@ -8,7 +8,6 @@ export const BlogWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-top: 1px solid ${colors.lightGrey};
   margin: 50px 0 50px 0;
   padding: 0 25px;
 `;
@@ -19,6 +18,9 @@ export const BlogHeader = styled.header`
   justify-content: center;
   align-items: center;
   margin: 30px 0;
+  padding: 0 0 15px 0;
+  width: 100%;
+  border-bottom: 1px solid ${colors.lightGrey};
 `;
 
 export const BlogContent = styled.div`

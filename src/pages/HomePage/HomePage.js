@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, createContext } from 'react';
-import axios from 'axios';
 import { useContent } from 'hooks/useContent';
 import { useScrollPosition } from '@n8tb1t/use-scroll-position';
 import { slides } from 'fixtures';
@@ -7,7 +6,7 @@ import MainTemplate from 'templates/MainTemplate/MainTemplate';
 import Products from 'components/organisms/Products/Products';
 import Carousel from 'components/organisms/Carousel/Carousel';
 import Slide from 'components/molecules/Slide/Slide';
-import BlogSection from 'components/organisms/BlogSection/BlogSection';
+import Articles from 'components/organisms/Articles/Articles';
 import AboutUs from 'components/organisms/AboutUs/AboutUs';
 import { Title, Info, InfoLink, NewItemsBox } from './HomePage.styles';
 
@@ -16,7 +15,8 @@ export const ScrollPositionContext = createContext(0);
 const HomePage = () => {
   const [elementPosition, setElementPosition] = useState();
   const [products, setProducts] = useState([]);
-  const { getProducts } = useContent();
+  const [articles, setArticles] = useState([]);
+  const { getProducts, getArticles } = useContent();
   const ref = useRef();
 
   useScrollPosition(
@@ -28,16 +28,18 @@ const HomePage = () => {
   );
 
   useEffect(() => {
-    const controller = new AbortController();
-    const { signal } = controller;
-
+    // let flag = true;
     (async () => {
-      const fetchedProducts = await getProducts(signal);
+      const fetchedProducts = await getProducts();
+      const fetchedArticles = await getArticles();
+      // if (flag) {
       setProducts(fetchedProducts);
+      setArticles(fetchedArticles);
+      // }
     })();
 
-    return () => controller.abort();
-  }, [getProducts]);
+    // return () => (flag = false);
+  }, [getProducts, getArticles]);
 
   return (
     <ScrollPositionContext.Provider value={elementPosition}>
@@ -61,7 +63,7 @@ const HomePage = () => {
           </Info>
           <Carousel />
         </NewItemsBox>
-        <BlogSection />
+        <Articles articles={articles} />
         <AboutUs />
       </MainTemplate>
     </ScrollPositionContext.Provider>

@@ -12,8 +12,8 @@ export const Wrapper = styled.div`
 `;
 
 export const BuyButton = styled.button`
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: none;
   background-color: ${colors.white};
@@ -24,6 +24,7 @@ export const BuyButton = styled.button`
   cursor: pointer;
   right: 10px;
   bottom: 30px;
+  border: 1px solid ${colors.veryLightGrey};
 `;
 
 export const ImageWrapper = styled.div`

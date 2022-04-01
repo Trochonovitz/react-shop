@@ -6,10 +6,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-
-  @media ${breakpoints.desktop} {
-    width: 60%;
-  }
+  align-items: center;
 `;
 
 export const Title = styled(Text)`
@@ -29,6 +26,7 @@ export const BlogContent = styled.div`
 
   @media ${breakpoints.laptop} {
     grid-template-columns: repeat(3, 1fr);
+    width: 60%;
   }
 `;
 

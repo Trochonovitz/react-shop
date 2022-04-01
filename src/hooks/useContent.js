@@ -14,9 +14,9 @@ contentAPI.interceptors.request.use(
   }
 );
 
-export const useContent = (quantity = '', id) => {
-  const blogArticlesQuery = `query {
-    allArticles${quantity} {
+export const useContent = (id) => {
+  const allArticlesQuery = `query {
+    allArticles {
       id
       category
       title
@@ -47,7 +47,7 @@ export const useContent = (quantity = '', id) => {
     }
     `;
 
-  const productsQuery = `query {
+  const allProductsQuery = `query {
         allProducts {
           id
           name
@@ -76,41 +76,32 @@ export const useContent = (quantity = '', id) => {
     }
   }`;
 
-  const productInfoQuery = `query {
-    allProducts {
-      id,
-      name,
-      price,
-      productVisualisation {
-        url(imgixParams: {})
-        responsiveImage {
-          srcSet
-        }
-      },
+  const getProducts = useCallback(async () => {
+    try {
+      const response = await contentAPI.post(BASIC_URL, {
+        query: allProductsQuery,
+      });
+      return response.data.data.allProducts;
+    } catch (error) {
+      console.log(error);
     }
-  }`;
+  }, [allProductsQuery]);
 
-  const getProducts = useCallback(
-    async (signal) => {
-      try {
-        const response = await contentAPI.post(BASIC_URL, {
-          query: productsQuery,
-          signal,
-        });
-        return response.data.data.allProducts;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    [productsQuery]
-  );
+  const getArticles = useCallback(async () => {
+    try {
+      const response = await contentAPI.post(BASIC_URL, {
+        query: allArticlesQuery,
+      });
+      return response.data.data.allArticles;
+    } catch (error) {
+      console.log(error);
+    }
+  }, [allArticlesQuery]);
 
   return {
     getProducts,
-    blogArticlesQuery,
+    getArticles,
     blogArticleQuery,
-    productsQuery,
     productQuery,
-    productInfoQuery,
   };
 };

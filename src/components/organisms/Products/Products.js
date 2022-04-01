@@ -24,17 +24,19 @@ const Products = ({ products, option = '' }) => {
           productVisualisation: {
             responsiveImage: { srcSet },
           },
-        }) =>
-          transition((style) => (
-            <AnimatedProductCard
-              style={style}
-              name={name}
-              price={price}
-              img={srcSet}
-              key={id}
-              id={id}
-            />
-          ))
+        }) => (
+          // transition((style) => (
+          // <AnimatedProductCard
+          <ProductCard
+            // style={style}
+            name={name}
+            price={price}
+            img={srcSet}
+            id={id}
+            key={id}
+          />
+        )
+        // ))
       )}
       {pathname !== '/sklep' && (
         <StyledLink to="/sklep">

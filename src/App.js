@@ -1,8 +1,8 @@
 import React, { lazy, Suspense } from 'react';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { GraphQLClient, ClientContext } from 'graphql-hooks';
-import { createStore } from 'redux';
 import rootReducer from 'store/index';
 
 const BASIC_URL = 'https://graphql.datocms.com/';
@@ -13,7 +13,7 @@ const client = new GraphQLClient({
   },
 });
 
-const store = createStore(
+export const store = createStore(
   rootReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );

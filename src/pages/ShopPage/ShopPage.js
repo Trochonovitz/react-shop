@@ -37,6 +37,7 @@ const ShopPage = () => {
   const openFilterCategories = () => dispatch(openFilter(true));
   const openFilterSort = () =>
     dispatch(openSort(desktopView ? !sortState : true));
+
   const handleProducts = () => {
     const filteredProducts = title
       ? products.filter((item) => item.category === title)
@@ -55,15 +56,13 @@ const ShopPage = () => {
   };
 
   useEffect(() => {
-    const controller = new AbortController();
-    const { signal } = controller;
-
+    let flag = false;
     (async () => {
-      const fetchedProducts = await getProducts(signal);
-      setProducts(fetchedProducts);
+      const fetchedProducts = await getProducts();
+      if (!flag) setProducts(fetchedProducts);
     })();
 
-    return () => controller.abort();
+    return () => (flag = true);
   }, [getProducts]);
 
   return (

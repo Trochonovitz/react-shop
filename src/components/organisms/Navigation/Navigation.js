@@ -89,6 +89,7 @@ const Navigation = forwardRef((props, ref) => {
           onClick={handleAccount}
           size="20"
           path={icons.account}
+          nav
         />
         <Icon
           scrollPosition={scrollPosition}
@@ -97,14 +98,17 @@ const Navigation = forwardRef((props, ref) => {
           onClick={handleOpenSearchBar}
           size="20"
           path={icons.search}
+          nav
         />
         <Icon
+          data-testid="basketButton"
           scrollPosition={scrollPosition}
           searchBarState={searchBarState}
           isHover={isHover}
           onClick={handleOpenBasket}
           size="20"
           path={products.length ? icons.emptyBasket : icons.basket}
+          nav
         />
       </NavigationWrapper>
     </Wrapper>

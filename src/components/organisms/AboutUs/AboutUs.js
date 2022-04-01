@@ -11,7 +11,9 @@ import {
 const AboutUs = () => (
   <AboutUsSection>
     <AboutUsInfo>
-      <Title textType="h3">o nas</Title>
+      <Title textType="h3" data-testid="aboutus">
+        o nas
+      </Title>
       <Paragraph>
         Chcemy, żeby korzystanie z naszych notesów pomagało w codziennych
         sprawach, a odręczne pisanie dostarczało pozytywnych doznań.

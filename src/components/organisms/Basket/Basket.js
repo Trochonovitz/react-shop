@@ -26,7 +26,9 @@ const Basket = () => {
       <Header>
         <Wrapper>
           <BasketCloseButton onClick={handleCloseBasket}>X</BasketCloseButton>
-          <Title textType="h2">Koszyk</Title>
+          <Title data-testid="basketTitle" textType="h2">
+            Koszyk
+          </Title>
         </Wrapper>
         <Paragraph>
           {basketValue >= 200

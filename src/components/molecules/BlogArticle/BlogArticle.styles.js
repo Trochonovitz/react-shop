@@ -10,6 +10,12 @@ export const Wrapper = styled.article`
   line-height: 1.65rem;
   justify-content: space-between;
   margin: 0 0 20px 0;
+
+  @media ${breakpoints.maxTablet} {
+    &:last-child {
+      display: none;
+    }
+  }
 `;
 
 export const Image = styled.img`

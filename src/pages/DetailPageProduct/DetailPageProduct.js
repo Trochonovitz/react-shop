@@ -31,7 +31,7 @@ const DetailPageProduct = () => {
     dispatch(addItem({ name, price, img, id, quantity: 1 }));
   };
 
-  const { productQuery } = useContent(null, id);
+  const { productQuery } = useContent(id);
   const { loading, error, data } = useQuery(productQuery);
   if (loading) return 'Loading...';
   if (error) return 'Something Bad Happened';

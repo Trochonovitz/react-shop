@@ -25,7 +25,6 @@ export const StyledSlideOut = styled(SlideOut)`
 `;
 
 export const StyledIcon = styled(Icon)`
-  color: ${colors.darkGrey};
   cursor: auto;
 `;
 

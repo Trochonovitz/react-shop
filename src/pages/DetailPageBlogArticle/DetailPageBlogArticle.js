@@ -16,7 +16,7 @@ import {
 
 const DetailPageBlogArticle = () => {
   const { id } = useParams();
-  const { blogArticleQuery } = useContent(null, id);
+  const { blogArticleQuery } = useContent(id);
   const { loading, error, data } = useQuery(blogArticleQuery);
 
   if (loading) return 'Loading...';
