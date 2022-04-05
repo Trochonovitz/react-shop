@@ -13,14 +13,14 @@ import {
 import Icon from 'components/atoms/Icon/Icon';
 import { icons } from 'theme/theme';
 
-const ProductCard = ({ name, price, img, id, ...props }) => {
+const ProductCard = ({ name, price, img, id }) => {
   const dispatch = useDispatch();
   const handleAddItem = () => {
     dispatch(addItem({ name, price, img, id, quantity: 1 }));
   };
 
   return (
-    <Wrapper as={Link} to={`/sklep/${id}`} {...props}>
+    <Wrapper as={Link} to={`/sklep/${id}`}>
       <ImageWrapper>
         <Image alt={`${name}`} srcSet={img} />
         <BuyButton onClick={handleAddItem}>

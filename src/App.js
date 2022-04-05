@@ -18,7 +18,7 @@ export const store = createStore(
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
-const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const HomePage = lazy(() => import('pages/HomePage/HomePage'));
 const BlogPage = lazy(() => import('pages/BlogPage/BlogPage'));
 const ContactPage = lazy(() => import('pages/ContactPage/ContactPage'));
 const DetailPageProduct = lazy(() =>

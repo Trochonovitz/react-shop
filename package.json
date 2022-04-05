@@ -9,7 +9,6 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^0.26.1",
     "downshift": "^6.1.7",
     "graphql-hooks": "^5.4.1",
     "prop-types": "^15.7.2",
