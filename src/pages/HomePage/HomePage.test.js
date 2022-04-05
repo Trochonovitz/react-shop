@@ -1,16 +1,15 @@
 import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
-import AppProviders from 'providers/AppProviders';
+import { render, screen } from 'test-utils';
 import HomePage from './HomePage';
 
-const MockedComponent = () => (
-  <AppProviders>
-    <HomePage />
-  </AppProviders>
-);
-
 describe('HomePage', () => {
-  it('renders products on homepage', async () => {
-    render(<MockedComponent />);
+  it('renders products on homepage', () => {
+    render(<HomePage />);
+  });
+
+  it('shows downloaded products', async () => {
+    render(<HomePage />);
+    const product = await screen.findByText(/notatnik uma/i);
+    expect(product).toBeInTheDocument();
   });
 });

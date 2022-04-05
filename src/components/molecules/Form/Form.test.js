@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { fireEvent, render } from '@testing-library/react';
+import { fireEvent, render } from 'test-utils';
 import Form from './Form';
 
 describe('with valid inputs', () => {

@@ -6,7 +6,7 @@ import { GraphQLClient, ClientContext } from 'graphql-hooks';
 import rootReducer from 'store/index';
 
 const BASIC_URL = 'https://graphql.datocms.com/';
-const client = new GraphQLClient({
+export const client = new GraphQLClient({
   url: BASIC_URL,
   headers: {
     Authorization: `Bearer ${process.env.REACT_APP_DATOCMS_TOKEN}`,
